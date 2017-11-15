@@ -10,6 +10,7 @@
 
 @interface WCPayOrderDetailTinyAppInfo : NSObject
 {
+    unsigned int _tinyAppVersion;
     unsigned int _sendRecordId;
     unsigned int _userRecordId;
     NSString *_tinyAppName;
@@ -36,6 +37,7 @@
 @property(retain, nonatomic) NSString *tinyAppName; // @synthesize tinyAppName=_tinyAppName;
 @property(retain, nonatomic) NSString *tinyAppPath; // @synthesize tinyAppPath=_tinyAppPath;
 @property(retain, nonatomic) NSString *tinyAppUserName; // @synthesize tinyAppUserName=_tinyAppUserName;
+@property(nonatomic) unsigned int tinyAppVersion; // @synthesize tinyAppVersion=_tinyAppVersion;
 @property(nonatomic) unsigned int userRecordId; // @synthesize userRecordId=_userRecordId;
 
 @end

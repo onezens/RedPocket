@@ -40,6 +40,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)activateAudioSession;
 - (void)addDraft:(id)arg1;
 - (void)addSightDraft:(id)arg1;
 @property(retain, nonatomic) NSArray *allowableSightFPS; // @synthesize allowableSightFPS=_allowableSightFPS;

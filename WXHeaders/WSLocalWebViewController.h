@@ -8,34 +8,46 @@
 
 #import "MMWebSearchViewDelegate.h"
 
-@class MMWebSearchController, NSString, UIView;
+@class MMWebSearchController, NSString, UIView, WCStatTimerHelper;
 
 @interface WSLocalWebViewController : MMUIViewController <MMWebSearchViewDelegate>
 {
     UIView *_navBarBkg;
     int _scene;
     MMWebSearchController *_webSearchController;
+    WCStatTimerHelper *_pageTimeHelper;
+    _Bool _isCacheVC;
     unsigned long long _businessType;
     NSString *_contentTitle;
+    id <WSLocalWebViewControllerDelegate> _delegate;
+    unsigned long long _enterTime;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long businessType; // @synthesize businessType=_businessType;
 @property(retain, nonatomic) NSString *contentTitle; // @synthesize contentTitle=_contentTitle;
 - (void)dealloc;
+@property(nonatomic) __weak id <WSLocalWebViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) unsigned long long enterTime; // @synthesize enterTime=_enterTime;
 - (id)getTitleLabelWithTitle:(id)arg1;
 - (void)initNavigationBar;
 - (void)initTitleView;
 - (void)initView;
 - (void)initWebSearchController;
 - (id)initWithScene:(int)arg1;
+@property(nonatomic) _Bool isCacheVC; // @synthesize isCacheVC=_isCacheVC;
 - (void)onNavigationBackItemClick:(id)arg1;
 - (void)onUpdateTitleViewWithTitle:(id)arg1;
+- (void)onWSLocalWebViewReturn;
 - (void)updateTitleViewWithTitle:(id)arg1;
 - (_Bool)useTransparentNavibar;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewWillBePushed:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillPop:(_Bool)arg1;
 - (double)webSearchViewPosY;
+- (void)willDisappear;
 - (void)windowHide:(id)arg1;
 
 // Remaining properties

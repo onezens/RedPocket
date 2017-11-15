@@ -43,6 +43,7 @@
 - (int)covertErrcode:(unsigned int)arg1;
 - (void)dealloc;
 - (void)finishTransactionForTransactionID:(id)arg1;
+- (_Bool)isHandleByIAPMgr:(id)arg1;
 - (_Bool)isNonConsumable:(id)arg1;
 @property(retain, nonatomic) JailBreakHelper *m_jailBreakHelper; // @synthesize m_jailBreakHelper;
 - (void)onPreparePurchase:(id)arg1;

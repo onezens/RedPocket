@@ -16,12 +16,14 @@
     double m_fixLeftRightMargin;
     UIColor *m_fixBackgroundColor;
     _Bool _m_dynamicSize;
+    _Bool _wideStyle;
     UIColor *_m_highlighBorderColor;
     UIColor *_m_disabledBorderColor;
     UIColor *_m_normalBorderColor;
 }
 
 - (void).cxx_destruct;
+- (void)didMoveToSuperview;
 - (id)init;
 @property(retain, nonatomic) NSMutableSet *m_backgroundImageStateSet; // @synthesize m_backgroundImageStateSet;
 @property(retain, nonatomic) UIColor *m_disabledBorderColor; // @synthesize m_disabledBorderColor=_m_disabledBorderColor;
@@ -37,6 +39,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2;
+@property(nonatomic) _Bool wideStyle; // @synthesize wideStyle=_wideStyle;
 
 @end
 

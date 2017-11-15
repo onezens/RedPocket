@@ -15,6 +15,7 @@
 - (void)OnLoginVerifyOverLimit;
 - (void)OnLoginVerifySucessWithRandomAuthKey:(NSString *)arg1 andTicket:(NSString *)arg2;
 - (void)OnRegSuccessWithBioSigTicket:(NSString *)arg1;
+- (void)OnVerifyCancel;
 - (void)OnVerifySuccessful;
 @end
 

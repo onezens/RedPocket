@@ -6,21 +6,15 @@
 
 #import "WNParaObjectBaseView.h"
 
-@class UIView;
-
 @interface WNParaObjectFileView : WNParaObjectBaseView
 {
-    UIView *borderView;
 }
 
-- (void).cxx_destruct;
-- (id)layoutDetailView:(double)arg1;
+- (id)getDescription;
+- (id)getImage;
+- (id)getTitle;
 - (void)layoutView;
 - (void)onClickObject;
-- (void)onTouchBegin;
-- (void)onTouchEnd;
-- (void)setSelected;
-- (void)setUnSelected;
 
 @end
 

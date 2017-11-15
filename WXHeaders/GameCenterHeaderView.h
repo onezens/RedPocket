@@ -19,6 +19,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)addButtons;
 - (void)adjustBannerViewAndInset;
 @property(nonatomic) __weak id <GameCenterHeaderActionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)initTopBannerBackgroupView;

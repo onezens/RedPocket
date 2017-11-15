@@ -107,11 +107,11 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)topBannerClicked:(id)arg1 ExternInfo:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewDidTransitionToNewSize;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewWillLayoutSubviews;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -92,7 +92,6 @@
 - (id)tableView:(id)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)arg2;
 - (_Bool)useTransparentNavibar;
 - (void)viewDidBePoped:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)watchMyRedEnvelopesList;
 

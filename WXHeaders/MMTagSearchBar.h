@@ -17,6 +17,8 @@
 - (id)getTextField;
 - (void)internalInitTipsLabel;
 - (void)layoutSubviews;
+- (void)resetAttributes;
+- (void)resetTextAttributes;
 - (void)setCustomTipsLabelHidden:(_Bool)arg1;
 - (void)setTagAttributeText:(id)arg1;
 @property(retain, nonatomic) UILabel *tipsLabel; // @synthesize tipsLabel=_tipsLabel;

@@ -15,7 +15,6 @@
 {
     unsigned long long _beginTime;
     unsigned long long _firstDrawedTime;
-    _Bool _isQueueSuspending;
     _Bool _isLoadingViewFading;
     unsigned int _coreId;
     id <WAAppCanvasWrapperViewDelegate> _delegate;
@@ -54,25 +53,25 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)initializeEnv;
 @property(nonatomic) _Bool isLoadingViewFading; // @synthesize isLoadingViewFading=_isLoadingViewFading;
-@property(nonatomic) _Bool isQueueSuspending; // @synthesize isQueueSuspending=_isQueueSuspending;
 - (void)layoutSubviews;
 @property(retain, nonatomic) DotLoadingView *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
 @property(retain, nonatomic) UIView *loadingViewBgView; // @synthesize loadingViewBgView=_loadingViewBgView;
 @property(retain, nonatomic) UIImageView *logoImgView; // @synthesize logoImgView=_logoImgView;
 - (void)makeSureViewInited;
+- (void)markActive;
+- (void)markUnactive;
 - (void)notifyOnTapAt:(struct CGPoint)arg1 forEvent:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)onBecomeActive;
+- (void)onEnterBackground;
+- (void)onEnterForeground;
 - (void)onJSCore:(unsigned int)arg1 evaluatedResult:(id)arg2 reserve:(_Bool)arg3;
 - (void)onJSCore:(unsigned int)arg1 openApp:(id)arg2;
 - (void)onJSCore:(unsigned int)arg1 updateHeight:(double)arg2;
 - (void)onJSCore:(unsigned int)arg1 viewStateChanged:(unsigned long long)arg2;
 - (void)onJSCoreIamgeUrlDownloaded:(id)arg1;
-- (void)onResignActive;
 - (void)pause;
 - (void)releaseResourcesOnSubthread;
 - (void)reportConsuming:(long long)arg1;
 - (void)resume;
-- (void)resumeQueue;
 @property(retain, nonatomic) WAAppCanvasWrapperViewData *viewData; // @synthesize viewData=_viewData;
 @property(nonatomic) unsigned long long viewState; // @synthesize viewState=_viewState;
 - (void)setupWithParams:(id)arg1;
@@ -80,7 +79,6 @@
 - (void)showDownloadFailView;
 - (void)showLoadingView;
 - (void)start;
-- (void)suspendQueue;
 - (void)tryGoTimeOut;
 
 // Remaining properties

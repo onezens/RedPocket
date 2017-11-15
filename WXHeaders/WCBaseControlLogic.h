@@ -38,8 +38,9 @@
 - (id)gotoViewController:(Class)arg1 withData:(id)arg2 Animation:(_Bool)arg3;
 - (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3;
 - (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3 Animation:(_Bool)arg4;
-- (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3 showNavigation:(_Bool)arg4 Animation:(_Bool)arg5;
-- (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3 showNavigation:(_Bool)arg4 Animation:(_Bool)arg5 transitioningDelegate:(id)arg6;
+- (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3 Animation:(_Bool)arg4 forceFullScreen:(_Bool)arg5;
+- (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3 showNavigation:(_Bool)arg4 Animation:(_Bool)arg5 forceFullScreen:(_Bool)arg6;
+- (id)gotoViewController:(Class)arg1 withData:(id)arg2 Present:(_Bool)arg3 showNavigation:(_Bool)arg4 Animation:(_Bool)arg5 transitioningDelegate:(id)arg6 forceFullScreen:(_Bool)arg7;
 - (id)gotoViewController:(Class)arg1 withData:(id)arg2 Title:(id)arg3 HeadTip:(id)arg4;
 - (id)gotoViewController:(Class)arg1 withData:(id)arg2 Title:(id)arg3 HeadTip:(id)arg4 Present:(_Bool)arg5;
 - (id)gotoViewController:(Class)arg1 withData:(id)arg2 Title:(id)arg3 HeadTip:(id)arg4 Present:(_Bool)arg5 Animation:(_Bool)arg6;
@@ -54,7 +55,7 @@
 - (_Bool)onError:(id)arg1;
 - (void)pause;
 - (void)presentViewController:(id)arg1 Animated:(_Bool)arg2 showNavigation:(_Bool)arg3;
-- (void)presentViewController:(id)arg1 Animated:(_Bool)arg2 showNavigation:(_Bool)arg3 transitioningDelegate:(id)arg4;
+- (void)presentViewController:(id)arg1 Animated:(_Bool)arg2 showNavigation:(_Bool)arg3 transitioningDelegate:(id)arg4 forceFullScreen:(_Bool)arg5;
 - (void)pushViewController:(id)arg1 Animated:(_Bool)arg2;
 - (void)pushViewController:(id)arg1 Animated:(_Bool)arg2 transitioningDelegate:(id)arg3;
 - (void)removeTopViewController;

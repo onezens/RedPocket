@@ -20,6 +20,8 @@
     MMAnimationTipView *m_tipView;
     _Bool m_bFromPicker;
     _Bool m_bDragAnimating;
+    _Bool _m_isFromWebview;
+    _Bool _m_needUseWindowFrame;
     id <MultiImageScrollViewDelegate> m_delegate;
     MMUIViewController *m_viewController;
 }
@@ -47,6 +49,8 @@
 @property(nonatomic) __weak id <MultiImageScrollViewDelegate> m_delegate; // @synthesize m_delegate;
 @property(nonatomic) int m_iCurrentPage; // @synthesize m_iCurrentPage;
 @property(nonatomic) int m_iNumberOfPages; // @synthesize m_iNumberOfPages;
+@property(nonatomic) _Bool m_isFromWebview; // @synthesize m_isFromWebview=_m_isFromWebview;
+@property(nonatomic) _Bool m_needUseWindowFrame; // @synthesize m_needUseWindowFrame=_m_needUseWindowFrame;
 @property(nonatomic) __weak MMUIViewController *m_viewController; // @synthesize m_viewController;
 - (void)onDoubleTap:(id)arg1;
 - (void)onSingleTap:(id)arg1;

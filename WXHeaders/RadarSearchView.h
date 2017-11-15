@@ -71,6 +71,7 @@
 - (void)onStatusViewHidden:(id)arg1;
 - (id)parseXML:(id)arg1;
 - (void)resetDataMember;
+- (void)resumeLightAnimation;
 - (void)showFindFailTips;
 - (void)showTipsView;
 - (void)showTipsWithType:(long long)arg1;

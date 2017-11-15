@@ -54,7 +54,6 @@
 - (_Bool)useIpadSytle;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewDidTransitionToNewSize;
 - (void)viewWillAppear:(_Bool)arg1;

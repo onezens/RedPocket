@@ -22,9 +22,11 @@
 }
 
 - (void).cxx_destruct;
+- (void)dealloc;
 - (void)enterGame;
 @property(nonatomic) __weak H5GameViewController *gameVC; // @synthesize gameVC=_gameVC;
 - (void)handleJSEvent:(id)arg1 HandlerFacade:(id)arg2 ExtraData:(id)arg3;
+- (void)internalEnterGame;
 - (void)onClickTipsBtn:(id)arg1 Index:(long long)arg2;
 - (void)onGameViewClosed;
 - (void)webViewReturn:(id)arg1;

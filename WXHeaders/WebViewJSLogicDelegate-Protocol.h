@@ -14,6 +14,7 @@
 - (unsigned char)getJSApiPermission:(JSFunctionDef *)arg1;
 - (_Bool)isGetingA8Key;
 - (void)kvReportJSCall:(NSString *)arg1 withParam:(NSDictionary *)arg2;
+- (void)onCopy:(NSString *)arg1;
 - (void)onDomReady;
 - (void)onFinishedHandleJSApi;
 - (void)onPageStateChange:(NSString *)arg1;

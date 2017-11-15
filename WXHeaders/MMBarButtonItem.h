@@ -13,14 +13,12 @@
     struct CGRect m_standardPortriatFrame;
     MMBarButton *m_btn;
     struct UIEdgeInsets m_standardPortraitEdgeInsets;
-    long long m_iContentWidth;
     long long m_iContentHeight;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak MMBarButton *m_btn; // @synthesize m_btn;
 @property(nonatomic) long long m_iContentHeight; // @synthesize m_iContentHeight;
-@property(nonatomic) long long m_iContentWidth; // @synthesize m_iContentWidth;
 @property(nonatomic) struct UIEdgeInsets m_standardPortraitEdgeInsets; // @synthesize m_standardPortraitEdgeInsets;
 @property(nonatomic) struct CGRect m_standardPortriatFrame; // @synthesize m_standardPortriatFrame;
 - (void)setEnabled:(_Bool)arg1;

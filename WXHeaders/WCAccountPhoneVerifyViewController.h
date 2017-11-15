@@ -22,9 +22,6 @@
     long long m_iCountDown;
     long long m_iCount;
     long long m_stypeType;
-    long long m_fbReg;
-    long long m_qqReg;
-    long long m_emailReg;
     _Bool m_bFirstLoop;
     _Bool m_bShowCloseSafeDevice;
     UIButton *m_btnQQReg;
@@ -39,9 +36,6 @@
 - (id)init;
 - (void)initNavigationBar;
 - (void)initView;
-- (_Bool)isFBClose;
-- (_Bool)isShowEmailReg;
-- (_Bool)isShowQQReg;
 - (void)jumpToUnProtectPage;
 - (_Bool)needCount;
 - (void)onCloseSafeDevice;

@@ -59,7 +59,6 @@
 - (void)reloadCollectionView;
 @property(retain, nonatomic) ShareMessageConfirmLogicHelper *sendAppMsgHelper; // @synthesize sendAppMsgHelper=_sendAppMsgHelper;
 - (_Bool)useTransparentNavibar;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewDidTransitionToNewSize;
 - (void)viewWillAppear:(_Bool)arg1;

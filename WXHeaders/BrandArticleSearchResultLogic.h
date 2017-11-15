@@ -17,6 +17,7 @@
     NSString *_lastInputText;
     struct timeval _lastInputTime;
     BrandArticleSearchEventWrap *_eventWrap;
+    NSString *_localSessionId;
     UIView<YYWebViewInterface> *_resultView;
 }
 

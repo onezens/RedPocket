@@ -6,6 +6,7 @@
 
 #import "MMObject.h"
 
+#import "IWSViewControllerLifeCycleExt.h"
 #import "MMSearchBarDelegate.h"
 #import "UIScrollViewDelegate.h"
 #import "WAAppCanvasWrapperViewDelegate.h"
@@ -13,7 +14,7 @@
 
 @class MMSearchBar, MMUIViewController, NSMutableDictionary, NSString, UIButton, UIImageView, UIView<YYWebViewInterface>, WASearchResultLogic;
 
-@interface WASearchController : MMObject <MMSearchBarDelegate, WASearchActionDelegate, UIScrollViewDelegate, WAAppCanvasWrapperViewDelegate>
+@interface WASearchController : MMObject <MMSearchBarDelegate, WASearchActionDelegate, UIScrollViewDelegate, WAAppCanvasWrapperViewDelegate, IWSViewControllerLifeCycleExt>
 {
     _Bool _isContainerInteractivePopEnabled;
     _Bool _webViewDidRegisterScrollNotify;
@@ -111,6 +112,8 @@
 - (void)showResultViewWithOffset:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMovingDetailView;
 - (id)urlParamsForDetailPage:(id)arg1 params:(id)arg2;
+- (void)webSearchVC:(id)arg1 willAppear:(_Bool)arg2;
+- (void)webSearchVC:(id)arg1 willDisappear:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

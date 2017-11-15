@@ -8,7 +8,7 @@
 
 #import "WebSearchMgrDelegate.h"
 
-@class FTSWebSearchMgr, NSMutableArray, NSMutableDictionary, NSString, WSHistoryCacheLogic;
+@class FTSWebSearchMgr, NSMutableArray, NSString, WSHistoryCacheLogic;
 
 @interface WSSuggestionLogic : NSObject <WebSearchMgrDelegate>
 {
@@ -24,10 +24,12 @@
     NSString *_newestQuery;
     NSString *_lastQueryForHistory;
     NSString *_lastQueryForSvrSug;
-    NSMutableDictionary *_dicPinYin;
     NSString *_sugId;
     NSString *_expand;
     FTSWebSearchMgr *_webSearchMgr;
+    unsigned long long _searchSugBeginTime;
+    unsigned long long _searchLocalSugEndTime;
+    unsigned long long _searchSvrSugEndTime;
 }
 
 - (void).cxx_destruct;
@@ -43,7 +45,6 @@
 - (void)delaySearchImp:(id)arg1;
 @property(nonatomic) __weak id <WSSuggestionLogicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)deleteHistorySuggestion:(id)arg1;
-@property(retain, nonatomic) NSMutableDictionary *dicPinYin; // @synthesize dicPinYin=_dicPinYin;
 @property(retain, nonatomic) NSString *expand; // @synthesize expand=_expand;
 - (id)getHistoryResult;
 - (id)getSuggestionId;
@@ -71,6 +72,9 @@
 - (void)reportSugFill:(id)arg1 withParams:(id)arg2;
 - (void)resetResult;
 @property(nonatomic) int scene; // @synthesize scene=_scene;
+@property(nonatomic) unsigned long long searchLocalSugEndTime; // @synthesize searchLocalSugEndTime=_searchLocalSugEndTime;
+@property(nonatomic) unsigned long long searchSugBeginTime; // @synthesize searchSugBeginTime=_searchSugBeginTime;
+@property(nonatomic) unsigned long long searchSvrSugEndTime; // @synthesize searchSvrSugEndTime=_searchSvrSugEndTime;
 @property(retain, nonatomic) NSString *sugId; // @synthesize sugId=_sugId;
 @property(retain, nonatomic) FTSWebSearchMgr *webSearchMgr; // @synthesize webSearchMgr=_webSearchMgr;
 

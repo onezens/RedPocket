@@ -6,17 +6,21 @@
 
 #import "MMTableViewCell.h"
 
-@class UILabel;
+@class MMHeadImageView, UILabel;
 
 @interface FTSFirstTitleCell : MMTableViewCell
 {
     UILabel *_titleLabel;
+    MMHeadImageView *_headImageView;
+    _Bool _bDisplayHeadView;
 }
 
 - (void).cxx_destruct;
 - (void)initView;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 displayHeadView:(_Bool)arg3;
 - (void)updateTitle:(id)arg1;
+- (void)updateTitle:(id)arg1 andHeadView:(id)arg2;
 
 @end
 

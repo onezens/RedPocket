@@ -12,7 +12,7 @@
 #import "SightViewDelegate.h"
 #import "WCActionSheetDelegate.h"
 
-@class FavoritesItem, FavoritesItemDataField, ForwardMessageLogicController, MMUIViewController, NSString, SightView, UIImageView, UIView, WXFullScreenGestureRecognizer;
+@class CMessageWrap, FavoritesItem, FavoritesItemDataField, ForwardMessageLogicController, MMUIViewController, NSString, SightView, UIImageView, UIView, WXFullScreenGestureRecognizer;
 
 @interface WNSightViewController : FullScreenViewController <SightViewDelegate, IUiUtilExt, FullScreenGestureDelegate, ForwardMessageLogicDelegate, WCActionSheetDelegate>
 {
@@ -29,6 +29,7 @@
     ForwardMessageLogicController *m_forwardMsgLogic;
     FavoritesItemDataField *_favData;
     FavoritesItem *_favItem;
+    CMessageWrap *_msgWrap;
     _Bool silencePlay;
 }
 
@@ -40,7 +41,7 @@
 - (void)dealloc;
 - (id)getCurrentViewController;
 - (void)initGestures;
-- (void)initWithWNSight:(id)arg1 FavoritesItem:(id)arg2 superWindow:(id)arg3 thumbView:(id)arg4 nodeView:(id)arg5;
+- (void)initWithWNSight:(id)arg1 FavoritesItem:(id)arg2 MessageWrap:(id)arg3 superWindow:(id)arg4 thumbView:(id)arg5 nodeView:(id)arg6;
 - (_Bool)isFullScreenPlaying;
 - (void)onFullScreenBackgroupColorAlphaChange:(double)arg1;
 - (void)onFullScreenClose;

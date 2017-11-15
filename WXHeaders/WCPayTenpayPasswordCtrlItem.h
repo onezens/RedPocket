@@ -7,11 +7,12 @@
 #import "WCBaseInfoItem.h"
 
 #import "TenpayPasswordCtrlDelegate.h"
+#import "UITextFieldDelegate.h"
 #import "WCPayLogicMgrExt.h"
 
 @class NSString, TenpayPasswordCtrl, UIImage;
 
-@interface WCPayTenpayPasswordCtrlItem : WCBaseInfoItem <TenpayPasswordCtrlDelegate, WCPayLogicMgrExt>
+@interface WCPayTenpayPasswordCtrlItem : WCBaseInfoItem <TenpayPasswordCtrlDelegate, WCPayLogicMgrExt, UITextFieldDelegate>
 {
     TenpayPasswordCtrl *m_textField;
     UIImage *m_image;
@@ -36,6 +37,7 @@
 - (void)passwordCtrlShouldChange:(id)arg1;
 - (void)resignFirstResponder;
 - (void)setKeyboardAccessibility:(id)arg1;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

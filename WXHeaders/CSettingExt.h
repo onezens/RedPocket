@@ -71,7 +71,6 @@
     NSString *m_nsTransToLang;
     NSString *m_nsImagePickerAlbum;
     _Bool m_bImagePickerForcedOldVersion;
-    _Bool m_bOpenJSDebug;
     unsigned int m_playVoiceTimes;
     unsigned int m_lastBrandMsgSvrID;
     long long m_n64LastBrandMsgSvrID;
@@ -174,7 +173,6 @@
 @property(nonatomic) _Bool m_bMusicOrderPlay; // @synthesize m_bMusicOrderPlay;
 @property(nonatomic) _Bool m_bMyPackageShow; // @synthesize m_bMyPackageShow;
 @property(nonatomic) _Bool m_bNoShowPushTip; // @synthesize m_bNoShowPushTip;
-@property(nonatomic) _Bool m_bOpenJSDebug; // @synthesize m_bOpenJSDebug;
 @property(nonatomic) _Bool m_bOpenRemoteControl; // @synthesize m_bOpenRemoteControl;
 @property(nonatomic) _Bool m_bOpenVoicePrintPwd; // @synthesize m_bOpenVoicePrintPwd;
 @property(nonatomic) _Bool m_bOverseasCardIsNoOpenProtocal; // @synthesize m_bOverseasCardIsNoOpenProtocal;

@@ -90,7 +90,11 @@
 + (id)getWCPayOfflinePayUserUinPath;
 + (id)getWCPayPayCardListPath;
 + (id)getWCPayPayManagePath;
++ (id)getWCPayQRCodeGetCodeCgiCachePath;
 + (id)getWCPayRealnameWordingPath;
++ (id)getWCPayRewardCodeImageDataPath;
++ (id)getWCPayRewardCodeImageForderPath;
++ (id)getWCPayRewardCodeImageTempDownloadDataPath;
 + (id)getWCPayServerDynamicWordingPath;
 + (id)getWCPaySettingPath;
 + (id)getWCPaySwitchInfoPath;

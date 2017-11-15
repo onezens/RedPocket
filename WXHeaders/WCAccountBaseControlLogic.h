@@ -7,14 +7,16 @@
 #import "WCBaseControlLogic.h"
 
 #import "VoicePrintHandlerDelegate.h"
+#import "WCAccountErrorHandleLogicDelegate.h"
 #import "WCPrivacyPolicyControlLogicDelegate.h"
 
-@class NSString, WCAccountControlData, WCPrivacyPolicyControlLogic;
+@class NSString, WCAccountControlData, WCAccountErrorHandleLogic, WCPrivacyPolicyControlLogic;
 
-@interface WCAccountBaseControlLogic : WCBaseControlLogic <WCPrivacyPolicyControlLogicDelegate, VoicePrintHandlerDelegate>
+@interface WCAccountBaseControlLogic : WCBaseControlLogic <WCPrivacyPolicyControlLogicDelegate, VoicePrintHandlerDelegate, WCAccountErrorHandleLogicDelegate>
 {
     WCAccountControlData *m_data;
     _Bool m_bDisableDataReport;
+    WCAccountErrorHandleLogic *m_errorHandleLogic;
     WCPrivacyPolicyControlLogic *_privacyPolicyLogic;
     CDUnknownBlockType privacyPolicyDoneBlock;
 }
@@ -24,10 +26,8 @@
 - (void)delaySetPrivacyPolicyLogicNil;
 - (void)disableDataReport;
 - (id)initWithData:(id)arg1;
-- (void)onErrorAction:(id)arg1;
+- (_Bool)isFromReg;
 - (_Bool)onHandleError:(id)arg1;
-- (void)onHandleErrorDone;
-- (void)onVoicePrintAction:(id)arg1;
 - (void)onWCPrivacyPolicyControlLogicClickCancel;
 - (void)onWCPrivacyPolicyControlLogicClickClose;
 - (void)onWCPrivacyPolicyControlLogicClickDone;

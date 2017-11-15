@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MMUIViewController, WNParagraphInfo;
+@class MMUIViewController, NSArray;
 
 @protocol WNArticleControllerDelegate <NSObject>
 
@@ -14,16 +14,22 @@
 - (void)deleteRowAtIndex:(long long)arg1;
 - (MMUIViewController *)getViewController;
 - (void)hideLoadingView;
+- (void)hideToolbarView;
 - (void)insertNewRowAtIndex:(long long)arg1;
 - (void)insertNewRowAtIndex:(long long)arg1 withCount:(long long)arg2;
+- (_Bool)isCellVisible:(int)arg1;
+- (void)onDownloadHtmlExpire;
+- (void)onDownloadHtmlFail;
+- (void)onEdited;
 - (void)onNoneTxtInfoNumExceed;
 - (void)onSelectAllViewToShow;
 - (void)onSelectParaTextForEditing:(struct _NSRange)arg1;
-- (void)onStopRecordVoice:(WNParagraphInfo *)arg1;
+- (void)onShowFullToolbar;
+- (void)onShowRecordingAlert;
 - (void)onTxtInfoTextLengthExceed;
-- (void)refreshTableViewCellOnIndex:(long long)arg1;
 - (void)reloadAll;
 - (void)reloadRowAtIndex:(long long)arg1;
+- (void)reloadRowsAtIndexArray:(NSArray *)arg1;
 - (void)scrollToIndex:(long long)arg1;
 - (void)showLoadingView;
 @end

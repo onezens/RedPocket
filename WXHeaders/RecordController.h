@@ -6,14 +6,13 @@
 
 #import "MMObject.h"
 
-#import "IAudioFuckBugExt.h"
 #import "IAudioSenderExt.h"
 #import "IMsgExt.h"
 #import "IRemoteControlCheckExt.h"
 
 @class MMTimer;
 
-@interface RecordController : MMObject <IAudioSenderExt, IAudioFuckBugExt, IRemoteControlCheckExt, IMsgExt>
+@interface RecordController : MMObject <IAudioSenderExt, IRemoteControlCheckExt, IMsgExt>
 {
     MMTimer *m_TimeoutTimer;
     id <RecordControllerDelegate> m_delegate;
@@ -28,7 +27,7 @@
 
 - (void).cxx_destruct;
 - (void)CancelRecording;
-- (void)CheckIfButtonPressing:(id)arg1 Status:(unsigned int *)arg2;
+- (void)CheckIfButtonPressing:(id)arg1;
 - (void)OnAddMsg:(id)arg1;
 - (void)OnBeginRecording:(unsigned int)arg1 ErrNo:(int)arg2;
 - (void)OnEndRecording:(unsigned int)arg1;

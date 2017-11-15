@@ -11,6 +11,7 @@
 @protocol UIScrollViewDelegate <NSObject>
 
 @optional
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)arg1;
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)arg1;
 - (void)scrollViewDidEndDragging:(UIScrollView *)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)arg1;

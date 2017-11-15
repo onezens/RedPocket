@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class MMBadgeView, MMCPLabel, MMGroupView, MMHeadImageView, MainFrameCellData, UIColor, UIImageView, UILabel;
+@class MMBadgeView, MMCPLabel, MMGroupView, MMHeadImageView, MainFrameCellData, UIImageView, UILabel;
 
 @interface MainFrameItemView : UIView
 {
@@ -24,7 +24,6 @@
     UIImageView *m_multiTalkIconView;
     UIImageView *m_multiTalkingView;
     MMGroupView *m_groupView;
-    UIColor *_m_preferBackgroundColor;
 }
 
 - (void).cxx_destruct;
@@ -39,7 +38,6 @@
 @property(retain, nonatomic) MMHeadImageView *m_frameHeadView; // @synthesize m_frameHeadView;
 @property(retain, nonatomic) MMCPLabel *m_messageLabel; // @synthesize m_messageLabel;
 @property(retain, nonatomic) MMCPLabel *m_nameLabel; // @synthesize m_nameLabel;
-@property(retain, nonatomic) UIColor *m_preferBackgroundColor; // @synthesize m_preferBackgroundColor=_m_preferBackgroundColor;
 @property(retain, nonatomic) UIImageView *m_statusView; // @synthesize m_statusView;
 @property(retain, nonatomic) UILabel *m_timeLabel; // @synthesize m_timeLabel;
 - (void)quoteMessageLable:(id)arg1 prefixText:(id)arg2;

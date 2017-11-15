@@ -9,7 +9,7 @@
 #import "MMService.h"
 #import "WAAppTaskDelegate.h"
 
-@class MMTimer, NSMutableArray, NSMutableDictionary, NSString;
+@class MMTimer, NSMutableArray, NSMutableDictionary, NSString, WATopSessionTaskInfoStorage;
 
 @interface WAAppTaskMgr : MMService <WAAppTaskDelegate, MMService>
 {
@@ -19,6 +19,7 @@
     unsigned int lastMemoryWaringTimeStamp;
     NSString *_curBackToChatAppID;
     NSString *_curBackToChatDefaultName;
+    WATopSessionTaskInfoStorage *_topSessionTaskInfoStorage;
 }
 
 - (void).cxx_destruct;
@@ -45,6 +46,9 @@
 - (id)getCurrentBackToChatAppTask;
 - (id)getCurrentBackToChatAppTaskBannerLogoUrl;
 - (id)getCurrentBackToChatAppTaskBannerText;
+- (unsigned long long)getCurrentBackToChatDebugType;
+- (id)getCurrentBackToChatRelativePath;
+- (id)getCurrentBackToChatStackPaths;
 - (id)getForegroundAppID;
 - (id)getJumpInfoWithAppID:(id)arg1;
 - (id)getLastJumpInfo;
@@ -61,7 +65,8 @@
 - (void)jumpWeAppCateGoryOnServiceClearData;
 - (void)jumpWeAppCategoryOnServiceInit;
 - (void)jumpWeAppCategoryOnServiceReloadData;
-- (void)markBackToChatWithAppID:(id)arg1 usrName:(id)arg2;
+- (void)loadTopSessionTaskInfo;
+- (void)markBackToChatWithAppID:(id)arg1 usrName:(id)arg2 relativePath:(id)arg3 debugModeType:(unsigned long long)arg4;
 - (unsigned int)maxTaskRunningCount;
 - (void)onApplicationDidReceiveMemoryWarning:(id)arg1;
 - (void)onServiceClearData;
@@ -76,12 +81,15 @@
 - (void)removeCurBackToChatState;
 - (void)removeLastJumpInfo:(id)arg1;
 - (void)removeToFrontJumpInfoFromLast:(id)arg1 getRemovedAppIDList:(id *)arg2;
+- (void)removeTopSesionTaskInfo;
 - (void)restartAppWithAppID:(id)arg1 extInfo:(id)arg2;
+- (void)saveTopSessionTaskInfo:(id)arg1;
 - (void)sendJSEventToTaskAllWebView:(id)arg1 withAppID:(id)arg2 param:(id)arg3 toWebviews:(id)arg4;
 - (void)startCheckBackgroundTaskTimer;
 - (void)taskBackgroundNetworkInterruptedTimeout:(id)arg1;
 - (void)taskDidClose:(id)arg1;
 - (void)taskDidOpen:(id)arg1;
+- (void)taskEnterBackgroundWithAppID:(id)arg1 andRelativePath:(id)arg2;
 - (void)updateCurrentBackToChatState;
 - (void)updateCurrentBannerText:(id)arg1;
 - (void)validateJumpList;

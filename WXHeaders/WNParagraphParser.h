@@ -12,8 +12,14 @@
 
 - (id)convertHtmlFromAttibutedString:(id)arg1;
 - (id)formatHtml:(id)arg1;
+- (_Bool)hasKeyTagChilden:(struct XmlReaderNode_t *)arg1;
 - (void)mergeTextParaInfoArray:(id)arg1;
 - (_Bool)parse:(id)arg1 toArray:(id)arg2;
+- (id)parseAttrTextFromHtmlNode:(struct XmlReaderNode_t *)arg1;
+- (id)parseFromHrElement:(struct XmlReaderNode_t *)arg1;
+- (id)parseFromListElement:(struct XmlReaderNode_t *)arg1 ListDataType:(int)arg2;
+- (id)parseFromObjectElement:(struct XmlReaderNode_t *)arg1;
+- (id)parseFromTodoElement:(struct XmlReaderNode_t *)arg1;
 - (void)parseXmlNode:(struct XmlReaderNode_t *)arg1 toArray:(id)arg2;
 
 @end

@@ -24,6 +24,7 @@
 @property(nonatomic) __weak id <SGTopEntryViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) int entryScene; // @synthesize entryScene=_entryScene;
 - (double)getButtonTitleFontSize;
+- (id)getVertBizTypes;
 - (void)layoutSubviews;
 - (void)onTapButton:(id)arg1;
 - (void)updateColorWithEntryTitle:(id)arg1 color:(id)arg2;

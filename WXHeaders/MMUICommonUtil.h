@@ -16,7 +16,6 @@
 + (id)getBarButtonWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 style:(int)arg4;
 + (id)getBarButtonWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 style:(int)arg4 color:(id)arg5;
 + (id)getBarButtonWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 style:(int)arg4 maxWidth:(double)arg5 color:(id)arg6;
-+ (id)getBarButtonWithTitle:(id)arg1 withBackGroundImage:(id)arg2 withBackGroundImageHL:(id)arg3 withBackGroundImageDisable:(id)arg4 target:(id)arg5 action:(SEL)arg6 style:(int)arg7 maxWidth:(double)arg8 color:(id)arg9;
 + (id)getBarButtonWithTitle:(id)arg1 withIconImage:(id)arg2 target:(id)arg3 action:(SEL)arg4 style:(int)arg5 color:(id)arg6;
 + (id)getBottomBarButtonWithTitle:(id)arg1 backgroundImageName:(id)arg2 widthMargin:(double)arg3 target:(id)arg4 action:(SEL)arg5;
 + (id)getBottomBarButtonWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 style:(int)arg4;

@@ -12,6 +12,7 @@
 
 @interface WAVideoPlayerCore : MMObject <WAVideoURLConnectionDelegate>
 {
+    _Bool _customCache;
     _Bool _isPauseByUser;
     _Bool _isLocalVideo;
     _Bool _isFinishLoad;
@@ -38,6 +39,7 @@
 @property(nonatomic) double current; // @synthesize current=_current;
 @property(retain, nonatomic) AVPlayerItem *currentPlayerItem; // @synthesize currentPlayerItem=_currentPlayerItem;
 @property(retain, nonatomic) AVPlayerLayer *currentPlayerLayer; // @synthesize currentPlayerLayer=_currentPlayerLayer;
+@property(nonatomic) _Bool customCache; // @synthesize customCache=_customCache;
 - (void)dealloc;
 @property(nonatomic) __weak id <WAVideoPlayerCoreDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)didFailLoadingWithTask:(id)arg1 WithError:(long long)arg2;

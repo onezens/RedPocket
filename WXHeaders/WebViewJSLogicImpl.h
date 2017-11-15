@@ -46,6 +46,7 @@
 - (_Bool)isPureFloat:(id)arg1;
 - (id)jsEventWithFunction:(id)arg1 params:(id)arg2 callBackID:(id)arg3;
 - (void)jsHandlerHandle:(id)arg1;
+- (id)lastChar:(id)arg1;
 - (void)markPageWebCached;
 - (void)onEndEvent:(id)arg1 withResult:(id)arg2;
 - (void)recoverJSAPIEventDelegateWithBackup;

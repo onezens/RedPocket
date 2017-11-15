@@ -10,7 +10,7 @@
 #import "TransitioningAnimationDelegate.h"
 #import "whatsnewViewDelegateEx.h"
 
-@class CrossfadeAnimationController, MMTableViewInfo, NSString, PhoneNumberFormatLogic, UILabel, WCOutWhatsNewViewController;
+@class CrossfadeAnimationController, MMTableViewInfo, NSString, UILabel, WCOutWhatsNewViewController;
 
 @interface SettingAboutMMViewController : MMUIViewController <whatsnewViewDelegateEx, TransitioningAnimationDelegate, ILinkEventExt>
 {
@@ -20,7 +20,6 @@
     _Bool m_bFromSetting;
     WCOutWhatsNewViewController *m_whatsNewViewController;
     CrossfadeAnimationController *m_transitionInstance;
-    PhoneNumberFormatLogic *m_phoneNumFormatter;
 }
 
 - (void).cxx_destruct;

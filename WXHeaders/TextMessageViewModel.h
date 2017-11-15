@@ -21,6 +21,7 @@
     NSMutableArray *m_contentTextStyles;
     double _translatedLineY;
     double _contentMidY;
+    NSMutableArray *_originContentTextStyles;
 }
 
 + (_Bool)canCreateMessageViewModelWithMessageWrap:(id)arg1;
@@ -39,11 +40,13 @@
 @property(readonly, nonatomic) double contentTextFontLineHeight; // @synthesize contentTextFontLineHeight=m_contentTextFontLineHeight;
 @property(nonatomic) struct CGSize contentTextSize; // @synthesize contentTextSize=m_contentTextSize;
 @property(retain, nonatomic) NSMutableArray *contentTextStyles; // @synthesize contentTextStyles=m_contentTextStyles;
+- (id)getMsgTableView;
 - (id)initWithMessageWrap:(id)arg1 contact:(id)arg2 chatContact:(id)arg3;
 - (_Bool)isLongSplitMessage;
 @property(readonly, nonatomic) double labelWidth;
 - (struct CGSize)measureContentViewSize:(struct CGSize)arg1;
 - (long long)numberOfRowsInSection;
+@property(retain, nonatomic) NSMutableArray *originContentTextStyles; // @synthesize originContentTextStyles=_originContentTextStyles;
 @property(readonly, nonatomic) long long parserType;
 - (struct CGRect)realFrameByCurFrame:(struct CGRect)arg1;
 - (void)resetLayoutCache;

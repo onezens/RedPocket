@@ -41,6 +41,8 @@
     NSMutableDictionary *_recorderDict;
 }
 
++ (_Bool)isAuthStatusOK;
++ (_Bool)needCheckRequestAuthAccess;
 - (void).cxx_destruct;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 @property(nonatomic) _Bool bNeedOutputVideoBuffer; // @synthesize bNeedOutputVideoBuffer;
@@ -62,7 +64,6 @@
 - (void)focusAtPoint:(struct CGPoint)arg1;
 - (id)genPreviewView:(struct CGRect)arg1;
 - (id)init;
-- (_Bool)isAuthStatusOK;
 @property(nonatomic) _Bool isCameraAppear; // @synthesize isCameraAppear;
 - (_Bool)isRecording:(unsigned int)arg1;
 @property(nonatomic) _Bool isShowingPreview; // @synthesize isShowingPreview;
@@ -77,7 +78,6 @@
 @property(retain, nonatomic) NSString *m_videoPath; // @synthesize m_videoPath=_m_videoPath;
 - (void)movieWriter:(id)arg1 onMovieWriteFailed:(unsigned int)arg2;
 - (void)movieWriter:(id)arg1 onMovieWriteFinished:(id)arg2 ret:(unsigned int)arg3;
-- (_Bool)needCheckRequestAuthAccess;
 - (void)onCameraStop:(id)arg1;
 - (void)onMovieCompressFinished:(int)arg1 moviePath:(id)arg2 withThumb:(id)arg3;
 - (void)onMovieWriterInvalidate:(id)arg1;

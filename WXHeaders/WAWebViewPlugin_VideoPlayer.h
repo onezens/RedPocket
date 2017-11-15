@@ -17,7 +17,9 @@
     struct CGPoint _contentOffset;
     struct CGRect _webViewFrame;
     struct CGRect _mainViewFrame;
+    _Bool _scrollEnabled;
     _Bool _statusBarBlack;
+    long long _contentInsetAdjustmentBehavior;
     _Bool _interuptExternalMusic;
     long long _videoNum;
     UISlider *_volumeViewSlider;

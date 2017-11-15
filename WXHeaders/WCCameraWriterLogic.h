@@ -23,7 +23,6 @@
 - (void)dealloc;
 - (_Bool)enabled;
 - (void)endProcessing;
-- (struct CGImage *)getLastFrameImage;
 - (id)init;
 - (struct CGSize)maximumOutputSize;
 - (void)newFrameReadyAtTime:(CDStruct_1b6d18a9)arg1 atIndex:(long long)arg2;

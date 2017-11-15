@@ -973,7 +973,6 @@ struct QBarCore;
 struct RapidnetInstance {
     CDUnknownFunctionPointerType *_field1;
     struct rpdnet_base *_field2;
-    int _field3;
 };
 
 struct RecorderState {
@@ -2268,8 +2267,6 @@ struct rpd_blob<float> {
     int shape_[4];
     float *data_;
     basic_string_a490aa4c blob_name_;
-    float *memory_allocated_;
-    int channel_step_in_bytes_;
 };
 
 struct rpd_ctrl;
@@ -2286,9 +2283,10 @@ struct rpd_layer_info {
 struct rpd_net_param {
     int _field1;
     int _field2;
-    rpd_blob_e3f37c6c _field3;
-    int _field4;
+    int _field3;
+    rpd_blob_0492df85 _field4;
     int _field5;
+    int _field6;
 };
 
 struct rpdnet_base;
@@ -2681,13 +2679,13 @@ struct tagAVQualityReportInfo {
     unsigned short _field292;
     unsigned int _field293;
     unsigned int _field294;
-    int _field295;
+    unsigned int _field295;
     unsigned int _field296;
-    unsigned int _field297;
+    int _field297;
     unsigned int _field298;
-    char _field299[256];
+    unsigned int _field299;
     unsigned int _field300;
-    unsigned int _field301;
+    char _field301[256];
     unsigned int _field302;
     unsigned int _field303;
     unsigned int _field304;
@@ -2698,6 +2696,8 @@ struct tagAVQualityReportInfo {
     unsigned int _field309;
     unsigned int _field310;
     unsigned int _field311;
+    unsigned int _field312;
+    unsigned int _field313;
 };
 
 struct tagDirectReport {
@@ -3463,9 +3463,7 @@ typedef struct rpd_blob<float> {
     int shape_[4];
     float *data_;
     basic_string_a490aa4c blob_name_;
-    float *memory_allocated_;
-    int channel_step_in_bytes_;
-} rpd_blob_e3f37c6c;
+} rpd_blob_0492df85;
 
 typedef struct shared_ptr<ClearDataItem> {
     struct ClearDataItem *__ptr_;

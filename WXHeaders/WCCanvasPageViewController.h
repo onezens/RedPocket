@@ -252,7 +252,6 @@
 - (void)viewDidBePoped:(_Bool)arg1;
 - (void)viewDidBePushed:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillBePoped:(_Bool)arg1;

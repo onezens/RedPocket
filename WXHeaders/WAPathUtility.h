@@ -41,6 +41,7 @@
 + (id)WAStandarizePath:(id)arg1;
 + (id)WATemplateMsgInfoFilePath;
 + (id)WATmpDir;
++ (id)WATopSessionTaskInfoFilePath;
 + (id)WAUpdatedSearchH5ConfigPath;
 + (id)WAUpdatedSearchH5Dir;
 + (id)WAUpdatedSearchH5Path;

@@ -36,5 +36,6 @@
 - (void)onUpdateWAWidgetWithParams:(NSDictionary *)arg1;
 - (void)onViewTypeChange:(NSDictionary *)arg1;
 - (void)onWSMusicStatusChanged:(NSDictionary *)arg1;
+- (void)onWillJumpUrl:(NSString *)arg1;
 @end
 

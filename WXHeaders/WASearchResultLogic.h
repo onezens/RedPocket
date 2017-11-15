@@ -40,6 +40,7 @@
 - (void)genStatSessionId;
 - (id)getLocalSearchGuideData;
 - (id)init;
+- (id)initWithSessionId:(id)arg1;
 @property(retain, nonatomic) WAWebSearchJSLogicImpl *jsLogic; // @synthesize jsLogic=_jsLogic;
 @property(retain, nonatomic) NSString *keywordId; // @synthesize keywordId=_keywordId;
 @property(retain, nonatomic) NSString *lastInputText; // @synthesize lastInputText=_lastInputText;

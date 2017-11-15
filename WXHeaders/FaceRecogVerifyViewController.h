@@ -75,10 +75,7 @@
 - (_Bool)shouldShowGuideView;
 - (void)showPrepareView;
 - (unsigned long long)supportedInterfaceOrientations;
-- (void)viewDidBeDismissed:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillBePresented:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

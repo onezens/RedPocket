@@ -100,6 +100,7 @@
 - (void)updateBottleCountLabel;
 - (void)updateFishCountLabel;
 - (void)updateThrowCountLabel;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewDidTransitionToNewSize;
 - (void)viewWillBePoped:(_Bool)arg1;

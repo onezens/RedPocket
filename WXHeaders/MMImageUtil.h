@@ -18,6 +18,7 @@
 + (id)exifLogInfoWithAsset:(id)arg1;
 + (id)exifLogInfoWithImageData:(id)arg1;
 + (id)exifLogInfoWithImageData:(id)arg1 image:(id)arg2;
++ (id)exifLogInfoWithImageData:(id)arg1 image:(id)arg2 originImageSize:(struct CGSize)arg3;
 + (id)fitImageOfLongImage:(id)arg1;
 + (id)genarateOriginImageDataFromUIImage:(id)arg1;
 + (id)generateVideoThumbImage:(id)arg1 atTime:(double)arg2;

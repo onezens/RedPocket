@@ -10,12 +10,12 @@
 #import "EmoticonRecommendMgrExt.h"
 #import "IHeadImageExt.h"
 #import "IMsgExt.h"
+#import "INewSyncExt.h"
 #import "ISettingExtChange.h"
 #import "IWCCardPkgExt.h"
 #import "IWCLabsMgrExt.h"
 #import "IWCSettingRedPointMgrExt.h"
 #import "MMKernelExt.h"
-#import "MessageObserverDelegate.h"
 #import "MyFavoritesViewControllerDelegate.h"
 #import "WCActionSheetDelegate.h"
 #import "WCMallLogicMgrExt.h"
@@ -24,7 +24,7 @@
 
 @class MMAnimationTipView, MMTableViewInfo, MMTimer, MyFavoritesViewController, NSString, UpdateWechatRedDotConfig, WCBizLoadingView;
 
-@interface MoreViewController : MMTabBarBaseViewController <MyFavoritesViewControllerDelegate, ISettingExtChange, IWCSettingRedPointMgrExt, IWCLabsMgrExt, IMsgExt, WCPayWalletLockVerifyLogicDelegate, MessageObserverDelegate, IHeadImageExt, CSettingExt, WCPayLogicMgrExt, EmoticonRecommendMgrExt, MMKernelExt, WCMallLogicMgrExt, IWCCardPkgExt, WCActionSheetDelegate>
+@interface MoreViewController : MMTabBarBaseViewController <MyFavoritesViewControllerDelegate, ISettingExtChange, IWCSettingRedPointMgrExt, IWCLabsMgrExt, IMsgExt, WCPayWalletLockVerifyLogicDelegate, INewSyncExt, IHeadImageExt, CSettingExt, WCPayLogicMgrExt, EmoticonRecommendMgrExt, MMKernelExt, WCMallLogicMgrExt, IWCCardPkgExt, WCActionSheetDelegate>
 {
     vector_a9c0768e m_vecMesssageIdToListen;
     MMTableViewInfo *m_tableViewInfo;
@@ -40,7 +40,6 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)OnEmoticonRecommendNewStateChanged:(_Bool)arg1;
 - (void)OnGetBankCardReddotData;
 - (void)OnGetLQTReddotData;
@@ -55,6 +54,7 @@
 - (void)addWCMallSection;
 @property(nonatomic) _Bool bIsEnterShareCardListFromOuterJump; // @synthesize bIsEnterShareCardListFromOuterJump=_bIsEnterShareCardListFromOuterJump;
 @property(nonatomic) _Bool bIsShareCardListShowSvrRedDot; // @synthesize bIsShareCardListShowSvrRedDot=_bIsShareCardListShowSvrRedDot;
+- (void)backToSplitViewEmptyViewController:(id)arg1;
 - (void)cardDeeplink;
 - (void)checkDBAutoRecover;
 - (void)checkReload;
@@ -68,7 +68,6 @@
 - (id)init;
 - (void)initDeepLinkConfig;
 - (void)initLoadingView;
-- (void)initMessageIdToListen;
 - (void)initUpdateWechatRedDotConfig;
 - (void)initView;
 - (_Bool)isNeedShowWCPay;
@@ -82,6 +81,7 @@
 - (void)onFavoritesClose;
 - (void)onGetUpdateInfoOk;
 - (void)onHeadImageChange:(id)arg1;
+- (void)onNewSyncModUserInfoExt:(id)arg1;
 - (void)onSettingChanged:(int)arg1;
 - (void)onSettingExtChanged:(int)arg1;
 - (void)onShowMyQrCode;

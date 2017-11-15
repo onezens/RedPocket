@@ -10,9 +10,11 @@
 {
 }
 
-- (id)layoutDetailView:(double)arg1;
+- (id)getDescription;
+- (id)getImage;
+- (struct CGRect)getImageViewFrame;
+- (id)getTitle;
 - (void)layoutView;
-- (void)onClickObject;
 
 @end
 

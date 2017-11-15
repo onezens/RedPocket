@@ -32,6 +32,8 @@
 @property(retain, nonatomic) WCPayBizF2FActQryCgi *actQryCgi; // @synthesize actQryCgi=_actQryCgi;
 @property(nonatomic) _Bool bHasPaySucc; // @synthesize bHasPaySucc=_bHasPaySucc;
 @property(nonatomic) __weak id <WCPayBizF2FTransferControlLogicDelegate> bizF2FLogicDelagte; // @synthesize bizF2FLogicDelagte=_bizF2FLogicDelagte;
+- (void)cancelTransferMoney;
+- (void)continueToTransfer;
 - (void)dealloc;
 - (_Bool)gotoViewController:(id)arg1;
 - (id)initWithData:(id)arg1;

@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class AccountErrorInfo, NSDictionary, NSString;
+@class AccountErrorInfo, BindOpMobileResponse, NSDictionary;
 
 @protocol WCAccountVerifyCodeHandlerDelegate <NSObject>
-- (void)onHandlerCheckLoginVerifyCode:(AccountErrorInfo *)arg1 ticket:(NSString *)arg2 controlShowFlag:(unsigned int)arg3 userName:(NSString *)arg4 password:(NSString *)arg5 StyleKeyValue:(NSDictionary *)arg6;
+- (void)onHandlerCheckLoginVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
 - (void)onHandlerGetVerifyCodeSuccessWithStyleKeyValue:(NSDictionary *)arg1;
 @end
 

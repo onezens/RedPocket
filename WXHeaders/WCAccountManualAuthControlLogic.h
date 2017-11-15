@@ -13,7 +13,7 @@
 #import "WCAccountSafeDeviceControlLogicDelegate.h"
 #import "WCAccountVoice2ndVerifyControlLogicDelegate.h"
 
-@class NSString, WCAccountGraphicVerifyControlLogic, WCAccountSafeDeviceControlLogic, WCAccountVoice2ndVerifyControlLogic;
+@class NSString, UnifyAuthResponse, WCAccountGraphicVerifyControlLogic, WCAccountSafeDeviceControlLogic, WCAccountVoice2ndVerifyControlLogic;
 
 @interface WCAccountManualAuthControlLogic : WCAccountBaseControlLogic <WCAccountGraphicVerifyControlLogicDelegate, WCAccountSafeDeviceControlLogicDelegate, WCAccountVoice2ndVerifyControlLogicDelegate, MMWebViewDelegate, PBMessageObserverDelegate, IRsaCertMgrExt>
 {
@@ -28,6 +28,7 @@
     _Bool m_bSessionKeyNeedECDHDecrypt;
     _Bool m_bStopCloseAcct;
     unsigned long long m_ui64BeginTime;
+    UnifyAuthResponse *_cacheResponse;
     _Bool m_bDontFillWTBuf;
     unsigned int m_uiCGIScene;
 }
@@ -43,6 +44,8 @@
 - (id)initWithData:(id)arg1;
 @property(nonatomic) _Bool m_bDontFillWTBuf; // @synthesize m_bDontFillWTBuf;
 @property(nonatomic) unsigned int m_uiCGIScene; // @synthesize m_uiCGIScene;
+- (_Bool)onErrorHandleLogicDone;
+- (_Bool)onErrorHandleLogicDoneAndNeedGoNextWithParams:(id)arg1;
 - (void)onGraphicVerifyControlLogicCancel;
 - (id)onGraphicVerifyControlLogicGetAuthRequest:(_Bool)arg1;
 - (void)onGraphicVerifyControlLogicReturn:(id)arg1;

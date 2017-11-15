@@ -23,6 +23,7 @@
 + (id)genGreenButton;
 + (id)genGreenButtonWithHeight:(double)arg1;
 + (id)genLineButtonWithColor:(id)arg1 fontColor:(id)arg2;
++ (id)genLineButtonWithColor:(id)arg1 fontColor:(id)arg2 fontSize:(double)arg3 fixHeight:(double)arg4 radius:(double)arg5 fontAlphaHighLighted:(double)arg6;
 + (id)genMiddleButtonWithColor:(id)arg1 fontColor:(id)arg2;
 + (id)genMiddleGrayButton;
 + (id)genMiddleGreenButton;

@@ -79,7 +79,7 @@
 - (void)onJumpToPicView:(id)arg1;
 - (void)onJumpToScanView:(id)arg1;
 - (void)onJumpToWebView:(id)arg1;
-- (void)onOpenWeAppWithJSONString:(id)arg1;
+- (void)onOpenWeAppWithJSONString:(id)arg1 fromScene:(unsigned int)arg2;
 - (void)onRecordActionEvent:(id)arg1;
 - (void)onRecordActionEvent:(id)arg1 toBrand:(id)arg2;
 - (void)onReportActionEventAndContentXML:(id)arg1;

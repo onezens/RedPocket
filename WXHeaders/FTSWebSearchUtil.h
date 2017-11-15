@@ -55,6 +55,7 @@
 + (id)searchTextField:(id)arg1 shouldChangeRange:(struct _NSRange)arg2 replaceText:(id)arg3 shouldNotify:(_Bool *)arg4;
 + (_Bool)shouldUpdateGuideDataForScene:(unsigned int)arg1 andVersion:(unsigned int)arg2;
 + (id)tryAppendNewKeyForUrlStr:(id)arg1 andKey:(id)arg2 andUrlParams:(id)arg3;
++ (void)tryCloseWslocalWebview;
 + (id)tryGetNavTitleWithParams:(id)arg1;
 + (_Bool)verifyDevelopH5;
 + (int)verifyModuleContent:(id)arg1;

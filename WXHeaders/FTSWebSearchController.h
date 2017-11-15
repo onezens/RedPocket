@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 #import "FTSWebSearchDataSource.h"
+#import "IWSViewControllerLifeCycleExt.h"
 #import "UIScrollViewDelegate.h"
 #import "UISearchBarDelegate.h"
 #import "UIWebViewDelegate.h"
@@ -18,7 +19,7 @@
 
 @class FTSWebSearchMgr, MMTagSearchBar, MMUIViewController, NSMutableArray, NSMutableDictionary, NSString, UIImageView, UISearchBar, UITextField, UIView, WASearchFromGlobalProxy, WSContactSearchLogic, WSHistoryCacheLogic, WSJSEventHandler, WSResultViewLogic, WSTagSearchLogic;
 
-@interface FTSWebSearchController : NSObject <UISearchBarDelegate, UIWebViewDelegate, UIScrollViewDelegate, FTSWebSearchDataSource, WSJSEventHandleDelegate, WSContactSearchLogicDelegate, WSTagSearchDelegate, WASearchFromGlobalProxyDelegate, WAAppCanvasWrapperViewDelegate>
+@interface FTSWebSearchController : NSObject <UISearchBarDelegate, UIWebViewDelegate, UIScrollViewDelegate, FTSWebSearchDataSource, WSJSEventHandleDelegate, WSContactSearchLogicDelegate, WSTagSearchDelegate, WASearchFromGlobalProxyDelegate, WAAppCanvasWrapperViewDelegate, IWSViewControllerLifeCycleExt>
 {
     NSString *_lastShouldChangedFormatQuery;
     int _scene;
@@ -92,7 +93,7 @@
 - (void)initTagSearchLogic;
 - (void)initView;
 - (void)initWebSearchMgr;
-- (id)initWithScene:(int)arg1 mode:(int)arg2 businessType:(unsigned long long)arg3;
+- (id)initWithViewController:(id)arg1 Scene:(int)arg2 mode:(int)arg3 businessType:(unsigned long long)arg4;
 - (void)internalSwizzle;
 - (_Bool)isSubClassSearch;
 - (_Bool)isSupportLocalSuggestion;
@@ -103,7 +104,7 @@
 - (void)keyboardDidHide:(id)arg1;
 - (void)loadLocalHtml:(id)arg1 baseUrlParams:(id)arg2;
 - (void)loadLocalHtmlForDetailPage:(id)arg1 andParams:(id)arg2;
-- (void)loadLocalHtmlForVertSearch;
+- (void)loadLocalHtmlForVertSearch:(id)arg1;
 - (id)makeNewDetailView:(id)arg1;
 - (void)moveDetailViewToRight;
 - (void)moveWebViewToRight;
@@ -171,8 +172,10 @@
 - (void)updateSearchBarPosition;
 - (id)urlParmasForDetailPage:(id)arg1 andParams:(id)arg2;
 - (id)urlParmasForMainPage:(id)arg1 baseUrlParams:(id)arg2;
-- (id)urlParmasForVSPage;
+- (id)urlParmasForVSPage:(id)arg1;
 - (id)viewStacks;
+- (void)webSearchVC:(id)arg1 willAppear:(_Bool)arg2;
+- (void)webSearchVC:(id)arg1 willDisappear:(_Bool)arg2;
 - (void)willBeginDetailSearch:(id)arg1 andParams:(id)arg2;
 - (void)willBeginDetailSearchOfWeApp:(id)arg1;
 

@@ -55,11 +55,11 @@
 - (void)addBlurEffectView;
 - (void)addRedDotInGroupCell:(id)arg1 existNewBrand:(_Bool)arg2;
 - (void)applySearchBeginAnimation:(id)arg1;
+- (void)backToSplitViewEmptyViewController:(id)arg1;
 - (void)bindPhoneReturn;
 - (void)cancelSearch;
 - (void)checkDBAutoRecover;
 - (void)dealloc;
-- (void)didAppear;
 - (void)didReceiveMemoryWarning;
 - (void)displayControllerSetActive:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)doSearch:(id)arg1 Pre:(_Bool)arg2;
@@ -68,6 +68,7 @@
 - (unsigned int)getSectionType:(long long)arg1;
 - (id)getVCWithDeepLinkName:(id)arg1;
 - (id)getViewController;
+- (void)handleFrameChangeForSearchBar;
 - (void)handleSelectEnterpriseBrand:(unsigned long long)arg1;
 - (void)handleSelectdBindPhone;
 - (void)handleSelectdBrandGroup:(long long)arg1;
@@ -111,7 +112,6 @@
 - (void)onContactsDataChange;
 - (_Bool)onFilterContactCandidate:(id)arg1;
 - (void)onFriendAssistUnreadCountChanged;
-- (void)onMainWindowFrameChanged;
 - (void)onShowAddContact:(_Bool)arg1;
 - (void)openContactInfoView:(int)arg1;
 - (void)reLayoutSubviews;
@@ -151,8 +151,6 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)willAppear;
-- (void)willDisshow;
-- (void)willShow;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

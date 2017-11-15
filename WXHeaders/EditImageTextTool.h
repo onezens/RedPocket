@@ -20,6 +20,7 @@
     struct CGPoint _screenCenter;
     double _zoomScaleWhenInit;
     UIView *_superView;
+    struct CGRect _editViewFrame;
     double _lineWidth;
     UIColor *_lineColor;
     UILabel *_label;
@@ -35,7 +36,7 @@
 - (void)createTextLayer:(struct CGRect)arg1 withCenterPoint:(struct CGPoint)arg2 withSuperView:(id)arg3;
 - (void)createTrueTextLayer;
 - (void)dealloc;
-- (id)init;
+- (id)initWithEditViewFrame:(struct CGRect)arg1;
 - (double)maxFrameScaleWhileSelect;
 - (double)maxScaleFactor;
 - (id)mutableCopy;

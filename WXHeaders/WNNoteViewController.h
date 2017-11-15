@@ -15,7 +15,7 @@
 #import "UITextFieldDelegate.h"
 #import "WCActionSheetDelegate.h"
 
-@class CMessageWrap, FavForwardLogicController, FavoritesItem, MMTimer, NSMutableArray, NSString, NSURL, UIButton, UITextField, UITextView, WNNoteVoiceItemUtil;
+@class CMessageWrap, FavForwardLogicController, FavoritesItem, MMTimer, NSMutableArray, NSString, NSURL, UIButton, UITextField, UITextView, WCDataItem, WNNoteVoiceItemUtil;
 
 @interface WNNoteViewController : WNRichEditViewController <IFavoritesExt, IRecordDownloadExt, WCActionSheetDelegate, FavForwardLogicDelegate, UITextFieldDelegate, FavTagViewDelegate, UIScrollViewDelegate, UIAlertViewDelegate>
 {
@@ -49,6 +49,7 @@
     FavoritesItem *_textFavItem;
     id <FavPostControllerDelegate> _favPostControllerDelegate;
     CMessageWrap *_recordMsg;
+    WCDataItem *_wcDataItem;
 }
 
 - (void).cxx_destruct;
@@ -99,6 +100,7 @@
 - (void)onExportData:(id)arg1;
 - (void)onFavTagEditBegin:(int)arg1;
 - (void)onFavTagEditOK;
+- (void)onForwardNote2WC;
 - (void)onHideKeyboard;
 - (void)onLongClickNode:(id)arg1 andRect:(struct CGRect)arg2;
 - (void)onMenuAction:(id)arg1;
@@ -111,6 +113,7 @@
 - (void)scheduleBackup;
 - (void)scrollViewDidScroll:(id)arg1;
 @property(retain, nonatomic) FavoritesItem *textFavItem; // @synthesize textFavItem=_textFavItem;
+@property(retain, nonatomic) WCDataItem *wcDataItem; // @synthesize wcDataItem=_wcDataItem;
 - (void)showMenuAction:(_Bool)arg1;
 - (void)stopVoiceRecord;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;

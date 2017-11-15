@@ -17,8 +17,8 @@
 - (void).cxx_destruct;
 - (unsigned long long)count;
 - (id)init;
+- (id)objectForKey:(id)arg1;
 - (void)safeSetDictionrary:(id)arg1;
-- (id)valueForKey:(id)arg1;
 
 @end
 

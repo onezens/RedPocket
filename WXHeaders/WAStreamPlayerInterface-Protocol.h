@@ -10,6 +10,7 @@
 
 @protocol WAStreamPlayerInterface <NSObject>
 @property(nonatomic) _Bool autoPlay;
+@property(nonatomic) _Bool customCache;
 - (void)disableScroll:(_Bool)arg1;
 - (void)enableFullScreen:(_Bool)arg1;
 @property(nonatomic) _Bool enablePageGesture;

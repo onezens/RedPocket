@@ -41,6 +41,7 @@
     UILabel *m_locationLabel;
     UILabel *m_weappInfoLabel;
     InteractionLabel *m_weappNameLabel;
+    UILabel *m_noteInfoLabel;
     UIView *m_mediaView;
     UIButton *m_advertiseLogo;
     UIButton *m_adDetailBtn;
@@ -104,6 +105,7 @@
 - (void)initLocationLabel;
 - (void)initMusicLabel;
 - (void)initNickLabel;
+- (void)initNoteInfoLable;
 - (void)initOperateBtn;
 - (void)initPeddlerTipView:(id)arg1;
 - (void)initPrivacyButton:(id)arg1;

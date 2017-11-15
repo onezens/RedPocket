@@ -6,18 +6,15 @@
 
 #import "NSObject.h"
 
-@class FavoritesItem, MMUIViewController, NSMutableArray, NSString, WNParagraphInfo;
+@class FavoritesItem, MMUIViewController, NSMutableArray, NSString;
 
 @protocol WNParaObjectViewDelegate <NSObject>
 
 @optional
 - (NSMutableArray *)getDataArray;
 - (FavoritesItem *)getFavItem;
-- (NSString *)getPlayingObjectId;
 - (MMUIViewController *)getViewController;
-- (void)onCheckPlayVoice:(WNParagraphInfo *)arg1;
 - (void)onObjectHeightChanged;
 - (void)onSendLocationToFriend:(NSString *)arg1 ViewController:(MMUIViewController *)arg2;
-- (void)onStopRecordVoice:(WNParagraphInfo *)arg1;
 @end
 

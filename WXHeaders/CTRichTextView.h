@@ -57,8 +57,8 @@
 - (id)getSelectRectsWithRange:(struct _NSRange)arg1;
 - (id)getStringWithRange:(struct _NSRange)arg1;
 - (id)getTextString;
-- (float)getTextViewHeight;
-- (long long)getTouchIndexWithTouchPoint:(struct CGPoint)arg1;
+- (long long)getTouchIndexWithTouchPoint:(struct CGPoint)arg1 FrontCursor:(_Bool)arg2;
+- (struct _NSRange)getTouchRangeWithTouchPoint:(struct CGPoint)arg1;
 - (double)heightForContent:(id)arg1;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;

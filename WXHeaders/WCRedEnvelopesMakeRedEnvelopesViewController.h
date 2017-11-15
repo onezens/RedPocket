@@ -9,14 +9,13 @@
 #import "ILinkEventExt.h"
 #import "MMTableViewInfoDelegate.h"
 #import "UITableViewDelegate.h"
-#import "UITextFieldDelegate.h"
 #import "UITextViewDelegate.h"
 #import "WCActionSheetDelegate.h"
 #import "WCPayNoticeBannerDelegate.h"
 
 @class MMTextView, NSString, RichTextView, UIButton, UILabel, UIView, WCBaseKeyboardToolBar, WCPayNoticeBanner, WCRedEnvelopesMakeRedEnvelopesViewLayout, WCUITextField;
 
-@interface WCRedEnvelopesMakeRedEnvelopesViewController : WCRedEnvelopesBaseViewController <WCPayNoticeBannerDelegate, UITableViewDelegate, WCActionSheetDelegate, UITextFieldDelegate, UITextViewDelegate, ILinkEventExt, MMTableViewInfoDelegate>
+@interface WCRedEnvelopesMakeRedEnvelopesViewController : WCRedEnvelopesBaseViewController <WCPayNoticeBannerDelegate, UITableViewDelegate, WCActionSheetDelegate, UITextViewDelegate, ILinkEventExt, MMTableViewInfoDelegate>
 {
     id <WCRedEnvelopesMakeRedEnvelopesViewControllerDelegate> m_delegate;
     int m_enMakeRedEnvelopesScene;
@@ -89,7 +88,6 @@
 - (void)setButtonWaitFiveMin;
 - (void)setDelegate:(id)arg1;
 - (void)showErrorView:(id)arg1 ErrorType:(long long)arg2;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidChanged:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidEndOnExit:(id)arg1;

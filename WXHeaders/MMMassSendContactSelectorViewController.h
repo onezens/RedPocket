@@ -56,7 +56,6 @@
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)viewDidLoad;
-- (void)willShow;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

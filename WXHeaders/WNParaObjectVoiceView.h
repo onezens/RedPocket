@@ -7,16 +7,16 @@
 #import "WNParaObjectBaseView.h"
 
 #import "IWNAudioMgrExt.h"
+#import "UIAlertViewDelegate.h"
 
-@class CAShapeLayer, NSString, UIImageView, UILabel, UIView;
+@class NSString, UIImageView, UILabel, UIView;
 
-@interface WNParaObjectVoiceView : WNParaObjectBaseView <IWNAudioMgrExt>
+@interface WNParaObjectVoiceView : WNParaObjectBaseView <IWNAudioMgrExt, UIAlertViewDelegate>
 {
-    UIView *borderView;
-    CAShapeLayer *borderLayer;
     UILabel *titleLabel;
     UIImageView *playingImageView;
     int viewType;
+    UIView *_recordingPoint;
 }
 
 - (void).cxx_destruct;
@@ -24,17 +24,15 @@
 - (void)OnEndPlayWNAudio:(id)arg1;
 - (void)OnEndWNAudioRecordWithObj:(id)arg1 FilePath:(id)arg2 VoiceTime:(float)arg3 VoiceFmt:(unsigned int)arg4;
 - (void)OnStartWNAudioRecordWithObj:(id)arg1;
-- (void)checkStartOrStopPlay;
+- (void)UpdateWNAudioRecordWithObj:(id)arg1;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (_Bool)canAlwaysClick;
 - (void)dealloc;
 - (id)getDuration:(int)arg1;
-- (id)init;
+- (_Bool)ifLayoutViewByBase;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)layoutView;
-- (void)layoutViewCommon;
 - (void)onClickObject;
-- (void)onTouchBegin;
-- (void)onTouchEnd;
-- (void)setSelected;
-- (void)setUnSelected;
 - (void)showNormalView;
 - (void)showPlayingView;
 - (void)showRecordingView;

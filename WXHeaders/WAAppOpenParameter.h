@@ -6,7 +6,7 @@
 
 #import "MMObject.h"
 
-@class NSString, UINavigationController;
+@class NSArray, NSString, UINavigationController;
 
 @interface WAAppOpenParameter : MMObject
 {
@@ -19,10 +19,12 @@
     NSString *_m_nsSceneNote;
     unsigned long long _m_uiPreScene;
     NSString *_m_nsPreSceneNote;
+    NSArray *_m_arrStackPages;
 }
 
 - (void).cxx_destruct;
 - (id)initWithWeAppUsername:(id)arg1;
+@property(retain, nonatomic) NSArray *m_arrStackPages; // @synthesize m_arrStackPages=_m_arrStackPages;
 @property(nonatomic) __weak UINavigationController *m_navigationController; // @synthesize m_navigationController=_m_navigationController;
 @property(copy, nonatomic) NSString *m_nsPagePath; // @synthesize m_nsPagePath=_m_nsPagePath;
 @property(copy, nonatomic) NSString *m_nsPreSceneNote; // @synthesize m_nsPreSceneNote=_m_nsPreSceneNote;

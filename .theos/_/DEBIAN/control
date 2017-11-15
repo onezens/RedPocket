@@ -1,0 +1,10 @@
+Package: cc.onezen.redpocket
+Name: RedPocket
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: wz
+Author: wz
+Section: Tweaks
+Version: 0.0.1-2+debug
+Installed-Size: 92

@@ -12,7 +12,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class MMUISearchBar, MMUIViewController, NSMutableArray, NSString, UISearchDisplayController;
+@class MMUISearchBar, MMUIViewController, NSMutableArray, NSString, UISearchDisplayController, UIView;
 
 @interface MMSearchBar : MMObject <UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MMUIViewControllerExt>
 {
@@ -28,10 +28,12 @@
 
 - (void).cxx_destruct;
 - (void)MMUIViewControllerDidBeRemoved:(id)arg1;
+- (void)UISplitViewWillChangeSplitMode;
 - (void)addFilteredObject:(id)arg1;
 - (void)cancelSearch;
 - (void)clearFilteredObjects;
 - (void)clearSearchDisplayController;
+@property(readonly, nonatomic) UIView *contentsView;
 - (void)dealloc;
 - (void)doSearch:(id)arg1;
 - (void)finishSearch;

@@ -6,12 +6,12 @@
 
 #import "MMObject.h"
 
-#import "MessageObserverDelegate.h"
+#import "INewSyncExt.h"
 #import "PBMessageObserverDelegate.h"
 
-@class FIFOFileQueue, NSMutableArray, NSMutableDictionary;
+@class FIFOFileQueue, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface WCCommentUploadMgr : MMObject <PBMessageObserverDelegate, MessageObserverDelegate>
+@interface WCCommentUploadMgr : MMObject <PBMessageObserverDelegate, INewSyncExt>
 {
     FIFOFileQueue *m_queue;
     NSMutableDictionary *m_inQueueCommentsForWCObject;
@@ -23,7 +23,6 @@
 
 - (void).cxx_destruct;
 - (void)MessageReturn:(id)arg1 Event:(unsigned int)arg2;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)addComment:(id)arg1;
 - (void)addCommentToWCObjectCache:(id)arg1;
 - (void)dealloc;
@@ -35,6 +34,7 @@
 - (id)init;
 - (_Bool)loadFailedQueue;
 @property(nonatomic) __weak id <WCCommentUploadMgrDelegate> m_delegate; // @synthesize m_delegate;
+- (void)onNewSyncOplogOK;
 - (void)popTopTask;
 - (void)pushBackTopTask;
 - (void)removeCommentFromWCObjectCache:(id)arg1;
@@ -43,6 +43,12 @@
 - (_Bool)saveFailedLikeQueue;
 - (void)setTopTaskFailWithRet:(int)arg1;
 - (void)tryStartNextTask;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

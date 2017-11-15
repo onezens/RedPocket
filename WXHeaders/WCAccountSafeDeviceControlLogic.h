@@ -23,10 +23,11 @@
 - (void)ParseFromXml:(id)arg1;
 - (void)cancelAllEvent;
 - (void)dealloc;
+- (id)getRegSessionID;
 - (id)initWithData:(id)arg1;
-- (void)onCheckSafeDeviceVerifyCode:(id)arg1;
-- (void)onGetSafeDeviceVerifyCode:(id)arg1 authTicket:(id)arg2 StyleKeyValue:(id)arg3;
-- (void)onGetSafeDeviceVoiceVerifyCode:(id)arg1 authTicket:(id)arg2 StyleKeyValue:(id)arg3;
+- (void)onCheckSafeDeviceVerifyCode:(id)arg1 Response:(id)arg2;
+- (void)onGetSafeDeviceVerifyCode:(id)arg1 authTicket:(id)arg2 StyleKeyValue:(id)arg3 Response:(id)arg4;
+- (void)onGetSafeDeviceVoiceVerifyCode:(id)arg1 authTicket:(id)arg2 StyleKeyValue:(id)arg3 Response:(id)arg4;
 - (void)onNewDeviceBack;
 - (void)onNewDeviceVerifyPhone;
 - (void)onPhoneVerifyAgain;

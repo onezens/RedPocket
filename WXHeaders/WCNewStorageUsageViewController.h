@@ -50,9 +50,7 @@
 - (void)onReturn;
 - (void)onScanTaskFinished;
 - (void)updateCell;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewDidTransitionToNewSize;
 - (void)viewWillAppear:(_Bool)arg1;
 
 // Remaining properties

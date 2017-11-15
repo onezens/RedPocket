@@ -12,7 +12,7 @@
 #import "MMService.h"
 #import "WXGChatLogDelMsgNotification.h"
 
-@class AsyncTaskQueueEngine, FTSContactMgr, FTSDB, FTSFavMgr, FTSMemorySearchMgr, FTSMessageMgr, FTSReportMgr, FTSTopHitMgr, FTSWebSearchMgr, MCSBrandContactMgr, NSMutableArray, NSMutableSet, NSRecursiveLock, NSString, WALocalSearchMgr, WAShowOutLogic, WSMusicMgr, WebSearchRedotMgr;
+@class AsyncTaskQueueEngine, FTSContactMgr, FTSDB, FTSFavMgr, FTSMemorySearchMgr, FTSMessageMgr, FTSReportMgr, FTSTopHitMgr, FTSWebSearchMgr, MCSBrandContactMgr, NSMutableSet, NSRecursiveLock, NSString, WALocalSearchMgr, WAShowOutLogic, WSMusicMgr, WebSearchRedotMgr;
 
 @interface FTSFacade : MMService <FTSDBDelegate, MMDBRRepairerExt, WXGChatLogDelMsgNotification, MMService, MMKernelExt>
 {
@@ -37,13 +37,10 @@
     MCSBrandContactMgr *_mcsBrdContactMgr;
     NSString *_localSearchId;
     WAShowOutLogic *_waShowOutLogic;
-    NSMutableArray *_arrRcmdWAReportCache;
 }
 
 - (void).cxx_destruct;
 - (void)addImageCacheKey:(id)arg1;
-- (void)addRecommendWAReportCache:(id)arg1;
-@property(retain, nonatomic) NSMutableArray *arrRcmdWAReportCache; // @synthesize arrRcmdWAReportCache=_arrRcmdWAReportCache;
 - (void)cancelSearchForHomePage;
 - (void)cleanFTSDB;
 - (void)clearFFBrowseRedot;

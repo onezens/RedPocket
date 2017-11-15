@@ -35,7 +35,7 @@
 - (void)OnResponse:(id)arg1;
 - (void)UploadFail;
 - (void)UploadSuccess;
-@property(copy, nonatomic) NSMutableArray *dateList; // @synthesize dateList=_dateList;
+@property(retain, nonatomic) NSMutableArray *dateList; // @synthesize dateList=_dateList;
 @property(copy, nonatomic) NSString *dateStr; // @synthesize dateStr=_dateStr;
 - (void)dealloc;
 - (void)didReceiveMemoryWarning;

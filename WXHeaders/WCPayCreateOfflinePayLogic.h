@@ -14,6 +14,7 @@
 @interface WCPayCreateOfflinePayLogic : WCPayControlLogic <WCPayPayPwdViewControllerDelegate, IWCPayControlLogicExt>
 {
     WCPayAddPayCardLogic *m_cardLogic;
+    _Bool _bHasHandleBindQueryResp;
 }
 
 - (void).cxx_destruct;
@@ -26,6 +27,7 @@
 - (void)PayPwdBack;
 - (void)PayPwdRightActionBack;
 - (void)VerifyPayPwdNext:(id)arg1;
+@property(nonatomic) _Bool bHasHandleBindQueryResp; // @synthesize bHasHandleBindQueryResp=_bHasHandleBindQueryResp;
 - (void)dealloc;
 - (void)justEndCreateOfflinePay:(_Bool)arg1;
 - (void)onErrorAlertViewDismiss:(id)arg1;

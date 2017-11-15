@@ -37,7 +37,6 @@
     FavoritesSetting *_setting;
     unsigned int m_curMinItemUpdateTime;
     NSObject<OS_dispatch_semaphore> *_semaphore;
-    _Bool m_bMoment_note_on;
     _Bool m_bCustomUsedCapacity_on;
     int m_usedCapacity;
     FavoritesReportLogic *_reportLogic;
@@ -72,7 +71,6 @@
 - (id)getDownloadPausedItemList;
 - (id)getDownloadingItemList;
 - (id)getFavMusicList;
-- (id)getFavoritesItemByFavId:(unsigned int)arg1;
 - (id)getFavoritesItemByLocalId:(unsigned int)arg1;
 - (id)getFavoritesItemFrom:(unsigned int)arg1 Limit:(int)arg2;
 - (void)getFirstPageFavoritesCapacityList;
@@ -80,7 +78,6 @@
 - (id)getItemTags:(unsigned int)arg1;
 - (id)getLastFavItem;
 - (id)getLastUpdateFavItem;
-- (_Bool)getMomentNoteStatus;
 - (_Bool)getNativeNoteStatus;
 - (void)getNextPageFavoritesCapacityListByCurMinDataSize:(unsigned int)arg1;
 - (void)getNextPageFavoritesList:(int)arg1 byCurMinUpdateTime:(unsigned int)arg2;
@@ -96,6 +93,8 @@
 - (id)init;
 - (void)initDB:(id)arg1;
 - (_Bool)isAutoUploadOrDownload;
+- (_Bool)isNoteShareMomentEnable;
+- (_Bool)isSaveNoteAsImageEnable;
 - (void)loadFavoritesSetting;
 - (void)onAsyncUploadFavoritesItemFinished:(id)arg1 ErrCode:(int)arg2;
 - (void)onBatchDelItemSuccess;
@@ -122,7 +121,6 @@
 - (void)search:(id)arg1 byType:(int)arg2;
 - (void)search:(id)arg1 byType:(int)arg2 andTags:(id)arg3;
 - (void)setCustomUsedCapacity:(_Bool)arg1;
-- (void)setMomentNoteStatus:(_Bool)arg1;
 - (void)setNativeNoteStatus:(_Bool)arg1;
 @property(retain, nonatomic) FavoritesSetting *setting; // @synthesize setting=_setting;
 - (void)setUserUsedCapacity:(int)arg1;

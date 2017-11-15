@@ -11,16 +11,10 @@
 @protocol WCAccountFillPhoneViewControllerDelegate <NSObject>
 
 @optional
-- (void)onByPhonePwdLoginByVerifyCode:(NSString *)arg1 phoneNumber:(NSString *)arg2;
 - (void)onFillPhoneBack;
 - (void)onFillPhoneBindAgreeMobileCanBeFound:(_Bool)arg1;
 - (void)onFillPhoneCancelLogout;
-- (void)onFillPhoneFromRegToLogin;
-- (void)onFillPhoneGoToSecurityCenter;
-- (void)onFillPhoneLoginByQQ;
 - (void)onFillPhoneNext:(NSString *)arg1 phoneNumber:(NSString *)arg2;
-- (void)onFillPhoneNext:(NSString *)arg1 phoneNumber:(NSString *)arg2 pwd:(NSString *)arg3;
-- (void)onFillPhoneReg;
 - (void)onFillPhoneSetPrivate;
 @end
 

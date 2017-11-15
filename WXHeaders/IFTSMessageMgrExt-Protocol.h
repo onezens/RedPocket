@@ -9,7 +9,8 @@
 @protocol IFTSMessageMgrExt <NSObject>
 
 @optional
-- (void)onFTSDetailPageMessageResultChanged;
+- (void)onFTSDetailPageMessageResultChanged:(_Bool)arg1;
 - (void)onFTSHomePageMessageResultChanged:(_Bool)arg1;
+- (void)onFTSRestrictSearchResultChanged:(_Bool)arg1;
 @end
 

@@ -9,8 +9,10 @@
 @interface WATipsViewController : MMTipsViewController
 {
     _Bool _currentUseBlackStatusBar;
+    _Bool m_bUseBlackStatusBar;
 }
 
+@property(nonatomic) _Bool m_bUseBlackStatusBar; // @synthesize m_bUseBlackStatusBar;
 - (void)setUseBlackStatusBar:(_Bool)arg1;
 - (void)showWithAnimated:(int)arg1;
 - (_Bool)useBlackStatusbar;

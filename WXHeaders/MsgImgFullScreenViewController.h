@@ -17,13 +17,14 @@
 #import "MsgImgFullScreenContainerDelegate.h"
 #import "UIAlertViewDelegate.h"
 #import "UIViewControllerAnimatedTransitioning.h"
+#import "UIViewControllerTransitioningDelegate.h"
 #import "WCActionSheetDelegate.h"
 #import "WXVideoPlayerViewDelegate.h"
 #import "WXVideoPlayerViewTouchDelegate.h"
 
 @class CMessageWrap, EditImageForwardAndEditLogicController, ForwardMessageLogicController, ImageScrollView, MMProgressViewEx, MMTimer, MMToastViewController, MsgImgDataLogic, MsgImgFullScreenContainer, MsgImgPreviewData, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, ScanQRCodeLogicController, ShareDataToOpenSDKController, UIActivityIndicatorView, UIButton, UIView, WCActionSheet;
 
-@interface MsgImgFullScreenViewController : MMUIViewController <BaseScanLogicDelegate, WXVideoPlayerViewDelegate, WXVideoPlayerViewTouchDelegate, MsgImgDataLogicDelegate, UIViewControllerAnimatedTransitioning, MMToastViewControllerDelegate, ForwardMessageLogicDelegate, EditImageForwardAndEditLogicDelegate, WCActionSheetDelegate, UIAlertViewDelegate, MsgImgFullScreenContainerDelegate, IDownloadImageExt, IMsgExt, IMsgRevokeExt>
+@interface MsgImgFullScreenViewController : MMUIViewController <BaseScanLogicDelegate, WXVideoPlayerViewDelegate, WXVideoPlayerViewTouchDelegate, MsgImgDataLogicDelegate, UIViewControllerAnimatedTransitioning, MMToastViewControllerDelegate, ForwardMessageLogicDelegate, EditImageForwardAndEditLogicDelegate, UIViewControllerTransitioningDelegate, WCActionSheetDelegate, UIAlertViewDelegate, MsgImgFullScreenContainerDelegate, IDownloadImageExt, IMsgExt, IMsgRevokeExt>
 {
     NSMutableDictionary *m_dicMsgStatus;
     NSMutableDictionary *m_dicTryshowTime;
@@ -120,6 +121,8 @@
 - (void)animateShowWithOriginRectInScreen:(struct CGRect)arg1;
 - (void)animateTransition:(id)arg1;
 - (void)animateTransition:(id)arg1 fromVC:(id)arg2 toVC:(id)arg3 fromView:(id)arg4 toView:(id)arg5;
+- (id)animationControllerForDismissedController:(id)arg1;
+- (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (void)animationEnded:(_Bool)arg1;
 - (void)asyncLoadHDImage:(id)arg1;
 - (id)btnForDownloadImage;

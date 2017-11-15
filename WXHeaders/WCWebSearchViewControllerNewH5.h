@@ -54,6 +54,7 @@
     UIView<YYWebViewInterface> *_firstPageWebView;
     _Bool _isSencondPageFromVerticalEntrance;
     _Bool _bTextFieldShouldReturn;
+    _Bool _hasLoadFirstWebview;
 }
 
 - (void).cxx_destruct;
@@ -72,6 +73,7 @@
 - (id)getInputMarginLeftRight;
 - (id)getInputMarginTop;
 - (id)getMixSearchPlaceHolder;
+- (id)getNativeHeight;
 - (id)getPlaceHolderForBusinessType:(unsigned long long)arg1;
 - (id)getSearchMarkImageForBusinesstype:(unsigned long long)arg1;
 - (void)handlePanGestureRecognizerForBlurView:(id)arg1;
@@ -105,6 +107,7 @@
 - (void)onSearchLaunchNextViewWithBizType:(unsigned long long)arg1;
 - (void)onSearchReset;
 - (void)onStartVerticalSearch:(unsigned long long)arg1;
+- (void)onSwitchSearchContext:(int)arg1 andType:(unsigned long long)arg2 andQuery:(id)arg3;
 - (void)onSwitchSearchTypeForDefault:(id)arg1;
 - (void)onTagSearchBarInfoChangedToNotify:(id)arg1;
 - (void)onTapNavSwitchContentBackView:(id)arg1;
@@ -114,6 +117,7 @@
 - (void)registerTagSearchLogic;
 - (void)removeBlurEffect;
 - (void)removeHistorySuggestion:(id)arg1;
+- (void)reportGuideEntryViewExposure;
 - (void)resetContentSearch;
 - (void)resetFromWebSearch;
 - (void)resetNavSearch;
@@ -145,6 +149,8 @@
 - (_Bool)useTransparentNavibar;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (double)webSearchViewPosY;
 - (void)willBeginWebSearch;
 - (void)willEndWebSearch;

@@ -71,6 +71,7 @@
     MMUILabel *_bankNameLabel;
     MMUILabel *_bankDescLabel;
     MMUILabel *_bankForbidWordLabel;
+    MMUIView *_headerContentView;
 }
 
 - (void).cxx_destruct;
@@ -125,8 +126,8 @@
 - (id)getActionBarView;
 - (id)getNoticeBanner;
 - (id)getOfflinePayHelpUrl;
-- (id)getQRCodeView;
 - (void)grouppayBtnPress:(id)arg1;
+@property(retain, nonatomic) MMUIView *headerContentView; // @synthesize headerContentView=_headerContentView;
 - (void)hideAddNewCardTipsView;
 - (void)hideInvalidTipsView;
 - (void)hideNoCodeTipsView;
@@ -158,6 +159,7 @@
 @property(nonatomic) unsigned int patternLockLogicTag; // @synthesize patternLockLogicTag=_patternLockLogicTag;
 - (void)preLoadTokensIfNeed;
 - (_Bool)preViewControllerIsKindOf:(Class)arg1;
+- (void)qrcoderewardBtnPress:(id)arg1;
 - (void)receiveMoneyBtnPress:(id)arg1;
 - (void)refreshViewWithData:(id)arg1;
 - (void)reloadTableView;
@@ -167,8 +169,8 @@
 - (void)setDelegate:(id)arg1;
 @property(retain, nonatomic) WCUIAlertView *snapshotAlertView; // @synthesize snapshotAlertView=_snapshotAlertView;
 - (void)setupBottomButtonView;
-- (void)setupChangeCardLabelUselessCode;
-- (void)setupChangeCardView;
+- (void)setupChangeCardViewWithShouldChangeHeaderViewHeight:(_Bool)arg1;
+- (void)setupHeaderContentView;
 - (void)setupWCPayLogo;
 - (void)showAddNewCardTipsView;
 - (void)showCreateOfflinePayTipsView;

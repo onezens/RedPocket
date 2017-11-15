@@ -63,7 +63,6 @@
 - (void)editImageViewdidEndDraw;
 @property(nonatomic) unsigned long long entranceType; // @synthesize entranceType=_entranceType;
 - (void)firstShowCrop;
-- (id)init;
 - (void)initBottomBar;
 - (void)initCropBtn;
 - (void)initCropToolAttrBar;
@@ -75,6 +74,7 @@
 - (void)initTopBar;
 - (void)initVideoPreview;
 - (void)initView;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)layoutScrollView:(double)arg1;
 - (void)onClickCancel;
 - (void)onClickCropEdit:(id)arg1;

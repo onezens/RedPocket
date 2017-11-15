@@ -8,14 +8,14 @@
 
 #import "AMRAudioPlayerDelegate.h"
 #import "DownloadVoiceDelegate.h"
+#import "INewSyncExt.h"
 #import "MMService.h"
-#import "MessageObserverDelegate.h"
 #import "SPXAudioPlayerDelegate.h"
 #import "SilkAudioPlayerDelegate.h"
 
 @class AMRAudioPlayer, CDownloadVoiceMgr, CMainControll, NSString, SPXAudioPlayer, SilkAudioPlayer;
 
-@interface AudioReceiver : MMService <AMRAudioPlayerDelegate, SPXAudioPlayerDelegate, SilkAudioPlayerDelegate, DownloadVoiceDelegate, MessageObserverDelegate, MMService>
+@interface AudioReceiver : MMService <AMRAudioPlayerDelegate, SPXAudioPlayerDelegate, SilkAudioPlayerDelegate, DownloadVoiceDelegate, INewSyncExt, MMService>
 {
     AMRAudioPlayer *m_amrplayer;
     SPXAudioPlayer *m_spxplayer;
@@ -25,7 +25,6 @@
 }
 
 - (void).cxx_destruct;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)OnAMRBeginPlaying:(id)arg1 ErrNo:(int)arg2;
 - (void)OnAMREarTip;
 - (_Bool)OnAMREndDontNotifyOtherApp;
@@ -55,6 +54,7 @@
 - (id)init;
 - (_Bool)initFacade:(id)arg1;
 - (_Bool)isPlaying;
+- (void)onNewSyncAddMessage:(id)arg1;
 - (void)onSilkBeginPlaying:(id)arg1 ErrNo:(int)arg2;
 - (void)onSilkEarTip;
 - (_Bool)onSilkEndDontNotifyOtherApp;

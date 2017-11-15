@@ -1,0 +1,146 @@
+
+
+@interface WCBizUtil 
++ (id)dictionaryWithDecodedComponets:(id)arg1 separator:(id)arg2;
+@end
+
+@interface MMServiceCenter
++ (id)defaultCenter;
+- (id)getService:(id)cls;
+@end
+
+@interface WCRedEnvelopesReceiveHomeView{
+     id m_delegate;
+     NSDictionary *m_dicBaseInfo;
+}
+@end
+
+@interface WCPayInfoItem 
+@property(retain, nonatomic) NSString *m_c2cNativeUrl; // @synthesize m_oSelectedMessageWrap;
+@end
+
+@interface CMessageWrap
+@property(retain, nonatomic) WCPayInfoItem *m_oWCPayInfoItem; 
+@end
+
+@interface WCRedEnvelopesControlData 
+
+@property(retain, nonatomic) CMessageWrap *m_oSelectedMessageWrap; 
+@property(retain, nonatomic) NSDictionary *m_structDicRedEnvelopesBaseInfo;
+@end
+
+@interface WCRedEnvelopesReceiveControlLogic
+{
+    WCRedEnvelopesControlData *m_data;
+}
+- (void)WCRedEnvelopesReceiveHomeViewOpenRedEnvelopes;
+@end
+
+
+
+@interface CContactMgr
+- (id)getSelfContact;
+@end
+
+@interface CBaseContact
+
+@property(retain, nonatomic) NSString *m_nsHeadImgUrl;
+@property(retain, nonatomic) NSString *m_nsUsrName;
+- (id)getContactDisplayName;
+
+@end
+
+@interface MMMsgLogicManager
+
+- (id)GetCurrentLogicController;
+
+@end
+
+@interface BaseMsgContentLogicController
+
+@property(retain, nonatomic) CBaseContact *m_contact;
+@end
+
+@interface WCPayLogicMgr 
+-(void)setRealnameReportScene:(int)sence;
+@end
+
+@interface WCRedEnvelopesLogicMgr
+- (void)OpenRedEnvelopesRequest:(id)arg1;
+@end
+
+%hook WCRedEnvelopesReceiveControlLogic
+
+- (void)WCRedEnvelopesReceiveHomeViewOpenRedEnvelopes { 
+
+// %orig; 
+    WCRedEnvelopesControlData *mData = MSHookIvar<WCRedEnvelopesControlData *>(self, "m_data");
+    CMessageWrap *messageWrap = [mData m_oSelectedMessageWrap];
+    WCPayInfoItem *payInfoItem = [messageWrap m_oWCPayInfoItem];
+
+    NSString *m_c2cNativeUrl = [payInfoItem m_c2cNativeUrl];
+    NSInteger index = [@"wxpay://c2cbizmessagehandler/hongbao/receivehongbao?" length];
+    NSString *nativeUrlData = [m_c2cNativeUrl substringFromIndex:index];
+
+    NSDictionary *nativeUrlDict = [%c(WCBizUtil) dictionaryWithDecodedComponets:nativeUrlData separator:@"&"];
+    NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+    [dictM setObject:@"1" forKey:@"msgType"];
+    id sendId = [nativeUrlDict objectForKey:@"sendid"];
+    [dictM setObject:sendId forKey: @"sendId"];
+    id channelId = [nativeUrlDict objectForKey:@"channelid"];
+    [dictM setObject:channelId forKey:@"channelId"];
+
+    MMServiceCenter *serviceCenter = [%c(MMServiceCenter) defaultCenter];
+    Class contactMgrCls = [%c(CContactMgr) class];
+    CContactMgr *contactMgrSer = [serviceCenter getService: contactMgrCls];
+    CBaseContact *contactMgrSelfContact = [contactMgrSer getSelfContact];
+    NSString *displayName = [contactMgrSelfContact getContactDisplayName];
+    [dictM setObject:displayName forKey: @"nickName"];
+    NSString *headImgUrl = [contactMgrSelfContact m_nsHeadImgUrl];
+    [dictM setObject: headImgUrl forKey:@"headImg"];
+
+    if([mData m_oSelectedMessageWrap]){
+        CMessageWrap *messageWrap = [mData m_oSelectedMessageWrap];
+        WCPayInfoItem *payInfoItem = [messageWrap m_oWCPayInfoItem];
+        NSString *m_c2cNativeUrl = [payInfoItem m_c2cNativeUrl];
+        [dictM setObject:m_c2cNativeUrl forKey: @"nativeUrl"];
+    }
+ 
+    Class logicMgrCls = [%c(MMMsgLogicManager) class];
+    MMMsgLogicManager *logicMgrSer = [serviceCenter getService:logicMgrCls];
+    BaseMsgContentLogicController *currentVC = [logicMgrSer GetCurrentLogicController];
+    if([currentVC m_contact]){
+        CBaseContact *contact = [currentVC m_contact];
+        NSString *userName = [contact m_nsUsrName];
+        [dictM setObject:userName forKey:@"sessionUserName"];
+    }
+    NSDictionary* baseInfoDict = [mData m_structDicRedEnvelopesBaseInfo];
+    NSString *timingIdentifier = [baseInfoDict objectForKey:@"timingIdentifier"];
+    if([timingIdentifier length] > 0){
+        [dictM setObject:timingIdentifier forKey:@"timingIdentifier"];
+    }
+
+    Class payLogicMgrCls =  [%c(WCPayLogicMgr) class];
+    WCPayLogicMgr *payLogicMgrSer = [serviceCenter getService: payLogicMgrCls];
+    [payLogicMgrSer setRealnameReportScene:0x3EB];
+
+    NSLog(@"\nDictM\n\n  %@", dictM);
+
+    //block 调用
+    WCRedEnvelopesLogicMgr *redEnvelopesLogicMgr = [serviceCenter getService: [%c(WCRedEnvelopesLogicMgr) class]];
+    [redEnvelopesLogicMgr OpenRedEnvelopesRequest: dictM];
+     
+}
+
+%end
+
+%hook WCRedEnvelopesLogicMgr
+
+- (void)OpenRedEnvelopesRequest:(id)arg1 {
+
+    %log;%orig; 
+    NSLog(@"OpenRedEnvelopesRequest param: %@", [arg1 class]);
+
+}
+
+%end

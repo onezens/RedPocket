@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @protocol WNSelectAllViewDelegate <NSObject>
+- (_Bool)BeEditable;
 - (void)onHideSelectAllView;
 - (void)onSelectAllActionCopy;
 - (void)onSelectAllActionCut;

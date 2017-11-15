@@ -12,7 +12,7 @@
 #import "WAPermissionHandlerDelegate.h"
 #import "WAWebViewDelegate.h"
 
-@class CContact, MMTimer, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString, WAAppOpenParameter, WAAppTaskExtInfo, WAAppTaskLoader, WAAppTaskReferrerInfo, WAAppTaskRunningStateEnterBackgroundContext, WAAppTaskShowFromBackgroundContext, WAJSCoreService, WAPermissionHandler, WAWebViewController, WAWebViewPageMgr, WxaExternalInfo;
+@class CContact, MMTimer, NSArray, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString, WAAppOpenParameter, WAAppTaskExtInfo, WAAppTaskLoader, WAAppTaskReferrerInfo, WAAppTaskRunningStateEnterBackgroundContext, WAAppTaskShowFromBackgroundContext, WAJSCoreService, WAPermissionHandler, WAWebViewController, WAWebViewPageMgr, WxaExternalInfo;
 
 @interface WAAppTask : NSObject <WAAppTaskLoaderDelegate, WAWebViewDelegate, WAJSCoreServiceDelegate, WAPermissionHandlerDelegate, MMTipsViewControllerDelegate>
 {
@@ -60,6 +60,7 @@
     unsigned long long _runningState;
     NSRecursiveLock *_lock;
     _Bool _isRecording;
+    NSArray *_arrPageStackPaths;
     _Bool _backgroundMusic;
     unsigned int _timeEnterBackground;
     unsigned int _enterScene;

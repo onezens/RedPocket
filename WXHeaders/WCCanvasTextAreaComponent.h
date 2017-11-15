@@ -23,6 +23,7 @@
 - (void)ImageDidFail:(id)arg1;
 - (void)ImageDidLoad:(id)arg1 Url:(id)arg2;
 - (void)adjustOneLineStyles:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)alignText:(long long)arg1;
 - (void)alignTextToCenter;
 - (void)configureWithCanvasItem:(id)arg1 dataItem:(id)arg2 orientation:(long long)arg3;
 @property(retain, nonatomic) RichTextView *contentLabel; // @synthesize contentLabel=_contentLabel;

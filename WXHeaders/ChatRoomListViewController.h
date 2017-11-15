@@ -26,6 +26,7 @@
 - (void)onContactListUpdate:(unsigned int)arg1;
 - (void)onDeleteContact:(id)arg1;
 - (void)onModifyContact:(id)arg1;
+- (_Bool)shouldHideTabbarBeforeSearchBarBecomeActive;
 - (void)showContactInfoView:(id)arg1;
 - (void)updateCount;
 - (void)viewDidLayoutSubviews;

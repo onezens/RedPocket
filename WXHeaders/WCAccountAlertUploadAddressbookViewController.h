@@ -8,13 +8,17 @@
 
 #import "IAddressBookMgrExt.h"
 
-@class WCUIAlertView;
+@class AccountUploadAddressInfo, UIView, WCUIAlertView;
 
 @interface WCAccountAlertUploadAddressbookViewController : WCAccountBaseViewController <IAddressBookMgrExt>
 {
     id <WCAccountAlertUploadAddressbookViewControllerDelegate> m_delegate;
     _Bool m_bCanSyncAddressBook;
     WCUIAlertView *m_reportAlert;
+    AccountUploadAddressInfo *m_info;
+    UIView *m_backgroundView;
+    _Bool m_bShowMore;
+    _Bool m_bShowInfo;
 }
 
 - (void).cxx_destruct;

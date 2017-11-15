@@ -39,6 +39,7 @@
 - (void)onCollectionViewCellMoved:(struct CGPoint)arg1;
 - (_Bool)onEndCollectionViewCellMovement:(long long)arg1;
 - (void)reload;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

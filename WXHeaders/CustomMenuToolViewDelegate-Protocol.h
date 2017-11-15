@@ -14,7 +14,7 @@
 - (void)onJumpToPicView:(CustomMenuButton *)arg1;
 - (void)onJumpToScanView:(CustomMenuButton *)arg1;
 - (void)onJumpToWebView:(NSString *)arg1;
-- (void)onOpenWeAppWithJSONString:(NSString *)arg1;
+- (void)onOpenWeAppWithJSONString:(NSString *)arg1 fromScene:(unsigned int)arg2;
 - (void)onRecordActionEvent:(CustomMenuButton *)arg1;
 - (void)onReportClickEvent:(CustomMenuButton *)arg1;
 - (void)onSubMenuDismiss;

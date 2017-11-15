@@ -6,13 +6,12 @@
 
 #import "MMUIView.h"
 
-#import "IAudioFuckBugExt.h"
 #import "IAudioReceiverExt.h"
 #import "IAudioSenderExt.h"
 
 @class MMTimer, NSString;
 
-@interface BottleAudioView : MMUIView <IAudioSenderExt, IAudioReceiverExt, IAudioFuckBugExt>
+@interface BottleAudioView : MMUIView <IAudioSenderExt, IAudioReceiverExt>
 {
     _Bool mIsPlayEnabled;
     _Bool mIsAudioPlaying;

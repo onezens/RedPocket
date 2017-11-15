@@ -25,6 +25,7 @@
     NSString *m_activityTinyAppUsername;
     NSString *m_activityTinyAppPath;
     unsigned long long m_activityMchId;
+    unsigned int _m_activityTinyAppVersion;
 }
 
 - (void).cxx_destruct;
@@ -32,6 +33,7 @@
 @property(nonatomic) unsigned long long m_activityMchId; // @synthesize m_activityMchId;
 @property(retain, nonatomic) NSString *m_activityTinyAppPath; // @synthesize m_activityTinyAppPath;
 @property(retain, nonatomic) NSString *m_activityTinyAppUsername; // @synthesize m_activityTinyAppUsername;
+@property(nonatomic) unsigned int m_activityTinyAppVersion; // @synthesize m_activityTinyAppVersion=_m_activityTinyAppVersion;
 @property(retain, nonatomic) NSString *m_nsActivitySlogan; // @synthesize m_nsActivitySlogan;
 @property(retain, nonatomic) NSString *m_nsActivityTitle; // @synthesize m_nsActivityTitle;
 @property(retain, nonatomic) NSString *m_nsActivityUrl; // @synthesize m_nsActivityUrl;

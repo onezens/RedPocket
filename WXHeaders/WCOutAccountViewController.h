@@ -6,6 +6,7 @@
 
 #import "MMUIViewController.h"
 
+#import "ILinkEventExt.h"
 #import "IWCOutFacadeExt.h"
 #import "InviteFriendLogicDelegate.h"
 #import "UITableViewDataSource.h"
@@ -13,7 +14,7 @@
 
 @class MMTableView, MMUILabel, NSString, UIImageView, UILabel, WCOutInviteFriendLogic;
 
-@interface WCOutAccountViewController : MMUIViewController <UITableViewDataSource, UITableViewDelegate, InviteFriendLogicDelegate, IWCOutFacadeExt>
+@interface WCOutAccountViewController : MMUIViewController <UITableViewDataSource, UITableViewDelegate, InviteFriendLogicDelegate, IWCOutFacadeExt, ILinkEventExt>
 {
     unsigned int _clickDetailCount;
     unsigned int _clickFeedbackCount;
@@ -38,6 +39,7 @@
 - (void)clickFAQButton;
 @property(nonatomic) unsigned int clickFeedbackCount; // @synthesize clickFeedbackCount=_clickFeedbackCount;
 @property(nonatomic) unsigned int clickReadmeCount; // @synthesize clickReadmeCount=_clickReadmeCount;
+- (id)configCloseFuntionFooterView;
 - (void)configFAQbutton;
 - (void)configModel;
 - (void)configRightBarButtonItem;
@@ -65,6 +67,7 @@
 - (void)onClickActionSheetShareRecord;
 - (void)onClickActionSheetWebRecharge;
 - (void)onClickMoreBtn;
+- (void)onLinkClicked:(id)arg1 withRect:(struct CGRect)arg2;
 @property(retain, nonatomic) NSString *outTs; // @synthesize outTs=_outTs;
 @property(retain, nonatomic) UIImageView *recordRedDot; // @synthesize recordRedDot=_recordRedDot;
 - (void)refreshDisCountLabel;
@@ -75,6 +78,7 @@
 @property(retain, nonatomic) MMUILabel *tipsPackageLabel; // @synthesize tipsPackageLabel=_tipsPackageLabel;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;

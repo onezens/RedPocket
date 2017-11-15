@@ -14,7 +14,18 @@
 @optional
 - (_Bool)ifHasReachedSizeLimit;
 - (void)insertItems:(NSMutableArray *)arg1;
+- (_Bool)isOlLiParagraph;
+- (_Bool)isRecording;
+- (_Bool)isReminderParagraph;
+- (_Bool)isSelectedTextBold;
+- (_Bool)isTodoParagraph;
+- (_Bool)isUlLiParagraph;
+- (void)onParagraphSetOl;
+- (void)onParagraphSetUl;
+- (void)onShowBasicToolView;
+- (void)onShowFullToolView;
 - (void)onTextSetBold;
+- (void)onToolViewParagraphSetTodo;
 - (void)onToolViewStartVoiceRecording:(WNParagraphInfo *)arg1;
 - (void)onToolViewStopVoiceRecording:(WNParagraphInfo *)arg1;
 @end

@@ -75,6 +75,7 @@
     struct CGPath *__drawPath;
     UIView *__superView;
     struct CGRect _startImageFrame;
+    struct CGRect _editViewFrame;
 }
 
 - (void).cxx_destruct;
@@ -134,6 +135,7 @@
 - (id)colorOfPoint:(struct CGPoint)arg1;
 - (void)dealloc;
 - (void)didSelectEmotion:(id)arg1 withEmotionMd5:(id)arg2;
+@property(nonatomic) struct CGRect editViewFrame; // @synthesize editViewFrame=_editViewFrame;
 - (void)endGesture:(id)arg1;
 - (_Bool)findGestureWidget:(id)arg1;
 - (void)finishDrawing;
@@ -148,9 +150,9 @@
 - (void)handlePinchGesture:(id)arg1;
 - (void)handleRotateGesture:(id)arg1;
 - (void)handleTapGesture:(id)arg1;
-- (id)init;
 - (void)initDeleteBar;
 - (void)initDrawViewArrayAndHierarchyArray:(id)arg1;
+- (id)initWithEditViewFrame:(struct CGRect)arg1;
 - (void)loadImage:(id)arg1 withDrawLayerArray:(id)arg2 withEditEntrance:(unsigned int)arg3;
 - (void)loadOriginalImage:(id)arg1 withImageData:(id)arg2;
 - (id)mosaicImage;

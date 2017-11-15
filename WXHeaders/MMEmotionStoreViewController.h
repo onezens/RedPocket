@@ -34,6 +34,7 @@
 - (id)initWithEmotionScene:(unsigned int)arg1 withRequestType:(unsigned int)arg2;
 - (_Bool)isNeedPersonalViewTab;
 - (void)onOperate;
+- (void)replaceFromViewController:(id)arg1 toViewController:(id)arg2;
 - (void)updateNew:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidBeDismissed:(_Bool)arg1;

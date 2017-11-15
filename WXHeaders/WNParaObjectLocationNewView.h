@@ -8,23 +8,18 @@
 
 #import "ViewLocationDelegate.h"
 
-@class NSString, UIView;
+@class NSString;
 
 @interface WNParaObjectLocationNewView : WNParaObjectBaseView <ViewLocationDelegate>
 {
-    UIView *locationDetailView;
-    UIView *borderView;
 }
 
-- (void).cxx_destruct;
-- (void)layoutDetailView:(double)arg1;
+- (id)getDescription;
+- (id)getImage;
+- (id)getTitle;
 - (void)layoutView;
 - (void)onClickObject;
 - (void)onSendLocationToFriend:(id)arg1 ViewController:(id)arg2;
-- (void)onTouchBegin;
-- (void)onTouchEnd;
-- (void)setSelected;
-- (void)setUnSelected;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

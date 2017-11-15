@@ -39,11 +39,13 @@
 - (void)jumpToManulLoginControlMgrToRegister:(id)arg1;
 - (void)loginAccount:(_Bool)arg1;
 - (void)login_but_registerForPhone;
+- (_Bool)onErrorHandleLogicDone;
+- (_Bool)onErrorHandleLogicDoneAndNeedGoNextWithParams:(id)arg1;
 - (void)onFacebookConnect;
 - (void)onFirstViewLogin;
 - (void)onFirstViewRegester;
 - (void)onGoToSecurityCenter:(unsigned int)arg1;
-- (void)onHandlerCheckLoginVerifyCode:(id)arg1 ticket:(id)arg2 controlShowFlag:(unsigned int)arg3 userName:(id)arg4 password:(id)arg5 StyleKeyValue:(id)arg6;
+- (void)onHandlerCheckLoginVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
 - (void)onHandlerGetVerifyCodeSuccessWithStyleKeyValue:(id)arg1;
 - (void)onIpadOneKeyLoginByQQ;
 - (void)onLastUserBack;

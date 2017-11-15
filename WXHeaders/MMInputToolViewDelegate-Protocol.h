@@ -18,7 +18,7 @@
 - (void)SendEmoticonMesssageToolView:(CEmoticonWrap *)arg1;
 - (void)SendTextMessageToolView:(NSString *)arg1;
 - (_Bool)ShouldShowKeyboardAnimation;
-- (void)StartRecording;
+- (_Bool)StartRecording;
 - (void)StopRecording;
 - (void)TextDidChanged:(NSString *)arg1 selectedRange:(struct _NSRange)arg2;
 - (void)ToolViewPositionDidChanged:(_Bool)arg1 animated:(_Bool)arg2;

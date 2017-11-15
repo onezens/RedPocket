@@ -28,15 +28,18 @@
 - (void).cxx_destruct;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (_Bool)addCoverViewToControllerTable;
 - (void)addMagicTapActions:(id)arg1;
 - (_Bool)canBeReused;
 - (_Bool)canPeek;
 - (_Bool)canShowTranslateMenuItem;
 - (double)contentViewCenterY;
 - (void)dealloc;
+- (id)getOperateMenuItem;
 - (id)getPreviewLinkForLocation:(struct CGPoint)arg1 inView:(id)arg2;
 - (struct CGRect)getPreviewLinkFrameForLocation:(struct CGPoint)arg1 inView:(id)arg2;
 - (_Bool)handleMagicTapAction:(id)arg1;
+- (_Bool)highLightSearchKeyWords:(id)arg1;
 - (void)initRichTextView;
 - (void)initTranslateLineView;
 - (void)initTranslateStatusButton;
@@ -45,6 +48,7 @@
 - (void)onClickTipsBtn:(unsigned long long)arg1;
 - (void)onCopy:(id)arg1;
 - (void)onCopyLinkText:(id)arg1;
+- (void)onDisappear;
 - (void)onHide;
 - (void)onLinkClicked:(id)arg1 withRect:(struct CGRect)arg2;
 - (void)onLinkHighlighted:(_Bool)arg1 url:(id)arg2;
@@ -64,6 +68,7 @@
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setNeedsDisplay;
 - (void)setViewModel:(id)arg1;
+- (_Bool)touchIntoSelectCopyState;
 - (void)translateMsg;
 - (void)triggerLongPressFor3DTouchAtLocation:(struct CGPoint)arg1 inCoordinateView:(id)arg2;
 - (void)updateStatus;

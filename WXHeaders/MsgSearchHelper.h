@@ -61,6 +61,7 @@
 - (void)fillSearcResultCell:(id)arg1 MessageWrap:(id)arg2;
 - (void)fillSearchWordingCell:(id)arg1 withSearchText:(id)arg2;
 - (void)finishSearch;
+- (void)fixSearchBarFrame;
 - (double)getButtonTitleFontSize;
 - (id)getSearchText:(id)arg1;
 - (id)getViewController;
@@ -79,6 +80,7 @@
 - (void)mmSearchDisplayControllerDidBeginSearch;
 - (void)mmSearchDisplayControllerWillBeginSearch;
 - (void)mmSearchDisplayControllerWillEndSearch;
+- (void)mmsearchBarCancelButtonClicked:(id)arg1;
 - (void)mmsearchBarSearchButtonClicked:(id)arg1;
 - (_Bool)mmsearchBarShouldChangeTextInRange:(struct _NSRange)arg1 replacementText:(id)arg2;
 - (void)mmsearchBarTextDidBeginEditing:(id)arg1;
@@ -95,6 +97,7 @@
 - (void)reloadView;
 - (void)removeSearchVC;
 - (void)resetBackGroundView;
+- (void)resetTypingAttributes;
 - (id)searchBar;
 - (void)searchBarResignFirstResponder;
 - (_Bool)searchBarShouldBecomeFirstResponse;
@@ -102,6 +105,7 @@
 - (_Bool)shouldOpenNewLineAtY:(double)arg1 withLineHeight:(double)arg2 richTextView:(id)arg3;
 - (void)startSearch;
 - (void)startSearch:(id)arg1;
+- (void)tryFixSearchBarFrame;
 - (void)updateSearchFieldText:(id)arg1;
 - (void)updateSearchVCPosition;
 

@@ -112,6 +112,7 @@
 - (void)recountUnReadCount;
 - (void)recountUnReadCountAndFireExtension;
 - (void)resortSessions;
+- (void)temporaryTopSessionByContact:(id)arg1;
 - (void)tryGetContactImage:(id)arg1;
 - (void)updateSessions:(id)arg1 NotifyUsrName:(id)arg2;
 

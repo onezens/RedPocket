@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 #import "FTSWebSearchDataSource.h"
+#import "IWSViewControllerLifeCycleExt.h"
 #import "UIScrollViewDelegate.h"
 #import "UISearchBarDelegate.h"
 #import "UISearchDisplayDelegate.h"
@@ -19,7 +20,7 @@
 
 @class FTSWebSearchMgr, MMTagSearchBar, MMUIViewController, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, UIButton, UIColor, UIImageView, UISearchDisplayController, UITextField, UIView, UIView<YYWebViewInterface><WebSearchInterface>, WASearchFromGlobalProxy, WSContactSearchLogic, WSJSEventHandler, WSResultViewLogic, WSSuggestionLogic, WSTagSearchLogic;
 
-@interface MMWebSearchController : NSObject <UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate, WSJSEventHandleDelegate, FTSWebSearchDataSource, WSTagSearchDelegate, WSContactSearchLogicDelegate, WASearchFromGlobalProxyDelegate, WSSuggestionLogicDelegate, WAAppCanvasWrapperViewDelegate>
+@interface MMWebSearchController : NSObject <UISearchBarDelegate, UISearchDisplayDelegate, UIScrollViewDelegate, WSJSEventHandleDelegate, FTSWebSearchDataSource, WSTagSearchDelegate, WSContactSearchLogicDelegate, WASearchFromGlobalProxyDelegate, WSSuggestionLogicDelegate, WAAppCanvasWrapperViewDelegate, IWSViewControllerLifeCycleExt>
 {
     NSString *_lastShouldChangedFormatQuery;
     MMUIViewController *_contentVC;
@@ -55,6 +56,7 @@
     UIView<YYWebViewInterface><WebSearchInterface> *_firstPageWebView;
     _Bool _hasInitResultView;
     int _currentShowViewType;
+    NSString *_localSessionId;
     _Bool _alwaysForbidVCInteractivePop;
     _Bool _bSkipBackButtonAtFirst;
     _Bool _bUseCustomSearchInput;
@@ -75,6 +77,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)UISplitViewWillChangeSplitMode;
 @property(nonatomic) _Bool alwaysForbidVCInteractivePop; // @synthesize alwaysForbidVCInteractivePop=_alwaysForbidVCInteractivePop;
 - (void)asyncSearch:(id)arg1;
 @property(nonatomic) _Bool bNeedsLuanchingWebViewBackgroundColor; // @synthesize bNeedsLuanchingWebViewBackgroundColor=_bNeedsLuanchingWebViewBackgroundColor;
@@ -108,6 +111,7 @@
 - (int)getCurrentShowViewType;
 - (id)getHistoryResult;
 - (id)getLatestSearchKeyword;
+- (id)getLocalSessionId;
 - (id)getNativeSuggestionId;
 - (double)getSearchTextFieldWidth;
 - (id)getSuggestionResult;
@@ -142,6 +146,7 @@
 - (void)notifyPageOfQueryChanged:(id)arg1;
 - (void)notifyPageOfSearchClick:(id)arg1;
 - (void)onActionSheet:(id)arg1 clickButtonAtIndex:(long long)arg2;
+- (void)onActivityStateChange:(int)arg1;
 - (void)onBackBtnClick;
 - (void)onBrowsingSnsItem:(id)arg1;
 - (void)onClearHistoryOperation:(id)arg1;
@@ -179,6 +184,7 @@
 - (void)onWAProxySearchInputChanged:(id)arg1;
 - (void)onWAProxyWillBeginDetailSearch:(id)arg1;
 - (void)onWSMusicStatusChanged:(id)arg1;
+- (void)onWillJumpUrl:(id)arg1;
 - (void)onWrapperView:(id)arg1 openApp:(id)arg2;
 - (void)onWrapperView:(id)arg1 updateHeight:(double)arg2;
 - (void)popFromDetailSearch;
@@ -220,6 +226,8 @@
 - (void)updateSearchBarInfo;
 - (id)viewStacks;
 @property(readonly, nonatomic) FTSWebSearchMgr *webSearchMgr; // @synthesize webSearchMgr=_webSearchMgr;
+- (void)webSearchVC:(id)arg1 willAppear:(_Bool)arg2;
+- (void)webSearchVC:(id)arg1 willDisappear:(_Bool)arg2;
 - (void)willBeginDetailSearch:(id)arg1 context:(int)arg2 andParams:(id)arg3;
 - (void)willBeginDetailSearchOfWeApp:(id)arg1;
 

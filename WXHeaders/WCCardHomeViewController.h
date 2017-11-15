@@ -13,23 +13,26 @@
 #import "WCCardHomeHeaderViewDelegate.h"
 #import "WCNewCardDetailViewControllerDelegate.h"
 
-@class NSString, UICollectionView, UICollectionViewFlowLayout, WCCardHomeLogicController;
+@class NSString, UICollectionView, WCCardCollectionViewFlowLayout, WCCardHomeLogicController;
 
 @interface WCCardHomeViewController : MMUIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, WCCardHomeHeaderViewDelegate, WCNewCardDetailViewControllerDelegate, WCCardHomeBubbleHeaderViewDelegate>
 {
     UICollectionView *_collectionView;
-    UICollectionViewFlowLayout *_collectionLayout;
+    WCCardCollectionViewFlowLayout *_collectionLayout;
     WCCardHomeLogicController *_logicViewController;
     long long _from;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) UICollectionViewFlowLayout *collectionLayout; // @synthesize collectionLayout=_collectionLayout;
+@property(retain, nonatomic) WCCardCollectionViewFlowLayout *collectionLayout; // @synthesize collectionLayout=_collectionLayout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didHighlightItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didUnhighlightItemAtIndexPath:(id)arg2;
+- (id)collectionView:(id)arg1 layout:(id)arg2 colorForSectionAtIndex:(long long)arg3;
+- (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
+- (double)collectionView:(id)arg1 layout:(id)arg2 minimumLineSpacingForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForFooterInSection:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
@@ -42,6 +45,7 @@
 @property(nonatomic) long long from; // @synthesize from=_from;
 - (id)init;
 - (id)initWithFrom:(long long)arg1;
+- (void)jumbToMemberList;
 @property(retain, nonatomic) WCCardHomeLogicController *logicViewController; // @synthesize logicViewController=_logicViewController;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)onBackDidSelected;
@@ -52,11 +56,9 @@
 - (void)onShowAllMessage;
 - (void)onUseCard:(id)arg1 lastIndex:(id)arg2 delayTime:(double)arg3;
 - (void)reloadCollectionView;
-- (void)rightWordingDidSelected;
 - (_Bool)useTransparentNavibar;
 - (void)viewDidBePoped:(_Bool)arg1;
 - (void)viewDidBePushed:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewDidTransitionToNewSize;
 - (void)viewWillAppear:(_Bool)arg1;

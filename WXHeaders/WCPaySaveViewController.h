@@ -42,7 +42,6 @@
 - (void)reloadTableView;
 - (void)setDelegate:(id)arg1;
 - (void)setupData;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 
 @end

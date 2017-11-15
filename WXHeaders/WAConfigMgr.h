@@ -32,7 +32,6 @@
 + (long long)getABTestNearByEntranceMode;
 + (_Bool)isCloseSearchEntry;
 + (_Bool)isDeviceSupportWeApp;
-+ (_Bool)isEnableStarLogic;
 + (_Bool)isOpenNewNearEntry;
 + (_Bool)isOverSeaUser;
 + (_Bool)useCustomVideoPlayer;

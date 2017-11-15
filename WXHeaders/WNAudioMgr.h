@@ -4,15 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MMService.h"
 
 #import "IFavAudioPlayerExt.h"
 #import "IFavAudioRecorderExt.h"
 #import "IRecordPermissionCheckExt.h"
+#import "ISysCallCheckExt.h"
+#import "IVOIPUILogicMgrExt.h"
+#import "MMService.h"
 
-@class FavAudioRecorder, NSString;
+@class FavAudioRecorder, MMTimer, NSString;
 
-@interface WNAudioMgr : NSObject <IRecordPermissionCheckExt, IFavAudioRecorderExt, IFavAudioPlayerExt>
+@interface WNAudioMgr : MMService <MMService, IRecordPermissionCheckExt, IFavAudioRecorderExt, IFavAudioPlayerExt, IVOIPUILogicMgrExt, ISysCallCheckExt>
 {
     int _recordStatus;
     FavAudioRecorder *_recorder;
@@ -21,6 +24,7 @@
     _Bool _isCancelRecord;
     unsigned int _startRecordTime;
     unsigned int _endRecordTime;
+    MMTimer *_recordTimer;
     float _curPeakPower;
     id recordingVoiceObj;
     NSString *_curPlayingObjectId;
@@ -45,9 +49,11 @@
 - (void)OnRecordPermissioned;
 - (void)cancelRecord;
 - (id)curPlayId;
+- (id)curRecordId;
 - (void)dealloc;
 - (void)finishWithError;
 - (id)init;
+- (void)onTimeCount;
 - (void)onVideoVoipViewDidAppear:(id)arg1;
 @property(readonly, nonatomic) _Bool playing; // @synthesize playing=_playing;
 - (void)realStartRecord;
@@ -55,8 +61,10 @@
 - (void)startPlayWithObjectId:(id)arg1 LocalPath:(id)arg2 Fmt:(unsigned int)arg3 Len:(int)arg4;
 - (void)startRecord;
 - (void)startRecordWithObj:(id)arg1;
+- (void)startTimeCount;
 - (void)stopPlay;
 - (void)stopRecord;
+- (void)stopTimeCount;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

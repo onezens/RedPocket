@@ -91,6 +91,7 @@
 - (void)initTopNavView;
 - (unsigned long long)insertNearBySection;
 @property(retain, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition; // @synthesize interactiveTransition=_interactiveTransition;
+- (_Bool)isInSearch;
 - (void)loadMoreIfNeeded;
 @property(copy, nonatomic) NSString *m_relatedUserName; // @synthesize m_relatedUserName;
 @property(nonatomic) unsigned long long m_scene; // @synthesize m_scene;

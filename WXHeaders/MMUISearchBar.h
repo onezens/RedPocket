@@ -9,15 +9,22 @@
 @interface MMUISearchBar : UISearchBar
 {
     _Bool m_bForceAdjustFrame;
+    _Bool m_bNonControllerBind;
 }
 
 - (id)findPlaceHolderIcon:(id)arg1;
 - (id)findUISearchBarImage:(id)arg1;
 - (id)findUISearchBarTextFieldLabel:(id)arg1;
+- (void)fixIconAndFontSize;
+- (void)fixLayoutOnActiveSearch;
 - (void)fixOrientationBug;
+- (void)fixPlaceLabelCenterAlign:(_Bool)arg1;
 - (void)fixSearchIconSize;
+- (void)fixTipsCenterAlign;
 - (id)init;
+- (void)layoutSubviews;
 @property(nonatomic) _Bool m_bForceAdjustFrame; // @synthesize m_bForceAdjustFrame;
+@property(nonatomic) _Bool m_bNonControllerBind; // @synthesize m_bNonControllerBind;
 - (void)setFrame:(struct CGRect)arg1;
 
 @end

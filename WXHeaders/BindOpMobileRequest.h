@@ -25,8 +25,10 @@
 @property(nonatomic) unsigned int inputMobileRetrys; // @dynamic inputMobileRetrys;
 @property(retain, nonatomic) NSString *language; // @dynamic language;
 @property(retain, nonatomic) NSString *mobile; // @dynamic mobile;
+@property(nonatomic) unsigned int mobileCheckType; // @dynamic mobileCheckType;
 @property(nonatomic) int opcode; // @dynamic opcode;
 @property(retain, nonatomic) SKBuiltinBuffer_t *randomEncryKey; // @dynamic randomEncryKey;
+@property(retain, nonatomic) NSString *regSessionId; // @dynamic regSessionId;
 @property(retain, nonatomic) NSString *safeDeviceName; // @dynamic safeDeviceName;
 @property(retain, nonatomic) NSString *safeDeviceType; // @dynamic safeDeviceType;
 @property(retain, nonatomic) NSString *userName; // @dynamic userName;

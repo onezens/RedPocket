@@ -10,10 +10,10 @@
 
 @protocol WCPayNewPaidOrderDetailViewDelegate <NSObject>
 - (void)onNewDetailViewClickH5Activity:(NSString *)arg1;
-- (void)onNewDetailViewClickH5ActivityOpenWithTinyAppUsername:(NSString *)arg1 tinyAppPath:(NSString *)arg2;
+- (void)onNewDetailViewClickH5ActivityOpenWithTinyAppUsername:(NSString *)arg1 tinyAppPath:(NSString *)arg2 tinyAppVersion:(unsigned int)arg3;
 - (void)onNewDetailViewClickNativeActicity;
-- (void)onNewDetailViewClickTinyAppActivityWithTinyAppUsername:(NSString *)arg1 tinyAppPath:(NSString *)arg2;
+- (void)onNewDetailViewClickTinyAppActivityWithTinyAppUsername:(NSString *)arg1 tinyAppPath:(NSString *)arg2 tinyAppVersion:(unsigned int)arg3;
 - (void)onNewDetailViewDoneBtnClickWithBrandUsername:(NSString *)arg1;
-- (void)onNewDetailViewOpenTinyAppWithTinyAppUsername:(NSString *)arg1 tinyAppPath:(NSString *)arg2;
+- (void)onNewDetailViewOpenTinyAppWithTinyAppUsername:(NSString *)arg1 tinyAppPath:(NSString *)arg2 tinyAppVersion:(unsigned int)arg3;
 @end
 

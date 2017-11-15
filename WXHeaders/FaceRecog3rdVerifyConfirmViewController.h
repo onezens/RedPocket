@@ -66,7 +66,6 @@
 @property(retain, nonatomic) MMTableViewInfo *tableViewInfo; // @synthesize tableViewInfo=_tableViewInfo;
 @property(retain, nonatomic) FaceRecog3rdVerifyHandler *verifyHandler; // @synthesize verifyHandler=_verifyHandler;
 @property(copy, nonatomic) NSString *verifyInfo; // @synthesize verifyInfo=_verifyInfo;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 
 // Remaining properties

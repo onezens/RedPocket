@@ -1,0 +1,30 @@
+
+@interface WCRedEnvelopesReceiveHomeView{
+     id m_delegate;
+     NSDictionary *m_dicBaseInfo;
+}
+
+@end
+
+
+%hook WCRedEnvelopesReceiveHomeView
+
+- (void)OnOpenRedEnvelopes { 
+    %log;
+    //%orig; 
+    NSDictionary *dict = MSHookIvar<NSDictionary *>(self, "m_dicBaseInfo");
+    NSArray *arr = [dict allKeys];
+
+    for(NSInteger i=0; i<arr.count; i++){
+        NSString *key = arr[i];
+        id value = [dict valueForKey:key];
+        NSLog(@"key : %@   value : %@", key, value);
+    }
+
+    id delegate = MSHookIvar<id>(self, "m_delegate");
+
+    NSLog(@"m_delegate class is %@ ", [delegate class]);
+ }
+
+
+%end

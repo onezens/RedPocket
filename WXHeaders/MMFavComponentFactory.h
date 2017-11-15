@@ -22,6 +22,7 @@
 + (id)getDataThumbPath:(id)arg1 largeImage:(_Bool)arg2;
 + (id)getDomain:(id)arg1;
 + (void)getFavNoteCellTitleAndDesc:(id)arg1 outTitle:(id *)arg2 outDesc:(id *)arg3;
++ (id)getFavNoteTitle:(id)arg1;
 + (id)getFavTextCellText:(id)arg1;
 + (id)getRecordUrlDataForItem:(id)arg1 hasThumb:(_Bool)arg2;
 + (id)getUrlFrom:(id)arg1;

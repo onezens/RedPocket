@@ -22,6 +22,7 @@
 @property(nonatomic) unsigned long long expiredTime; // @synthesize expiredTime;
 - (const map_490096f0 *)getValueTagIndexMap;
 - (id)getValueTypeTable;
+- (_Bool)isValid;
 @property(retain, nonatomic) NSString *json; // @synthesize json;
 @property(retain, nonatomic) NSString *searchID; // @synthesize searchID;
 

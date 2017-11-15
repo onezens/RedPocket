@@ -21,6 +21,7 @@
     CDUnknownBlockType _photoOpearateBlock;
     CDUnknownBlockType _videoOpearateBlock;
     unsigned long long _startRecordTime;
+    _Bool _bHasParentId;
 }
 
 - (void).cxx_destruct;

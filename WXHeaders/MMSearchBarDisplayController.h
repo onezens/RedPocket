@@ -20,6 +20,7 @@
 
 - (void).cxx_destruct;
 - (void)SearchBarBecomeUnActive;
+- (void)UISplitViewWillChangeSplitMode;
 - (void)dealloc;
 - (void)didAppear;
 - (_Bool)isSeachActive;
@@ -48,6 +49,7 @@
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (void)viewDidBeDismissed:(_Bool)arg1;
 - (void)viewDidBePoped:(_Bool)arg1;
+- (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 

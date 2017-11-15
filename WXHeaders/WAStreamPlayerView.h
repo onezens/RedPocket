@@ -28,6 +28,8 @@
     long long _panDirection;
     _Bool _adjustVolume;
     WAScreenBrightnessStateView *_bvstatusView;
+    double _totalDuration;
+    _Bool _customCache;
     _Bool _showDanmu;
     _Bool _autoPlay;
     _Bool _needUpdateEvent;
@@ -70,6 +72,7 @@
 @property(retain, nonatomic) UIView *coverView; // @synthesize coverView=_coverView;
 - (void)createFloatLayer;
 @property(retain, nonatomic) MMUILabel *currentLabel; // @synthesize currentLabel=_currentLabel;
+@property(nonatomic) _Bool customCache; // @synthesize customCache=_customCache;
 @property(retain, nonatomic) UIButton *danmuBtn; // @synthesize danmuBtn=_danmuBtn;
 @property(retain, nonatomic) WAVideoLayer *danmuLayer; // @synthesize danmuLayer=_danmuLayer;
 - (void)dealloc;

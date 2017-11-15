@@ -6,7 +6,7 @@
 
 #import "UITabBarController.h"
 
-@class NSMutableArray, UITapGestureRecognizer;
+@class MMUIView, NSMutableArray, UITapGestureRecognizer;
 
 @interface MMTabBarController : UITabBarController
 {
@@ -16,6 +16,7 @@
     UITapGestureRecognizer *_doubleTapGesture;
     _Bool _hasDoubleTapGesture;
     double _lastScreenWidth;
+    MMUIView *m_maskView;
 }
 
 - (void).cxx_destruct;
@@ -39,6 +40,7 @@
 - (void)relayoutBadgeViewForIpadIOS8;
 - (void)removeDoubleTapGesture;
 - (void)setAllTabBarItemEnabled:(_Bool)arg1;
+- (void)setMaskViewHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setSelectedIndex:(unsigned long long)arg1;
 - (void)setSelectedViewController:(id)arg1;
 - (void)setTabBarBadgeImage:(id)arg1 forIndex:(unsigned int)arg2;

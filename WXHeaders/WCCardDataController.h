@@ -28,6 +28,9 @@
     NSMutableArray *_cardList;
     NSMutableArray *_displayCardList;
     NSMutableArray *_emptyList;
+    NSMutableArray *_invoiceCardList;
+    NSMutableArray *_generalCardList;
+    NSMutableArray *_sectionArr;
     unsigned int _curMinUpdateTime;
     _Bool _isDeleteHandling;
     _Bool _hasMoreData;
@@ -48,6 +51,8 @@
 @property(nonatomic) __weak id <WCCardDataControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)deleteCardDataWithIndexPath:(id)arg1;
 - (void)deleteCardDataWithIndexPath:(id)arg1 needDeleteDB:(_Bool)arg2;
+- (void)genGeneralCardList;
+- (void)genInvoiceCardList;
 - (void)genLayoutDisplayList;
 - (id)getCardDataByIndexPath:(id)arg1;
 - (id)getContollerTitle:(id)arg1;
@@ -58,10 +63,11 @@
 - (int)indexOfCardInNormalCardList:(id)arg1;
 - (id)init;
 - (void)initData;
-- (void)insertCardData:(id)arg1 AtIndex:(long long)arg2;
+- (void)insertCardData:(id)arg1 AtIndex:(id)arg2;
 @property(nonatomic) _Bool isReadyToLoad; // @synthesize isReadyToLoad=_isReadyToLoad;
 - (void)loadCardCellSubView:(id)arg1 cardIndex:(id)arg2;
 - (void)loadEmptyCellSubView:(id)arg1 emptyIndex:(long long)arg2;
+- (void)loadInvoiceCardCellSubView:(id)arg1 cardIndex:(id)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)onDeleteCard:(id)arg1;
 - (void)onGiftCard:(id)arg1 lastIndex:(id)arg2;
@@ -88,12 +94,16 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)unGiftCardDataWithIndexPath:(id)arg1;
 - (void)updateDisplayList;
+- (void)updateInvoiceAndGeneralData;
 - (void)updateLayoutData;
+- (void)updateSectionArr;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

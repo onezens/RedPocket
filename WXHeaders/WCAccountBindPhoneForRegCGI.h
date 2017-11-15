@@ -19,24 +19,22 @@
     NSString *_clientSeqID;
     NSString *_currentUserName;
     unsigned int _nextAuthType;
+    unsigned int m_idc_redirect_count;
 }
 
 - (void).cxx_destruct;
 - (void)BindMobileAgain:(id)arg1;
 - (void)RSAProtobufMessageReturn:(id)arg1 Event:(unsigned int)arg2;
 - (void)cancelAllEvent;
-- (_Bool)checkForgetPwdVerifyCode:(id)arg1 verifyCode:(id)arg2;
 - (_Bool)checkLoginPhoneNumberStatus:(id)arg1 tryCount:(unsigned int)arg2 adjustRet:(unsigned int)arg3;
 - (_Bool)checkLoginVerifyCode:(id)arg1 verifyCode:(id)arg2;
 - (_Bool)checkRegPhoneNumberStatus:(id)arg1 tryCount:(unsigned int)arg2 adjustRet:(unsigned int)arg3;
-- (_Bool)checkRegVerifyCode:(id)arg1 verifyCode:(id)arg2;
+- (_Bool)checkRegVerifyCode:(id)arg1 verifyCode:(id)arg2 checkType:(unsigned int)arg3;
 - (_Bool)checkSafeDeviceVerifyCode:(id)arg1 authTicket:(id)arg2 verifyCode:(id)arg3;
 @property(retain, nonatomic) NSString *clientSeqID; // @synthesize clientSeqID=_clientSeqID;
 - (_Bool)createBindMobileProtobufEvent:(id)arg1;
 @property(retain, nonatomic) NSString *currentUserName; // @synthesize currentUserName=_currentUserName;
 - (void)dealloc;
-- (_Bool)getForgetPwdVerifyCode:(id)arg1;
-- (_Bool)getForgetPwdVoiceVerifyCode:(id)arg1 languageCode:(id)arg2;
 - (_Bool)getLoginVerifyCode:(id)arg1;
 - (_Bool)getLoginVoiceVerifyCode:(id)arg1 languageCode:(id)arg2;
 - (_Bool)getRegVerifyCode:(id)arg1;

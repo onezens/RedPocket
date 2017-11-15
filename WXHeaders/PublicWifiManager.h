@@ -88,7 +88,7 @@
 @property(copy, nonatomic) NSString *currMAC; // @synthesize currMAC=_currMAC;
 @property(copy, nonatomic) NSString *currSSID; // @synthesize currSSID=_currSSID;
 - (void)dealloc;
-- (void)delayRegisterHotspotHelper;
+- (void)delayConfig;
 - (void)didExpiredOfApAuth:(id)arg1;
 - (void)didFailOfAPPortal33:(id)arg1 errMsg:(id)arg2;
 - (void)didFailOfAPPortal:(id)arg1 errMsg:(id)arg2;

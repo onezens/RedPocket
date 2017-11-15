@@ -20,6 +20,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)dealloc;
 - (void)enterGame;
 - (void)handleJSEvent:(id)arg1 HandlerFacade:(id)arg2 ExtraData:(id)arg3;
 - (void)onClickTipsBtn:(id)arg1 Index:(long long)arg2;

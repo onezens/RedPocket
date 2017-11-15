@@ -15,7 +15,7 @@
 #import "UIImagePickerControllerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 
-@class GetA8KeyLogic, NSDictionary, NSObject<OS_dispatch_semaphore>, NSOperationQueue, NSString, NewQRCodeScanner, ScanQRCodeUrlPrefixRule, UIViewController;
+@class GetA8KeyLogic, NSDictionary, NSObject<OS_dispatch_semaphore>, NSOperationQueue, NSString, NewQRCodeScanner, ScanQRCodeUrlPrefixRule, ScanWXCodeUrlPrefixRule, UIViewController;
 
 @interface ScanQRCodeLogicController : BaseScanLogicController <ScanQRCodeUrlPrefixHandlerDelegate, CameraScannerStatusExt, NewQRCodeScannerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, GetA8KeyLogicDelegate, ScanBarcodeExt>
 {
@@ -43,6 +43,7 @@
     NSString *_m_weappSourceInfo;
     ScanQRCodeUrlPrefixRule *_m_urlPrefixRule;
     UIViewController *_m_viewController;
+    ScanWXCodeUrlPrefixRule *_m_wxCodeUrlPrefixRule;
 }
 
 + (id)shareScanOnePicSerialQueue;
@@ -64,6 +65,7 @@
 - (float)getPreviewScale;
 - (id)getResultData;
 - (id)getResultType;
+- (id)getScanQRCodeSourceWebViewControllerUrl;
 - (_Bool)getScanResult:(double)arg1;
 @property(nonatomic) _Bool hasFoundCode; // @synthesize hasFoundCode=_hasFoundCode;
 - (id)initWithViewController:(id)arg1 CodeType:(int)arg2;
@@ -74,6 +76,7 @@
 @property(retain, nonatomic) ScanQRCodeUrlPrefixRule *m_urlPrefixRule; // @synthesize m_urlPrefixRule=_m_urlPrefixRule;
 @property(nonatomic) __weak UIViewController *m_viewController; // @synthesize m_viewController=_m_viewController;
 @property(retain, nonatomic) NSString *m_weappSourceInfo; // @synthesize m_weappSourceInfo=_m_weappSourceInfo;
+@property(retain, nonatomic) ScanWXCodeUrlPrefixRule *m_wxCodeUrlPrefixRule; // @synthesize m_wxCodeUrlPrefixRule=_m_wxCodeUrlPrefixRule;
 - (void)onCameraScannerViewDidInit;
 - (void)onClickErrorAlertConfirm;
 - (void)onDetectQRCode:(_Bool)arg1 areaRatio:(float)arg2;

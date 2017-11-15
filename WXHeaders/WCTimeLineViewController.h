@@ -286,6 +286,7 @@
 - (void)resetRightButtonStatus;
 - (void)resetStatus:(_Bool)arg1;
 - (void)scrollTableViewToShowDataItem:(id)arg1;
+- (void)scrollToTop;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;

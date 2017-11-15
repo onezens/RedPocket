@@ -9,7 +9,13 @@
 @class UIScrollView;
 
 @protocol MMRichTextCopyEventDelegate <MMUIViewControllerDelegate>
+- (struct CGRect)getMsgVisibleFrame;
 - (UIScrollView *)getScrollView;
+- (void)hideToolViewAnimated:(_Bool)arg1;
+- (void)onDoubleClick;
 - (void)onRichTextViewExit;
+- (void)onTextMessageCellMenuClick:(SEL)arg1;
+- (void)scrollViewDidScroll:(UIScrollView *)arg1;
+- (void)willShowMenuController:(id)arg1;
 @end
 

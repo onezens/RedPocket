@@ -45,10 +45,12 @@
     NSString *m_bioSigTicket;
     _Bool m_bAdjustRet;
     unsigned int m_uiAdjustRet;
+    NSString *m_regSessionId;
     LoginInfo *m_loginInfo;
     LoginUserInfo *m_userInfo;
-    LoginInfo *_m_loginInfo;
-    LoginUserInfo *_m_userInfo;
+    NSString *smsUpCode;
+    NSString *smsUpMobile;
+    unsigned int mobileCheckType;
 }
 
 - (void).cxx_destruct;
@@ -67,7 +69,7 @@
 @property(nonatomic) int m_iInputType; // @synthesize m_iInputType;
 @property(nonatomic) int m_iRegMode; // @synthesize m_iRegMode;
 @property(nonatomic) int m_iRegisterControlFlag; // @synthesize m_iRegisterControlFlag;
-@property(retain, nonatomic) LoginInfo *m_loginInfo; // @synthesize m_loginInfo=_m_loginInfo;
+@property(retain, nonatomic) LoginInfo *m_loginInfo; // @synthesize m_loginInfo;
 @property(retain, nonatomic) NSString *m_nsAlias; // @synthesize m_nsAlias;
 @property(retain, nonatomic) NSString *m_nsContryCode; // @synthesize m_nsContryCode;
 @property(retain, nonatomic) NSString *m_nsDeviceSafeCloseBtnTitle; // @synthesize m_nsDeviceSafeCloseBtnTitle;
@@ -85,6 +87,7 @@
 @property(retain, nonatomic) NSString *m_nsVerifyCode; // @synthesize m_nsVerifyCode;
 @property(retain, nonatomic) NSString *m_nsVerifySignature; // @synthesize m_nsVerifySignature;
 @property(retain, nonatomic) AccountBindPhoneInfo *m_oBindPhoneInfo; // @synthesize m_oBindPhoneInfo;
+@property(retain, nonatomic) NSString *m_regSessionId; // @synthesize m_regSessionId;
 @property(retain, nonatomic) UnifyAuthResponse *m_structAuthResponse; // @synthesize m_structAuthResponse;
 @property(readonly, nonatomic) NSDate *m_ticketTime; // @synthesize m_ticketTime;
 @property(nonatomic) unsigned int m_uiAdjustRet; // @synthesize m_uiAdjustRet;
@@ -93,7 +96,10 @@
 @property(nonatomic) unsigned int m_uiNextAuthType; // @synthesize m_uiNextAuthType;
 @property(nonatomic) unsigned int m_uiRegNextShowStyle; // @synthesize m_uiRegNextShowStyle;
 @property(nonatomic) unsigned int m_uiReportStatus; // @synthesize m_uiReportStatus;
-@property(retain, nonatomic) LoginUserInfo *m_userInfo; // @synthesize m_userInfo=_m_userInfo;
+@property(retain, nonatomic) LoginUserInfo *m_userInfo; // @synthesize m_userInfo;
+@property(nonatomic) unsigned int mobileCheckType; // @synthesize mobileCheckType;
+@property(retain, nonatomic) NSString *smsUpCode; // @synthesize smsUpCode;
+@property(retain, nonatomic) NSString *smsUpMobile; // @synthesize smsUpMobile;
 
 @end
 

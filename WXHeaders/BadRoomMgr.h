@@ -7,13 +7,13 @@
 #import "MMService.h"
 
 #import "IMMNewSessionMgrExt.h"
+#import "INewSyncExt.h"
 #import "MMService.h"
 #import "MessageDBExt.h"
-#import "MessageObserverDelegate.h"
 
 @class NSMutableArray, NSObject<OS_dispatch_queue>, NSRecursiveLock, NSString;
 
-@interface BadRoomMgr : MMService <MessageObserverDelegate, MessageDBExt, IMMNewSessionMgrExt, MMService>
+@interface BadRoomMgr : MMService <MessageDBExt, IMMNewSessionMgrExt, INewSyncExt, MMService>
 {
     NSMutableArray *m_arrSyncDatas;
     NSObject<OS_dispatch_queue> *m_updateDigestQueue;
@@ -36,6 +36,9 @@
 - (void)onDeleteAllMsgs:(id)arg1;
 - (void)onDeleteBadRoomMsg:(long long)arg1 createTime:(unsigned int)arg2 chatName:(id)arg3;
 - (void)onDeleteBrokenMsg:(unsigned int)arg1 chatName:(id)arg2;
+- (void)onNewSyncBadRoomAddDigest:(id)arg1;
+- (void)onNewSyncBadRoomBatchHandleDigest;
+- (void)onNewSyncBadRoomClearUnread:(id)arg1;
 - (void)onServiceInit;
 - (void)onServiceReloadData;
 - (void)onWillDeleteSession:(id)arg1;

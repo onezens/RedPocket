@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)AddLinePaceingAttribute:(id)arg1;
 + (void)AddLinkAttribute:(id)arg1;
++ (void)AddParagraphStyleAttribute:(id)arg1;
 + (void)AppendAttribute:(id)arg1 withString:(id)arg2;
 + (void)RemoveLinkAttrbute:(id)arg1;
 + (id)changeTextStyleOfBold:(id)arg1 atRange:(struct _NSRange)arg2;
@@ -19,6 +19,7 @@
 + (void)formatTextParaStyle:(id)arg1;
 + (id)getFormattedText:(id)arg1;
 + (_Bool)hasDefaultStyle:(id)arg1;
++ (_Bool)isTextBoldStyle:(id)arg1;
 
 @end
 

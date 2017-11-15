@@ -11,11 +11,9 @@
 @protocol WCAccountPhoneVerifyViewControllerDelegate <NSObject>
 
 @optional
-- (void)onFacebookConnect;
 - (void)onPhoneVerifyAgain;
 - (void)onPhoneVerifyBack;
 - (void)onPhoneVerifyNext:(NSString *)arg1;
 - (void)onPhoneVerifyVoice;
-- (void)onSignUpWithQQ;
 @end
 

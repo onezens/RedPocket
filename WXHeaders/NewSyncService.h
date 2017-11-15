@@ -59,6 +59,8 @@
 - (void)SetLastNotifyTime:(id)arg1;
 - (void)SetSelector:(unsigned int)arg1;
 - (unsigned int)StartOplog:(unsigned int)arg1 Oplog:(id)arg2;
+- (_Bool)VOIPPushAwakeToSync;
+- (void)callExtensionByMessage:(unsigned int)arg1 MessageInfo:(id)arg2;
 - (void)checkSyncOplog;
 - (void)dealloc;
 - (id)init;

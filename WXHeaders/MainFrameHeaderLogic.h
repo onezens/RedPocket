@@ -6,8 +6,10 @@
 
 #import "MMObject.h"
 
+#import "H5GameViewControllerDelegate.h"
 #import "IBackupExt.h"
 #import "IContactVerifyExt.h"
+#import "IFavoritesOnTopLogicExt.h"
 #import "IMMWebViewKeepHolderMgrExt.h"
 #import "IMigrationClientExt.h"
 #import "IMusicPlayerExt.h"
@@ -17,9 +19,9 @@
 #import "MFPushSystemMsgDelegate.h"
 #import "WAAppTaskMgrExt.h"
 
-@class MFBackupBtn, MFBannerBtn, MFMigrationBtn, MFMusicPlayBtn, MFPublicWifiBtn, MFPushBannerLogic, MFPushSystemMsgLogic, MFWeAppBtn, MFWebMMBtn, MFWebViewVCKeepHoldBtn, MMVoiceSearchBar, NSMutableArray, NSString;
+@class MFBackupBtn, MFBannerBtn, MFFavDetailBtn, MFMigrationBtn, MFMusicPlayBtn, MFPublicWifiBtn, MFPushBannerLogic, MFPushSystemMsgLogic, MFWeAppBtn, MFWebMMBtn, MFWebViewVCKeepHoldBtn, MMVoiceSearchBar, NSMutableArray, NSString;
 
-@interface MainFrameHeaderLogic : MMObject <MFPushBannerDelegate, MFPushSystemMsgDelegate, IOnlineClientMgrExt, IMusicPlayerExt, IPublicWifiManagerExt, IMMWebViewKeepHolderMgrExt, IBackupExt, WAAppTaskMgrExt, IMigrationClientExt, IContactVerifyExt>
+@interface MainFrameHeaderLogic : MMObject <MFPushBannerDelegate, MFPushSystemMsgDelegate, IOnlineClientMgrExt, IMusicPlayerExt, IPublicWifiManagerExt, IMMWebViewKeepHolderMgrExt, IBackupExt, WAAppTaskMgrExt, IMigrationClientExt, IContactVerifyExt, H5GameViewControllerDelegate, IFavoritesOnTopLogicExt>
 {
     MMVoiceSearchBar *m_searchBar;
     NSMutableArray *m_bannerAry;
@@ -33,6 +35,7 @@
     MFWeAppBtn *m_weappBtn;
     MFMigrationBtn *m_migrationBtn;
     MFBannerBtn *m_contactVerifyBtn;
+    MFFavDetailBtn *m_MFFavDetailBtn;
     MFPushBannerLogic *m_pushBannerLogic;
     MFPushSystemMsgLogic *m_pushSystemMsgLogic;
     id <MainFrameHeaderDelegate> _delegate;
@@ -71,6 +74,7 @@
 - (void)onClientMigrationCurrentTransferSpeed:(float)arg1;
 - (void)onClientMigrationNotifyCode:(unsigned long long)arg1;
 - (void)onClientMigrationNotifySessionCurrent:(unsigned long long)arg1 totalSession:(unsigned long long)arg2;
+- (void)onGameViewClosed;
 - (void)onHidePushBanner;
 - (void)onKeepHoldWebViewVCForNewMainFrameBannerStatusChangedIsAddKeep:(_Bool)arg1;
 - (void)onLoginWeb;
@@ -90,16 +94,19 @@
 - (void)processPublicWifiBtn:(_Bool)arg1 apBase:(id)arg2;
 - (void)recoverCurrentWeAppTask;
 - (void)registerExt;
+- (void)reloadMusicBanner;
 - (void)removeBannerBtn:(id)arg1;
 - (void)removeBannerBtnWithoutAnim:(id)arg1;
 @property(readonly, nonatomic) MMVoiceSearchBar *searchBar; // @synthesize searchBar=m_searchBar;
 - (void)showBackupViewController;
 - (void)showCancelMusicPlay;
+- (void)showConversionOnTop:(_Bool)arg1;
 - (void)showLogoutWebOnline;
 - (void)showMigrationViewController;
 - (void)showPrivacyVC;
 - (void)showPublicWifiView;
 - (void)showPushSystemMsg;
+- (void)showReadingFavDetail;
 - (void)showReadingWebview;
 - (void)trigBanner:(unsigned long long)arg1;
 - (void)unRegisterExt;

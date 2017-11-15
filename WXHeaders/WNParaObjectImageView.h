@@ -13,15 +13,15 @@
 @interface WNParaObjectImageView : WNParaObjectBaseView <WNParaImageViewDelegate>
 {
     WNParaImageView *m_imageView;
+    NSString *_localImagePath;
 }
 
 + (double)getHightOfParaInfo:(id)arg1;
 - (void).cxx_destruct;
 - (void)clearImage;
-- (id)init;
 - (void)layoutView;
 - (void)onClickObject;
-- (void)onLoadComplete:(id)arg1;
+- (void)onLoadComplete:(id)arg1 SourcePath:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

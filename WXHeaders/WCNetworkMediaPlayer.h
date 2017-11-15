@@ -122,6 +122,7 @@
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)updateSubviewsFrame:(long long)arg1;
 - (void)updateVideoFrame:(long long)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewDidTransitionToNewSize;
 - (void)viewWillAppear:(_Bool)arg1;

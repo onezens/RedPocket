@@ -15,7 +15,7 @@
     _Bool _hasLoadedForMainH5;
     _Bool _hasLoadedForDetailH5;
     NSString *_lastInputText;
-    struct timeval _lastInputTime;
+    unsigned long long _lastInputTime;
 }
 
 - (void).cxx_destruct;

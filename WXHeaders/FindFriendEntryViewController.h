@@ -32,10 +32,11 @@
 #import "WCBeaconGuideModeExt.h"
 #import "WCFacadeExt.h"
 #import "WCTimeLineViewControllerDelegate.h"
+#import "WSLocalWebViewControllerDelegate.h"
 
-@class GameIndexSettingControl, MMHeadImageView, MMMainTableView, MMTimer, NSIndexPath, NSString, UIImageView, WCDataItem, WCTimeLineViewController;
+@class GameIndexSettingControl, MMHeadImageView, MMMainTableView, MMTimer, NSIndexPath, NSString, UIImageView, WCDataItem, WCTimeLineViewController, WSLocalWebViewController;
 
-@interface FindFriendEntryViewController : MMTabBarBaseViewController <IClearDataMgrExt, MainTableDelegate, IWebSearchRedPointMgrExt, UIAlertViewDelegate, ShakeViewDelegate, EditBottleProfileDelegate, UITableViewDataSource, UITableViewDelegate, IBottleSessionExt, WCFacadeExt, WCTimeLineViewControllerDelegate, FriendAsistSessionExt, ISettingExtChange, ShakeMgrExt, MMConfigMgrExt, IOnlineClientMgrExt, WCActionSheetDelegate, IMMFontMgrExt, IWCJdBussinessMgrExt, IGameCenterExt, IGameCenterMsgNotifyExt, MMWebImageViewDelegate, IShakeCardMgrExt, WCBeaconGuideModeExt, ISearchConfigDataExt, IWCLabsMgrExt>
+@interface FindFriendEntryViewController : MMTabBarBaseViewController <IClearDataMgrExt, MainTableDelegate, IWebSearchRedPointMgrExt, WSLocalWebViewControllerDelegate, UIAlertViewDelegate, ShakeViewDelegate, EditBottleProfileDelegate, UITableViewDataSource, UITableViewDelegate, IBottleSessionExt, WCFacadeExt, WCTimeLineViewControllerDelegate, FriendAsistSessionExt, ISettingExtChange, ShakeMgrExt, MMConfigMgrExt, IOnlineClientMgrExt, WCActionSheetDelegate, IMMFontMgrExt, IWCJdBussinessMgrExt, IGameCenterExt, IGameCenterMsgNotifyExt, MMWebImageViewDelegate, IShakeCardMgrExt, WCBeaconGuideModeExt, ISearchConfigDataExt, IWCLabsMgrExt>
 {
     _Bool m_hasInitData;
     MMMainTableView *m_tableView;
@@ -68,6 +69,8 @@
     NSString *m_gameCenterAppIDForStat;
     unsigned int _startTime;
     GameIndexSettingControl *m_gameEntrySetting;
+    WSLocalWebViewController *m_wsLocalWebViewController;
+    MMTimer *m_wsLocalWebViewCacheTimer;
 }
 
 - (id).cxx_construct;
@@ -78,9 +81,11 @@
 - (void)OpenSandyBeach;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)backToSplitViewEmptyViewController:(id)arg1;
 - (void)checkDBAutoRecover;
 - (void)checkIfAnimationFail;
 - (void)closeAlbum;
+- (void)closeWSLocalWebView;
 - (void)dealloc;
 - (void)didReceiveMemoryWarning;
 - (void)doSelectCell:(long long)arg1;
@@ -115,6 +120,7 @@
 - (void)makeWeAppEntryCell:(id)arg1 rowType:(int)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)onCloseAlbumTimeOut;
+- (void)onCloseWSLocalWebViewTimeOut;
 - (void)onDatabaseReloaded;
 - (void)onDidFetchedContent:(id)arg1;
 - (void)onDidFetchedNoContentWithError:(unsigned long long)arg1;
@@ -150,6 +156,7 @@
 - (void)onShakeMsgUnreadCountChanged;
 - (void)onShakeStatusChanged;
 - (void)onTimeLineViewReturn;
+- (void)onWSLocalWebViewReturn;
 - (void)onWebSearchRedPointChange;
 - (void)openAlbum;
 - (void)openAlbumAnimated:(_Bool)arg1;
@@ -165,6 +172,7 @@
 - (void)openWeAppDestopWithAnimate:(_Bool)arg1;
 - (void)pluginsChanged:(id)arg1;
 - (id)preOpenAlbumView;
+- (id)preOpenWSLocalWebView;
 - (void)preloadAppStoreViewContreller;
 - (void)reloadData;
 - (void)reloadGameRow;

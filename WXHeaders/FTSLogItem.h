@@ -33,6 +33,7 @@
     NSString *_searchId;
     unsigned long long _docId;
     NSString *_itemName;
+    NSString *_query;
 }
 
 - (void).cxx_destruct;
@@ -59,6 +60,7 @@
 @property(nonatomic) unsigned int messageCount; // @synthesize messageCount=_messageCount;
 @property(nonatomic) unsigned int normalContactCount; // @synthesize normalContactCount=_normalContactCount;
 - (void)parse:(id)arg1;
+@property(retain, nonatomic) NSString *query; // @synthesize query=_query;
 @property(nonatomic) unsigned int queryMatchType; // @synthesize queryMatchType=_queryMatchType;
 @property(nonatomic) unsigned int resultCount; // @synthesize resultCount=_resultCount;
 @property(nonatomic) unsigned long long row; // @synthesize row=_row;

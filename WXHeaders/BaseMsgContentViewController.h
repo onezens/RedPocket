@@ -14,15 +14,16 @@
 #import "FirstUnReadTipViewDelegate.h"
 #import "IMsgExt.h"
 #import "IMsgRevokeExt.h"
+#import "INewSyncExt.h"
 #import "IVOIPExt.h"
 #import "IVOIPUILogicMgrExt.h"
 #import "IdleTimerUtilExt.h"
 #import "MMInputToolViewDelegate.h"
 #import "MMMultiSelectToolViewDelegate.h"
 #import "MMReadMailViewDelegate.h"
+#import "MMRichTextCopyEventDelegate.h"
 #import "MMScrollActionSheetDelegate.h"
 #import "MessageNodeViewDelegate.h"
-#import "MessageObserverDelegate.h"
 #import "MsgDelegate.h"
 #import "MsgImgFullScreenViewControllerDelegate.h"
 #import "MsgImgFullScreenWindowDelegate.h"
@@ -47,9 +48,9 @@
 #import "contactInfoDelegate.h"
 #import "tableViewDelegate.h"
 
-@class BadRoomLogicController, BaseChatViewModel, CMessageWrap, FirstUnReadTipView, MMInputToolView, MMLoadingView, MMMultiSelectToolView, MMScrollActionSheet, MMTableView, MMTimer, MMUIWindow, MsgImgFullScreenWindow, MsgSearchHelper, MultiTalkTipsView, NSMutableArray, NSString, ShareMessageConfirmLogicHelper, StreamVoiceInputViewController, TipsView, TrackRoomTipsView, UIActivityIndicatorView, UIBarButtonItem, UIImageView, UIView, UIWindow;
+@class BadRoomLogicController, BaseChatViewModel, CMessageWrap, FirstUnReadTipView, MMInputToolView, MMLoadingView, MMMultiSelectToolView, MMRichTextCoverView, MMScrollActionSheet, MMTableView, MMTimer, MMUIWindow, MsgImgFullScreenWindow, MsgSearchHelper, MultiTalkTipsView, NSMutableArray, NSString, RichTextView, ShareMessageConfirmLogicHelper, StreamVoiceInputViewController, TipsView, TrackRoomTipsView, UIActivityIndicatorView, UIBarButtonItem, UIImageView, UIView, UIWindow;
 
-@interface BaseMsgContentViewController : MMSearchBarDisplayController <MsgSearchHelperDelegate, MsgImgFullScreenWindowDelegate, BannerToastExt, IdleTimerUtilExt, BadRoomLogicControllerDelegate, MsgImgFullScreenViewControllerDelegate, WCCanvasPageViewControllerDelegate, ChatBackgroundExt, UIViewControllerPreviewingDelegate, StreamVoiceInputViewControllerDelegate, WXGImportMessageNotification, WXGChatLogDelMsgNotification, UITableViewDelegate, UITableViewDataSource, WCActionSheetDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate, tableViewDelegate, TypingControllerDelgate, MessageNodeViewDelegate, ChatViewModelDelegate, contactInfoDelegate, MsgDelegate, MMInputToolViewDelegate, ShareMessageConfirmLogicHelperDelegate, MMReadMailViewDelegate, IVOIPExt, AppDetailDelegate, TipsViewDelegate, TrackRoomTipsViewDelegate, IMsgExt, IMsgRevokeExt, IVOIPUILogicMgrExt, MMMultiSelectToolViewDelegate, MultiSelectContactsViewControllerDelegate, MMScrollActionSheetDelegate, MessageObserverDelegate, FirstUnReadTipViewDelegate, WCNetworkMediaPlayerDelegate>
+@interface BaseMsgContentViewController : MMSearchBarDisplayController <MsgSearchHelperDelegate, MsgImgFullScreenWindowDelegate, BannerToastExt, IdleTimerUtilExt, BadRoomLogicControllerDelegate, MsgImgFullScreenViewControllerDelegate, WCCanvasPageViewControllerDelegate, ChatBackgroundExt, UIViewControllerPreviewingDelegate, StreamVoiceInputViewControllerDelegate, WXGImportMessageNotification, WXGChatLogDelMsgNotification, INewSyncExt, UITableViewDelegate, UITableViewDataSource, WCActionSheetDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate, tableViewDelegate, TypingControllerDelgate, MessageNodeViewDelegate, ChatViewModelDelegate, contactInfoDelegate, MsgDelegate, MMInputToolViewDelegate, ShareMessageConfirmLogicHelperDelegate, MMReadMailViewDelegate, IVOIPExt, AppDetailDelegate, TipsViewDelegate, TrackRoomTipsViewDelegate, IMsgExt, IMsgRevokeExt, IVOIPUILogicMgrExt, MMMultiSelectToolViewDelegate, MultiSelectContactsViewControllerDelegate, MMScrollActionSheetDelegate, FirstUnReadTipViewDelegate, WCNetworkMediaPlayerDelegate, MMRichTextCopyEventDelegate>
 {
     NSMutableArray *m_arrMessageNodeData;
     unsigned int m_uLastTime;
@@ -143,10 +144,13 @@
     UIBarButtonItem *m_voiceStreamCacheRightBtnItem;
     NSString *m_voiceStreamTitle;
     NSString *m_voiceStreamSavedText;
+    _Bool m_bHasAppear;
     _Bool _m_bIsInMainFrame;
     int m_searchScene;
     NSMutableArray *m_shareContacts;
     BadRoomLogicController *_m_badRoomLogicController;
+    MMRichTextCoverView *_richTextCoverView;
+    RichTextView *_richTextView;
 }
 
 - (void).cxx_destruct;
@@ -162,7 +166,6 @@
 - (void)JumpToViewStreamVideo:(id)arg1;
 - (void)MenuControllerWillHide:(id)arg1;
 - (void)MenuControllerWillShow:(id)arg1;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)MoreMsgBtnUpdate:(unsigned int)arg1 unReadCount:(unsigned int)arg2;
 - (void)OnAppDataPreview:(id)arg1 MsgWrap:(id)arg2;
 - (void)OnEndPlaying:(id)arg1;
@@ -208,7 +211,7 @@
 - (void)StartDownloadVideo:(id)arg1;
 - (void)StartDownloadVideo:(id)arg1 DownloadMode:(unsigned long long)arg2;
 - (void)StartPlayingNodeView:(unsigned int)arg1;
-- (void)StartRecording;
+- (_Bool)StartRecording;
 - (void)StartUploadVideo:(id)arg1;
 - (void)StopDownloadVideo:(id)arg1;
 - (void)StopPlayingNodeView:(unsigned int)arg1;
@@ -248,6 +251,7 @@
 - (void)clickWeAppReceiveSessionMsg;
 - (void)contactInfoReturn;
 - (id)contactShareMsgFromUser:(id)arg1 toUser:(id)arg2 sharedContact:(id)arg3;
+- (void)copyViewDidScroll:(double)arg1;
 - (void)dealloc;
 - (void)deleteAllMessage;
 - (void)deleteMail:(id)arg1;
@@ -263,6 +267,7 @@
 - (void)editStreamVoiceTxtDone;
 - (void)editStreamVoiceTxtReturn;
 - (void)endSearchAndDisplay;
+- (void)exitSelectState;
 - (id)findNodeDataByLocalId:(unsigned int)arg1;
 - (unsigned long long)findNodeIndexByLocalId:(unsigned int)arg1;
 - (id)findNodeViewByLocalId:(unsigned int)arg1;
@@ -274,6 +279,7 @@
 - (id)getChatContact;
 - (unsigned long long)getCurContentSizeHeight;
 - (id)getCurrentChatName;
+- (id)getCurrentViewController;
 - (double)getCustomizedAreaWidth;
 - (id)getFirstContentMessageNodeFromArray:(id)arg1;
 - (unsigned long long)getFirstUnReadMessageIndex;
@@ -289,13 +295,17 @@
 - (id)getMessageChatContactByMessageWrap:(id)arg1;
 - (long long)getMessageNodePosition:(id)arg1;
 - (unsigned long long)getMsgContentSizeHeight:(unsigned int)arg1;
+- (struct CGRect)getMsgVisibleFrame;
 - (struct CGRect)getNodeRectInScreen:(unsigned int)arg1;
 - (id)getParentTableView;
 - (id)getRightBarButton;
+- (id)getScrollView;
 - (double)getSearchBarHeight;
 - (double)getSecurityBannerTipHeight;
 - (id)getServiceAppList;
+- (id)getTableView;
 - (double)getTableViewVisibleHeightWithOrientation:(long long)arg1;
+- (id)getTextMsgCellViewForCoverView;
 - (double)getTipsHeight;
 - (id)getTitleLableViewWithMaxWidth:(double)arg1 title:(id)arg2;
 - (id)getViewController;
@@ -315,6 +325,7 @@
 - (void)hideMultiTalkTips;
 - (void)hideToolViewAnimated:(_Bool)arg1;
 - (void)hideTrackRoomTips;
+- (void)highLightSearchKeyWordInSelectCell;
 - (void)highLightSelectSearchCell;
 - (id)indexPathForCellKey:(id)arg1;
 - (id)init;
@@ -393,6 +404,7 @@
 - (void)onDeleteAllMsg;
 - (void)onDeleteMessage:(id)arg1;
 - (void)onDeleteMessageFinish;
+- (void)onDoubleClick;
 - (void)onEditMessage:(id)arg1;
 - (void)onExposeTemplateMsg:(id)arg1;
 - (void)onFinishMultiSelect:(id)arg1;
@@ -415,6 +427,8 @@
 - (void)onMsgImgWindowWillHideToMsg:(id)arg1;
 - (void)onMultiSelectContactReturn:(id)arg1;
 - (void)onMultiTalkButtonClick;
+- (void)onNewSyncFinish;
+- (void)onNewSyncStart;
 - (void)onOpenMyCardPkgViewController;
 - (void)onOpenTrackRoom:(unsigned int)arg1;
 - (void)onPan:(id)arg1;
@@ -424,7 +438,9 @@
 - (void)onPlayAttachVideo:(id)arg1 vc:(id)arg2;
 - (void)onPositionModeChangeTo:(int)arg1 Animated:(_Bool)arg2;
 - (void)onReceiveSecurityBannerMsg:(id)arg1 withWording:(id)arg2;
+- (void)onRemoveTextSelectView;
 - (void)onReturn:(id)arg1;
+- (void)onRichTextViewExit;
 - (void)onSYncEnd;
 - (void)onScrollToBottom;
 - (void)onScrollToFirstUnReadMsg;
@@ -439,11 +455,13 @@
 - (void)onSightViewDetail:(id)arg1 vc:(id)arg2;
 - (void)onStreamVoiceInputButtonClick;
 - (void)onTextDeleteAll;
+- (void)onTextMessageCellMenuClick:(SEL)arg1;
 - (void)onTipViewClick:(id)arg1;
 - (void)onTipsViewClick:(id)arg1;
 - (void)onTipsViewClose:(id)arg1;
 - (void)onToolViewDidMoveToWindow;
 - (void)onTopBarFrameChanged;
+- (void)onTouchBeginMsg:(id)arg1 Touch:(id)arg2;
 - (void)onTouchDown;
 - (void)onTrackRoomTipsViewClick;
 - (void)onTrySHowFirstUnReadButton;
@@ -479,13 +497,17 @@
 - (void)resetMsgSearchHelper;
 - (void)resetToolView;
 - (void)revokeMsgByNodeView:(id)arg1;
+@property(retain, nonatomic) MMRichTextCoverView *richTextCoverView; // @synthesize richTextCoverView=_richTextCoverView;
+@property(retain, nonatomic) RichTextView *richTextView; // @synthesize richTextView=_richTextView;
 - (void)rotate:(long long)arg1 duration:(double)arg2;
 - (void)scrollActionSheet:(id)arg1 didSelecteItem:(id)arg2;
 - (void)scrollTableToBottomAnimated:(_Bool)arg1 init:(_Bool)arg2;
 - (void)scrollToFirstUnReadMessage:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)scrollViewWillBeginDecelerating:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)sendCaptruedImage:(id)arg1;
@@ -565,6 +587,7 @@
 - (void)tryScrollToBottomAnimated:(_Bool)arg1;
 - (void)trySetInputToolviewFirstResponder;
 - (void)tryShowFirstUnReadButtonAnimated;
+- (void)unHighLightSearchKeyWordInSelectCell;
 - (void)unHighLightSelectSearchCell;
 - (void)updateBanner;
 - (void)updateChatRoomData:(id)arg1;

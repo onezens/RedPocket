@@ -10,6 +10,9 @@
 {
 }
 
++ (_Bool)ftsMsgSearchHasTalkerContact:(id)arg1 arrContact:(id)arg2;
++ (id)ftsMsgSearchMemberTalkerInGroupContact:(id)arg1 groupContact:(id)arg2 dicMatchTip:(id)arg3 helpDataItem:(id)arg4;
++ (id)ftsMsgSearchTalkerContact:(id)arg1 arrContact:(id)arg2 dicMatchTip:(id)arg3 helpDataItem:(id)arg4;
 + (id)getChatRoomMemberWithoutMyself:(id)arg1 helpDataItem:(id)arg2;
 + (id)getMatchWordTip:(id)arg1 withContact:(id)arg2;
 + (id)getValidKeywords:(id)arg1;

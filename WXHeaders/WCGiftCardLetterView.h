@@ -48,6 +48,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic) long long lineCount; // @synthesize lineCount=_lineCount;
 @property(nonatomic) double maxWidth; // @synthesize maxWidth=_maxWidth;
+- (void)presentImageVC:(id)arg1;
 @property(retain, nonatomic) NSString *resourcePath; // @synthesize resourcePath=_resourcePath;
 @property(retain, nonatomic) NSMutableArray *textLineArray; // @synthesize textLineArray=_textLineArray;
 @property(nonatomic) __weak WCCardVideoViewController *videoVC; // @synthesize videoVC=_videoVC;

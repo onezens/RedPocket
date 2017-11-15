@@ -87,6 +87,8 @@
 - (void)animationShow;
 @property(retain, nonatomic) UIDynamicAnimator *animator; // @synthesize animator=_animator;
 - (void)applySearchBeginAnimation:(id)arg1;
+- (void)applySearchBeginAnimationOnMainView;
+- (void)backToSplitViewEmptyViewController:(id)arg1;
 - (void)cancelSearch;
 - (void)cancelSelectedCell;
 - (void)changeNetworkStatus:(unsigned int)arg1;
@@ -100,6 +102,7 @@
 - (void)dealloc;
 - (void)deleteSessionAtIndex:(unsigned long long)arg1;
 - (void)deleteSessionCell:(unsigned int)arg1 withUser:(id)arg2;
+- (void)deselectCellByUsername:(id)arg1 indexPath:(id)arg2;
 - (void)didReceiveMemoryWarning;
 - (void)displayControllerSetActive:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)finishSearchBarImmediately;
@@ -114,6 +117,7 @@
 - (id)getVoiceSearchBar;
 - (void)handleBrandUnsubscribe:(id)arg1;
 - (void)handleCommitEdit:(unsigned long long)arg1;
+- (void)handleFrameChangeForSearchBar;
 - (void)handleSelectIndexPath:(id)arg1 tableView:(id)arg2;
 - (_Bool)hasShowSearchBar;
 - (void)hideSearchBar;
@@ -142,6 +146,7 @@
 @property(retain, nonatomic) CreateChatLogic *m_createChatLogic; // @synthesize m_createChatLogic;
 @property(retain, nonatomic) NSString *m_nsTitle; // @synthesize m_nsTitle;
 - (void)makeCellBackGroundBySession:(id)arg1 cell:(id)arg2 showTopList:(_Bool)arg3;
+- (void)moveSearchGuideViewToDisplayContainer;
 - (void)newMessageByContact:(id)arg1 msgWrapToAdd:(id)arg2;
 - (void)newMessageByContact:(id)arg1 msgWrapToAdd:(id)arg2 animated:(_Bool)arg3;
 - (void)newMessageByContact:(id)arg1 msgWrapToAdd:(id)arg2 animated:(_Bool)arg3 FromOtherTab:(_Bool)arg4;
@@ -156,7 +161,6 @@
 - (void)onCreateChatContactReturn:(id)arg1;
 - (void)onCreateNewMessage;
 - (_Bool)onFilterContactCandidate:(id)arg1;
-- (void)onMainWindowFrameChanged;
 - (void)onMassSend;
 - (void)onRadar;
 - (void)onSelectContactReturn:(id)arg1 atScene:(unsigned int)arg2;
@@ -212,6 +216,7 @@
 - (void)setSearchTableResultText:(id)arg1;
 - (void)setTableViewContentInsetForSearchBar;
 - (void)setUIEventEnabled:(_Bool)arg1;
+- (_Bool)shouldDeselectCellByUsername:(id)arg1 indexPath:(id)arg2;
 - (_Bool)shouldShowTabbar;
 - (_Bool)shouldShowTitleWindow;
 - (_Bool)shouldTopRightMenuShowID:(id)arg1;

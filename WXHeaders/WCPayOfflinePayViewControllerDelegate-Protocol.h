@@ -22,6 +22,7 @@
 - (void)StopOfflineGetMsg;
 - (void)onOfflinePayPatternLockBlockErrorOutOfLimit;
 - (void)onWCPayOfflinePayViewControllerClickGroupPayBtn;
+- (void)onWCPayOfflinePayViewControllerClickQRCodeRewardBtn;
 - (void)onWCpayOfflinePayViewControllerClickF2fHongBaoBtn;
 @end
 

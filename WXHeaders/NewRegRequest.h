@@ -37,11 +37,13 @@
 @property(nonatomic) unsigned int hasHeadImg; // @dynamic hasHeadImg;
 @property(retain, nonatomic) NSString *language; // @dynamic language;
 @property(retain, nonatomic) NSString *macAddr; // @dynamic macAddr;
+@property(nonatomic) unsigned int mobileCheckType; // @dynamic mobileCheckType;
 @property(retain, nonatomic) NSString *nickName; // @dynamic nickName;
 @property(retain, nonatomic) NSString *pwd; // @dynamic pwd;
 @property(retain, nonatomic) SKBuiltinBuffer_t *randomEncryKey; // @dynamic randomEncryKey;
 @property(retain, nonatomic) NSString *realCountry; // @dynamic realCountry;
 @property(nonatomic) unsigned int regMode; // @dynamic regMode;
+@property(retain, nonatomic) NSString *regSessionId; // @dynamic regSessionId;
 @property(nonatomic) unsigned int suggestRet; // @dynamic suggestRet;
 @property(retain, nonatomic) NSString *ticket; // @dynamic ticket;
 @property(retain, nonatomic) NSString *timeZone; // @dynamic timeZone;

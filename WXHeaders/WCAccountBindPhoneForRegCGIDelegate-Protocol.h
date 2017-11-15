@@ -6,24 +6,22 @@
 
 #import "NSObject.h"
 
-@class AccountErrorInfo, NSDictionary, NSString;
+@class AccountErrorInfo, BindOpMobileResponse, NSDictionary, NSString;
 
 @protocol WCAccountBindPhoneForRegCGIDelegate <NSObject>
 
 @optional
-- (void)onCheckForgetPwdVerifyCode:(AccountErrorInfo *)arg1 userName:(NSString *)arg2 password:(NSString *)arg3 StyleKeyValue:(NSDictionary *)arg4;
-- (void)onCheckLoginPhoneNumberStatus:(AccountErrorInfo *)arg1 countryCode:(NSString *)arg2 phoneNumber:(NSString *)arg3 formatedPhoneNumber:(NSString *)arg4 StyleKeyValue:(NSDictionary *)arg5;
-- (void)onCheckLoginVerifyCode:(AccountErrorInfo *)arg1 ticket:(NSString *)arg2 controlShowFlag:(unsigned int)arg3 userName:(NSString *)arg4 password:(NSString *)arg5 StyleKeyValue:(NSDictionary *)arg6;
-- (void)onCheckRegPhoneNumberStatus:(AccountErrorInfo *)arg1 countryCode:(NSString *)arg2 phoneNumber:(NSString *)arg3 formatedPhoneNumber:(NSString *)arg4 StyleKeyValue:(NSDictionary *)arg5;
-- (void)onCheckRegVerifyCode:(AccountErrorInfo *)arg1 ticket:(NSString *)arg2 controlShowFlag:(unsigned int)arg3 userName:(NSString *)arg4 password:(NSString *)arg5 StyleKeyValue:(NSDictionary *)arg6;
-- (void)onCheckSafeDeviceVerifyCode:(AccountErrorInfo *)arg1;
-- (void)onGetForgetPwdVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2;
-- (void)onGetForgetPwdVoiceVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2;
-- (void)onGetLoginVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2;
-- (void)onGetLoginVoiceVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2;
-- (void)onGetRegVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2;
-- (void)onGetRegVoiceVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2;
-- (void)onGetSafeDeviceVerifyCode:(AccountErrorInfo *)arg1 authTicket:(NSString *)arg2 StyleKeyValue:(NSDictionary *)arg3;
-- (void)onGetSafeDeviceVoiceVerifyCode:(AccountErrorInfo *)arg1 authTicket:(NSString *)arg2 StyleKeyValue:(NSDictionary *)arg3;
+- (NSString *)getRegSessionID;
+- (void)onCheckLoginPhoneNumberStatus:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onCheckLoginVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onCheckRegPhoneNumberStatus:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onCheckRegVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onCheckSafeDeviceVerifyCode:(AccountErrorInfo *)arg1 Response:(BindOpMobileResponse *)arg2;
+- (void)onGetLoginVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onGetLoginVoiceVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onGetRegVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onGetRegVoiceVerifyCode:(AccountErrorInfo *)arg1 StyleKeyValue:(NSDictionary *)arg2 Response:(BindOpMobileResponse *)arg3;
+- (void)onGetSafeDeviceVerifyCode:(AccountErrorInfo *)arg1 authTicket:(NSString *)arg2 StyleKeyValue:(NSDictionary *)arg3 Response:(BindOpMobileResponse *)arg4;
+- (void)onGetSafeDeviceVoiceVerifyCode:(AccountErrorInfo *)arg1 authTicket:(NSString *)arg2 StyleKeyValue:(NSDictionary *)arg3 Response:(BindOpMobileResponse *)arg4;
 @end
 

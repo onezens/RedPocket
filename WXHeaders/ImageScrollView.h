@@ -20,6 +20,7 @@
     _Bool m_bIsLongPressHandled;
     WXFullScreenGestureRecognizer *m_gesture;
     struct CGSize m_originSize;
+    _Bool _useWindowFrame;
     _Bool _enableDragToClose;
     id <ImageScrollViewDelegate> m_delegate;
 }
@@ -44,9 +45,12 @@
 - (void)onFullScreenSingleTap;
 - (void)onSingleTap:(id)arg1;
 - (void)reloadView:(id)arg1 FullScreen:(_Bool)arg2;
+- (double)screenHeight;
+- (double)screenWidth;
 - (void)scrollViewDidZoom:(id)arg1;
 - (void)scrollViewWillBeginZooming:(id)arg1 withView:(id)arg2;
 - (void)setOriginSize:(struct CGSize)arg1;
+@property(nonatomic) _Bool useWindowFrame; // @synthesize useWindowFrame=_useWindowFrame;
 - (_Bool)shouldPreventDragDownCloseGesture;
 - (void)updateImage:(id)arg1;
 - (void)updateScrollable;

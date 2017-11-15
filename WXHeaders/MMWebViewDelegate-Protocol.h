@@ -15,12 +15,14 @@
 - (_Bool)canAccessDeepLink:(DeepLinkDef *)arg1 Url:(NSString *)arg2 Webview:(MMWebViewController *)arg3;
 - (void)onLeaveWebviewAndBackTo3rdApp;
 - (void)onLeaveWebviewAndJumpToViewConroller;
+- (void)onWebViewCloseAndGoNext:(NSDictionary *)arg1;
 - (void)onWebViewDidFinishLoad:(UIView<YYWebViewInterface> *)arg1;
 - (void)onWebViewDidRotateFromInterfaceOrientation:(long long)arg1;
 - (void)onWebViewDidStartLoad:(UIView<YYWebViewInterface> *)arg1;
 - (void)onWebViewWillClose:(NSDictionary *)arg1;
 - (void)onWebViewWillRotateToInterfaceOrientation:(long long)arg1;
 - (void)setCanShake:(_Bool)arg1;
+- (void)webViewDidReturn:(MMWebViewController *)arg1;
 - (NSURL *)webViewFailToLoad:(NSError *)arg1;
 - (void)webViewReturn:(MMWebViewController *)arg1;
 @end

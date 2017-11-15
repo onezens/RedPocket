@@ -50,6 +50,7 @@
 - (void)ontap;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setHidden:(_Bool)arg1;
 - (void)showContentViewAnimated:(_Bool)arg1;
 - (void)updateDynamicData;
 - (void)updateDynamicView;

@@ -7,6 +7,8 @@
 #import "NSObject.h"
 
 @protocol FTSWebSearchViewDelegate <NSObject>
+
+@optional
 - (void)onViewTypeChanged;
 - (void)onWebSearchViewDidPop;
 - (void)onWebSearchViewDidShow;

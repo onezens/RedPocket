@@ -82,6 +82,7 @@
 - (_Bool)shouldDisplaySendButtonToContent;
 - (void)unhighlightBorder:(id)arg1;
 - (void)updateCustomEmotMd5:(id)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 
 // Remaining properties

@@ -7,11 +7,10 @@
 #import "WCPayBaseViewController.h"
 
 #import "ILinkEventExt.h"
-#import "UITextFieldDelegate.h"
 
 @class NSString, RichTextView, UIButton, UITextField;
 
-@interface WCPayFacingReceiveFixedAmountViewController : WCPayBaseViewController <UITextFieldDelegate, ILinkEventExt>
+@interface WCPayFacingReceiveFixedAmountViewController : WCPayBaseViewController <ILinkEventExt>
 {
     id <WCPayFacingReceiveFixedAmountViewControllerDelegate> m_delegate;
     NSString *_remark;
@@ -38,7 +37,6 @@
 - (void)remarkCancel:(id)arg1;
 - (void)remarkConfirm:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidChange;
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(_Bool)arg1;

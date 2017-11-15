@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class UIImage;
+@class NSString, UIImage;
 
 @protocol WNParaImageViewDelegate <NSObject>
 
 @optional
-- (void)onLoadComplete:(UIImage *)arg1;
+- (void)onLoadComplete:(UIImage *)arg1 SourcePath:(NSString *)arg2;
 @end
 

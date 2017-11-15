@@ -26,27 +26,41 @@
     NSString *_creatTime;
     unsigned long long _isFromWeChat;
     unsigned long long _scene;
+    unsigned long long _sceneType;
+    unsigned long long _fileSource;
+    NSString *_make;
+    NSString *_software;
+    NSString *_fileExt;
+    NSString *_YCbCrSubSampling;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *YCbCrSubSampling; // @synthesize YCbCrSubSampling=_YCbCrSubSampling;
 @property(nonatomic) unsigned long long compressedHeight; // @synthesize compressedHeight=_compressedHeight;
 @property(nonatomic) unsigned long long compressedSize; // @synthesize compressedSize=_compressedSize;
 @property(nonatomic) unsigned long long compressedWidth; // @synthesize compressedWidth=_compressedWidth;
 @property(copy, nonatomic) NSString *creatTime; // @synthesize creatTime=_creatTime;
 @property(copy, nonatomic) NSString *exposureTime; // @synthesize exposureTime=_exposureTime;
 @property(copy, nonatomic) NSString *fNumber; // @synthesize fNumber=_fNumber;
+@property(copy, nonatomic) NSString *fileExt; // @synthesize fileExt=_fileExt;
+@property(nonatomic) unsigned long long fileSource; // @synthesize fileSource=_fileSource;
 @property(nonatomic) unsigned long long flash; // @synthesize flash=_flash;
 @property(nonatomic) unsigned long long isFromWeChat; // @synthesize isFromWeChat=_isFromWeChat;
+- (_Bool)isYUV422Image;
 @property(nonatomic) unsigned long long iso; // @synthesize iso=_iso;
 @property(copy, nonatomic) NSString *lensModel; // @synthesize lensModel=_lensModel;
 @property(copy, nonatomic) NSString *localID; // @synthesize localID=_localID;
+@property(copy, nonatomic) NSString *make; // @synthesize make=_make;
 @property(nonatomic) unsigned long long mediaType; // @synthesize mediaType=_mediaType;
 @property(nonatomic) unsigned long long originHeight; // @synthesize originHeight=_originHeight;
 @property(nonatomic) unsigned long long originSize; // @synthesize originSize=_originSize;
 @property(nonatomic) unsigned long long originWidth; // @synthesize originWidth=_originWidth;
 - (void)report;
 @property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;
+@property(nonatomic) unsigned long long sceneType; // @synthesize sceneType=_sceneType;
+@property(copy, nonatomic) NSString *software; // @synthesize software=_software;
 - (void)updateForWechatSight;
+- (void)updateSubSamplingForJPEGImage:(id)arg1;
 
 @end
 

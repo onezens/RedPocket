@@ -154,6 +154,7 @@
 + (id)UTF8HexToNSString:(id)arg1;
 + (void)UpdateUserAgent;
 + (id)componentsSeparated:(id)arg1 byString:(id)arg2;
++ (const void *)computeKey:(id)arg1 fromString:(id)arg2;
 + (_Bool)containOnlyLetterOrDigit:(id)arg1;
 + (id)dumpSqlString:(id)arg1;
 + (id)ellipseImageFromColor:(id)arg1 size:(struct CGSize)arg2;

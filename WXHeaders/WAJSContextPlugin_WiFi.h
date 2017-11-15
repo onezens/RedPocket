@@ -13,18 +13,22 @@
     _Bool m_registed;
     _Bool m_hasPreSet;
     NSMutableDictionary *m_wifiInfoMap;
-    NEHotspotHelperCommand *m_retainCommand;
+    NEHotspotHelperCommand *m_retainScanListCommand;
+    NEHotspotHelperCommand *m_retainEvaluateCommand;
+    NEHotspotHelperCommand *m_retainMantainCommand;
     NSMutableArray *m_scanWiFiList;
     NSObject<OS_dispatch_queue> *m_timerQueue;
     NSObject<OS_dispatch_source> *m_deliverTimer;
 }
 
++ (long long)convertStringToNEConfidence:(id)arg1;
 - (void).cxx_destruct;
 - (_Bool)canHandleWifiList;
 - (void)cancelDeliverTimeoutTimer;
 - (id)connectedWiFi;
 - (void)dealloc;
 - (void)deliverNetworkCommand:(id)arg1;
+- (void)evalueteWiFiWithSSID:(id)arg1 BSSID:(id)arg2 confidence:(id)arg3;
 - (void)handleCommandForAuthenticate:(id)arg1;
 - (void)handleCommandForEvaluate:(id)arg1;
 - (void)handleCommandForFilterScanList:(id)arg1;

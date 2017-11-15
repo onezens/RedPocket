@@ -28,6 +28,7 @@
     WSJSEventHandler *_jsEventHandler;
     unsigned long long _detailSearchType;
     NSString *_searchID;
+    NSString *_localSessionId;
     _Bool _isMoving;
     unsigned long long _searchScene;
     UIButton *_detailBackButton;

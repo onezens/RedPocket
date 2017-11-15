@@ -23,13 +23,14 @@
 - (void).cxx_destruct;
 - (_Bool)checkPhoneNumberStatus:(unsigned int)arg1;
 - (_Bool)checkVerifyCode:(id)arg1;
+- (id)getRegSessionID;
 - (void)getVerifyCode;
 - (_Bool)getVerifyCodeReady;
 - (id)initWithData:(id)arg1 Delegate:(id)arg2;
-- (void)onCheckLoginPhoneNumberStatus:(id)arg1 countryCode:(id)arg2 phoneNumber:(id)arg3 formatedPhoneNumber:(id)arg4 StyleKeyValue:(id)arg5;
-- (void)onCheckLoginVerifyCode:(id)arg1 ticket:(id)arg2 controlShowFlag:(unsigned int)arg3 userName:(id)arg4 password:(id)arg5 StyleKeyValue:(id)arg6;
-- (void)onGetLoginVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
+- (void)onCheckLoginPhoneNumberStatus:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onCheckLoginVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onGetLoginVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onGetVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
 @property(retain, nonatomic) NSString *phoneNumberWithCC; // @synthesize phoneNumberWithCC=_phoneNumberWithCC;
 - (void)startCheckNumberStatusAndLoading;
 - (void)startCheckVerifyCode:(id)arg1;

@@ -131,6 +131,7 @@
 - (void)updateShadeGradientView;
 - (void)updateTimeLyricArrayWithLyrics:(id)arg1;
 - (void)updateTwoColorsByImage:(id)arg1;
+- (void)willChangeToSplitMode;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -36,7 +36,6 @@
 @property(nonatomic) long long downloadDataLen; // @synthesize downloadDataLen=_downloadDataLen;
 @property(nonatomic) struct _NSRange downloadRange; // @synthesize downloadRange=_downloadRange;
 @property(nonatomic) double downloadSpeed; // @synthesize downloadSpeed=_downloadSpeed;
-- (id)init;
 - (_Bool)isErrorCanRetry:(id)arg1;
 - (void)reportContentLengthError;
 - (void)reportContentRangeError;

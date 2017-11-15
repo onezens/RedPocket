@@ -17,6 +17,7 @@
     MMTableView *_tableView;
     NSMutableArray *_arrSections;
     id <MMTableViewInfoDelegate> _delegate;
+    _Bool _disableAutoDeselectRows;
 }
 
 + (id)genFootView:(id)arg1;
@@ -28,6 +29,7 @@
 - (void)dealloc;
 @property(nonatomic, setter=setDelegate:) __weak id <MMTableViewInfoDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)didFinishedLoading:(id)arg1;
+@property(nonatomic) _Bool disableAutoDeselectRows; // @synthesize disableAutoDeselectRows=_disableAutoDeselectRows;
 - (id)getCellAtSection:(unsigned int)arg1 row:(unsigned int)arg2;
 - (id)getSectionAt:(unsigned int)arg1;
 - (unsigned int)getSectionCount;

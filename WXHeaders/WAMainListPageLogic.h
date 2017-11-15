@@ -13,7 +13,6 @@
 @interface WAMainListPageLogic : MMObject <WAAppItemManagerExtension>
 {
     _Bool _hasNoMore;
-    _Bool _isEnableStarLogic;
     unsigned int _currentPageNum;
     unsigned int _previousPageUpdateTimeOfLastLoacalWAAppItem;
     unsigned int _currentUpdateTimeOfLastLocalWAAppItem;
@@ -35,7 +34,6 @@
 @property(retain, nonatomic) NSMutableArray *historyItems; // @synthesize historyItems=_historyItems;
 - (id)init;
 - (_Bool)insertHistoryItemAtTop:(id)arg1;
-@property(nonatomic) _Bool isEnableStarLogic; // @synthesize isEnableStarLogic=_isEnableStarLogic;
 - (void)onWeAppItemsInfoUpdatedErrorWithErrorCode:(int)arg1 scene:(unsigned int)arg2;
 - (void)onWeAppItemsInfoUpdatedWithAPageItem:(id)arg1 localLastUpdateTime:(unsigned int)arg2 remoteLastUpdateTime:(unsigned int)arg3 hasMore:(_Bool)arg4 scene:(unsigned int)arg5;
 @property(nonatomic) unsigned int previousPageUpdateTimeOfLastLoacalWAAppItem; // @synthesize previousPageUpdateTimeOfLastLoacalWAAppItem=_previousPageUpdateTimeOfLastLoacalWAAppItem;

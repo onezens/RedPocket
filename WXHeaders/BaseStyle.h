@@ -10,12 +10,14 @@
 {
     struct CGRect _frame;
     _Bool _bUserInteractionEnabled;
+    struct _NSRange _range;
 }
 
 @property(nonatomic) _Bool bUserInteractionEnabled; // @synthesize bUserInteractionEnabled=_bUserInteractionEnabled;
 - (void)drawInContext:(struct CGContext *)arg1;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 - (id)init;
+@property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 
 @end
 

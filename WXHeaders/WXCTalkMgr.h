@@ -126,6 +126,7 @@
 - (int)getRouteIdByGroupId:(id)arg1;
 - (int)getSelfRoomMemberId;
 - (_Bool)getSpeakerPhoneStatus;
+- (id)getTaskQueue;
 - (void)handleBannerMsg:(id)arg1;
 - (void)handleCancelCreateTalkRoomResponse:(id)arg1 retCode:(int)arg2 backFillData:(id)arg3;
 - (void)handleClientSceneReportResponse:(id)arg1 retCode:(int)arg2;

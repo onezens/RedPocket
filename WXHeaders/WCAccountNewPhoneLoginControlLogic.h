@@ -29,8 +29,10 @@
 - (void)loginAccount;
 - (void)loginForPhone;
 - (void)login_but_registerForPhone;
+- (_Bool)onErrorHandleLogicDone;
+- (_Bool)onErrorHandleLogicDoneAndNeedGoNextWithParams:(id)arg1;
 - (void)onGoToSecurityCenter:(unsigned int)arg1;
-- (void)onHandlerCheckLoginVerifyCode:(id)arg1 ticket:(id)arg2 controlShowFlag:(unsigned int)arg3 userName:(id)arg4 password:(id)arg5 StyleKeyValue:(id)arg6;
+- (void)onHandlerCheckLoginVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
 - (void)onHandlerGetVerifyCodeSuccessWithStyleKeyValue:(id)arg1;
 - (_Bool)onManualAuthControlLogicError:(id)arg1;
 - (void)onManualAuthControlLogicStop:(unsigned long long)arg1 response:(id)arg2;

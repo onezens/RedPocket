@@ -85,7 +85,7 @@
 - (void)onClickWeAppReceiveSessionMsg;
 - (void)onHideQuickSendSessionMsgBtn;
 - (void)onModifyWeAppContact:(id)arg1;
-- (void)onOpenWeAppWithJSONString:(id)arg1;
+- (void)onOpenWeAppWithJSONString:(id)arg1 fromScene:(unsigned long long)arg2 sceneNote:(id)arg3;
 - (void)onSessionContentViewDidBePoped;
 @property(copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
 

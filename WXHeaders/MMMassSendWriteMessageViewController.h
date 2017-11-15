@@ -69,7 +69,7 @@
 - (void)ShowRecording;
 - (void)ShowTooLongTips;
 - (void)ShowTooShortTips;
-- (void)StartRecording;
+- (_Bool)StartRecording;
 - (void)StopRecording;
 - (void)ToolViewPositionDidChanged:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;

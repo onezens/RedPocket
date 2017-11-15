@@ -29,6 +29,7 @@
 - (void)enterRDMModeWeApp:(id)arg1;
 - (void)finalyOpenAppWithContact:(id)arg1;
 - (void)firstLoadWeAppContact;
+- (void)initIAPSDK;
 - (_Bool)isContactExpired;
 - (_Bool)isNeedSyncUpdateContact;
 - (_Bool)isPagePathInvalid;

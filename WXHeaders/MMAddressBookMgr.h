@@ -66,6 +66,7 @@
 - (id)getNickNameForPhone:(id)arg1;
 - (id)getPhoneAddressBooks;
 - (id)getPhoneContacts;
+- (id)getPhoneCountryCode;
 - (id)init;
 - (_Bool)isAddressBookLoaded;
 - (_Bool)isMobileVerified;

@@ -36,9 +36,5 @@
 - (void)OnUpdateItemRemark:(unsigned int)arg1 ErrCode:(int)arg2;
 - (void)OnUpdateItems:(NSArray *)arg1;
 - (void)OnUploadFavoritesItem:(FavoritesItem *)arg1 LocalDataId:(NSString *)arg2 FinishedLength:(int)arg3 TotalLength:(int)arg4;
-- (void)onGetFavEncryptObjectIdFail:(unsigned int)arg1;
-- (void)onGetFavEncryptObjectIdSuccess:(unsigned int)arg1 ObjectId:(NSString *)arg2;
-- (void)onGetFavObjectByIdFail:(NSString *)arg1;
-- (void)onGetFavObjectByObjectIdSuccess:(NSString *)arg1 Object:(NSString *)arg2;
 @end
 

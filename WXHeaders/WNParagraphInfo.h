@@ -6,17 +6,16 @@
 
 #import "NSObject.h"
 
-@class CMessageWrap, FavoritesItemDataField, NSAttributedString, NSString, WNImageInfo, WNLocationInfo, WNVideoInfo, WNVoiceInfo;
+@class CMessageWrap, FavoritesItemDataField, NSAttributedString, NSString, WNFileInfo, WNImageInfo, WNLocationInfo, WNTodoInfo, WNVideoInfo, WNVoiceInfo;
 
 @interface WNParagraphInfo : NSObject
 {
-    _Bool bTextBeforeObject;
     _Bool bLastTextParagraph;
     _Bool bRemoveSelected;
-    _Bool bAllSelected;
     unsigned int type;
     unsigned int textStyle;
     unsigned int editingType;
+    unsigned int olIndex;
     NSString *text;
     NSAttributedString *attrText;
     NSString *objectId;
@@ -26,34 +25,40 @@
     WNImageInfo *imageInfo;
     WNVoiceInfo *voiceInfo;
     WNVideoInfo *videoInfo;
+    WNTodoInfo *todoInfo;
     CMessageWrap *originMsgWrap;
     double cellHeight;
+    WNFileInfo *_fileInfo;
 }
 
 + (id)newEmptyTxtInfo;
 + (id)newTextInfoWithAttrString:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSAttributedString *attrText; // @synthesize attrText;
-@property(nonatomic) _Bool bAllSelected; // @synthesize bAllSelected;
 @property(nonatomic) _Bool bLastTextParagraph; // @synthesize bLastTextParagraph;
 @property(nonatomic) _Bool bRemoveSelected; // @synthesize bRemoveSelected;
-@property(nonatomic) _Bool bTextBeforeObject; // @synthesize bTextBeforeObject;
 @property(nonatomic) double cellHeight; // @synthesize cellHeight;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 @property(nonatomic) unsigned int editingType; // @synthesize editingType;
 @property(retain, nonatomic) FavoritesItemDataField *favData; // @synthesize favData;
+@property(retain, nonatomic) WNFileInfo *fileInfo; // @synthesize fileInfo=_fileInfo;
 - (id)getDataPath;
 - (id)getThumbPath;
 @property(retain, nonatomic) WNImageInfo *imageInfo; // @synthesize imageInfo;
 - (_Bool)isEmptyParagraph;
+- (_Bool)isListStyleParagraph;
+- (_Bool)isObjectParagraph;
+- (_Bool)isSeperateParagraph;
 - (_Bool)isTxtParagraph;
 @property(retain, nonatomic) WNLocationInfo *locationInfo; // @synthesize locationInfo;
 @property(retain, nonatomic) NSString *objectId; // @synthesize objectId;
 @property(retain, nonatomic) NSString *objectName; // @synthesize objectName;
+@property(nonatomic) unsigned int olIndex; // @synthesize olIndex;
 @property(retain, nonatomic) CMessageWrap *originMsgWrap; // @synthesize originMsgWrap;
 @property(retain, nonatomic) NSString *text; // @synthesize text;
 @property(nonatomic) unsigned int textStyle; // @synthesize textStyle;
+@property(retain, nonatomic) WNTodoInfo *todoInfo; // @synthesize todoInfo;
 @property(nonatomic) unsigned int type; // @synthesize type;
 @property(retain, nonatomic) WNVideoInfo *videoInfo; // @synthesize videoInfo;
 @property(retain, nonatomic) WNVoiceInfo *voiceInfo; // @synthesize voiceInfo;

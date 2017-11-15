@@ -12,8 +12,8 @@
 {
     struct rapidnet *net_;
     struct RapidnetInstance *instance_;
-    rpd_blob_e3f37c6c _inputBlob;
-    rpd_blob_e3f37c6c _outputBlob;
+    rpd_blob_0492df85 _inputBlob;
+    rpd_blob_0492df85 _outputBlob;
     NSString *_protoFile;
     NSString *_modelFile;
 }
@@ -22,13 +22,13 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (unsigned int *)dongleMap;
-- (const rpd_blob_e3f37c6c *)getInputBlob;
+- (const rpd_blob_0492df85 *)getInputBlob;
 - (int)getLayerCount;
 - (const struct layer_res *)getLayerData:(int)arg1;
 - (const struct rpd_layer_info *)getLayerInfo:(int)arg1;
 - (const struct layer_param *)getLayerParam:(int)arg1;
 - (struct rpd_net_param)getNetParam;
-- (const rpd_blob_e3f37c6c *)getOutputBlob;
+- (const rpd_blob_0492df85 *)getOutputBlob;
 - (id)initWithProto:(id)arg1 modelFile:(id)arg2;
 @property(retain, nonatomic) NSString *modelFile; // @synthesize modelFile=_modelFile;
 @property(retain, nonatomic) NSString *protoFile; // @synthesize protoFile=_protoFile;

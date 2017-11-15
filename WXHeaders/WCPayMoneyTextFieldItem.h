@@ -10,7 +10,7 @@
 {
 }
 
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (id)initWithTitle:(id)arg1 tip:(id)arg2 key:(id)arg3;
 - (void)textFieldDidChanged:(id)arg1;
 
 @end

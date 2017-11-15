@@ -6,12 +6,12 @@
 
 #import "MMObject.h"
 
-#import "MessageObserverDelegate.h"
+#import "INewSyncExt.h"
 #import "PBMessageObserverDelegate.h"
 
-@class FIFOFileQueue, NSMutableDictionary;
+@class FIFOFileQueue, NSMutableDictionary, NSString;
 
-@interface WCAdvertiseCommentUploadMgr : MMObject <PBMessageObserverDelegate, MessageObserverDelegate>
+@interface WCAdvertiseCommentUploadMgr : MMObject <PBMessageObserverDelegate, INewSyncExt>
 {
     FIFOFileQueue *m_queue;
     NSMutableDictionary *m_inQueueCommentsForWCObject;
@@ -21,7 +21,6 @@
 
 - (void).cxx_destruct;
 - (void)MessageReturn:(id)arg1 Event:(unsigned int)arg2;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)addComment:(id)arg1;
 - (void)addCommentToWCObjectCache:(id)arg1;
 - (void)dealloc;
@@ -30,11 +29,18 @@
 - (id)getInQueueCommentForWCObject:(id)arg1;
 - (id)init;
 @property(nonatomic) __weak id <WCAdvertiseCommentUploadMgrDelegate> m_delegate; // @synthesize m_delegate;
+- (void)onNewSyncOplogOK;
 - (void)popTopTask;
 - (void)pushBackTopTask;
 - (void)removeCommentFromWCObjectCache:(id)arg1;
 - (void)removeInQueueLikeCommentForWCObject:(id)arg1;
 - (void)tryStartNextTask;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
++ (void)ResetFilePathForMessageInfo:(id)arg1;
 + (void)clearPasteData;
 + (void)copy:(id)arg1 itemLocalId:(int)arg2;
 + (id)getDescOfParaInfo:(id)arg1;

@@ -147,6 +147,7 @@
 - (void)onAssetImageDonwloadProgress:(double)arg1 assetUrl:(id)arg2;
 - (void)onAssetImageDonwloadStart:(id)arg1;
 - (void)onCollectionViewCellMoved:(struct CGPoint)arg1;
+- (void)onDragableSelectorViewHeightChanged;
 - (_Bool)onEndCollectionViewCellMovement:(long long)arg1;
 - (void)onExpressionButtonClicked:(id)arg1;
 - (void)onFacebookClicked:(id)arg1;

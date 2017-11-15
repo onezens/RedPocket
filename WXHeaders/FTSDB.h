@@ -35,7 +35,7 @@
 - (_Bool)deleteRowInFavTable:(unsigned int)arg1;
 - (_Bool)deleteRowInUserNameIDTable:(unsigned int)arg1;
 - (_Bool)deleteRowsInFavTable:(id)arg1;
-- (id)getUserNameIdWithLimit:(int)arg1;
+- (id)getUserNameIdWithLimit:(unsigned int)arg1 where:(const struct WCTExpr *)arg2;
 - (id)getValidIndexItemByUserName:(id)arg1;
 - (id)getValidIndexItemByUserNameId:(unsigned int)arg1;
 - (id)init;
@@ -51,7 +51,8 @@
 @property(retain, nonatomic) WCTTable *m_tableMsgUserNameID; // @synthesize m_tableMsgUserNameID;
 - (id)msgTableNameWithIndex:(unsigned int)arg1;
 - (id)msgTableWithIndex:(unsigned int)arg1;
-- (id)queryMsgItemOmitMsg:(id)arg1 tableIndex:(unsigned int)arg2;
+- (id)queryMsgItemOmitMsg:(id)arg1 tableIndex:(unsigned int)arg2 limitUsrIds:(id)arg3;
+- (id)queryMsgItemOmitMsg:(id)arg1 tableIndex:(unsigned int)arg2 limitUsrIds:(id)arg3 limit:(unsigned int)arg4 maxTime:(unsigned int)arg5;
 - (id)queryTextInFavTable:(id)arg1;
 - (id)queryTextInFavTable:(id)arg1 limit:(int)arg2 searchAll:(id *)arg3;
 - (void)recoverDB;

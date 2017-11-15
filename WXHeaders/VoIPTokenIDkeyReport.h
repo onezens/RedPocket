@@ -10,11 +10,13 @@
 {
 }
 
++ (void)pushReceiveAwakeSyncMessage;
 + (void)pushReceiveBroadcast;
 + (void)pushReceiveCmdEmpty;
 + (void)pushReceiveCmdTypeError;
 + (void)pushReceiveContentEmpty;
 + (void)registerPushKit;
++ (void)reportAuthStatus:(id)arg1;
 + (void)reportId:(int)arg1 Key:(int)arg2;
 + (void)tokenCallbackNotVoipType;
 + (void)tokenCallbackTokenInvaildate;

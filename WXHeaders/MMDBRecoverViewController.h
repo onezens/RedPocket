@@ -62,8 +62,6 @@
 - (void)updateConfirmBtnStatus;
 - (void)updateProgress;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 

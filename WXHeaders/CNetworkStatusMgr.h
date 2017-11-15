@@ -10,6 +10,7 @@
 #import "IAudioToMessageExt.h"
 #import "IEmoticonDownloadExt.h"
 #import "INetworkStatusReportWithGPSExt.h"
+#import "INewSyncExt.h"
 #import "MMKernelExt.h"
 #import "MMService.h"
 #import "MessageObserverDelegate.h"
@@ -17,7 +18,7 @@
 
 @class CNetworkStatusReportArchive, MMTimer, NSDate, NSString, ReportInfo;
 
-@interface CNetworkStatusMgr : MMService <MMService, MessageObserverDelegate, IAudioToMessageExt, CNetworkStatusExt, IEmoticonDownloadExt, MMKernelExt, PBMessageObserverDelegate, INetworkStatusReportWithGPSExt>
+@interface CNetworkStatusMgr : MMService <INewSyncExt, MMService, MessageObserverDelegate, IAudioToMessageExt, CNetworkStatusExt, IEmoticonDownloadExt, MMKernelExt, PBMessageObserverDelegate, INetworkStatusReportWithGPSExt>
 {
     _Bool m_bConnecting;
     _Bool m_bConnected;
@@ -88,6 +89,10 @@
 - (void)loadNetworkStatusReportArchive;
 - (void)onAuthOK;
 - (void)onNetworkCheckResult:(_Bool)arg1 stage:(unsigned int)arg2 allEnds:(_Bool)arg3 kvString:(id)arg4;
+- (void)onNewSyncBegin;
+- (void)onNewSyncEnd;
+- (void)onNewSyncOplogConnectFail;
+- (void)onNewSyncOplogFail;
 - (void)onServiceEnterBackground;
 - (void)onServiceInit;
 - (void)onServiceReloadData;

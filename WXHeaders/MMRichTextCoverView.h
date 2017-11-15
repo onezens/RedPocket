@@ -9,10 +9,11 @@
 #import "ForwardMessageLogicDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 #import "UIScrollViewDelegate.h"
+#import "WCActionSheetDelegate.h"
 
-@class ForwardMessageLogicController, MMCursorView, MMMagnifiterView, MMUIViewController, NSMutableArray, NSString, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIView<MMRichTextCoverViewDelegate>;
+@class CMessageWrap, ForwardMessageLogicController, MMCursorView, MMMagnifiterView, MMUIViewController, NSArray, NSMutableArray, NSString, UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIView<MMRichTextCoverViewDelegate>;
 
-@interface MMRichTextCoverView : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate, ForwardMessageLogicDelegate>
+@interface MMRichTextCoverView : UIView <WCActionSheetDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, ForwardMessageLogicDelegate>
 {
     struct _NSRange _selectedRange;
     UIImage *_magnifiterImage;
@@ -24,12 +25,20 @@
     MMUIViewController *m_forwardFromViewController;
     id <MMRichTextCopyEventDelegate> _textCopyEventDelegate;
     UIView<MMRichTextCoverViewDelegate> *_delegate;
+    UIColor *_selectedColor;
+    UIColor *_cursorColor;
+    CMessageWrap *_msgWrap;
+    NSArray *_searchKeyWords;
+    NSArray *_originMenuItems;
+    unsigned long long _coverModel;
     NSMutableArray *_pathRects;
     MMCursorView *_leftCursor;
     MMCursorView *_rightCursor;
     MMMagnifiterView *_magnifiterView;
+    NSString *_textString;
 }
 
++ (_Bool)resolveInstanceMethod:(SEL)arg1;
 - (void).cxx_destruct;
 - (_Bool)CTRectContainsPointError:(struct CGRect)arg1 point:(struct CGPoint)arg2 error:(double)arg3;
 - (void)OnForwardMessageCancel:(id)arg1;
@@ -37,10 +46,12 @@
 - (void)addGestureRecognizer;
 - (_Bool)canBecomeFirstResponder;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (void)copyText:(id)arg1;
+@property(nonatomic) unsigned long long coverModel; // @synthesize coverModel=_coverModel;
+@property(retain, nonatomic) UIColor *cursorColor; // @synthesize cursorColor=_cursorColor;
 - (void)dealloc;
 @property(nonatomic) __weak UIView<MMRichTextCoverViewDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)forwardingMenuAction:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (id)getCurrentViewController;
 - (struct CGPoint)getLongPressSelectCenter;
@@ -49,11 +60,16 @@
 @property(retain, nonatomic) MMCursorView *leftCursor; // @synthesize leftCursor=_leftCursor;
 - (void)longPressAction:(id)arg1;
 @property(retain, nonatomic) MMMagnifiterView *magnifiterView; // @synthesize magnifiterView=_magnifiterView;
+@property(retain, nonatomic) CMessageWrap *msgWrap; // @synthesize msgWrap=_msgWrap;
 - (void)onBecomeActive;
 - (_Bool)onClickPreViewWithPoint:(struct CGPoint)arg1 DoubleClick:(_Bool)arg2;
 - (void)onDoubleTap:(id)arg1;
-- (void)onForward:(id)arg1;
 - (void)onPanAction:(id)arg1;
+- (void)onSelectAll:(id)arg1;
+- (void)onTextCopy:(id)arg1;
+- (void)onTextFavorite:(id)arg1;
+- (void)onTextForward:(id)arg1;
+@property(retain, nonatomic) NSArray *originMenuItems; // @synthesize originMenuItems=_originMenuItems;
 @property(retain, nonatomic) NSMutableArray *pathRects; // @synthesize pathRects=_pathRects;
 - (_Bool)pointIsVisableInScreen:(struct CGPoint)arg1;
 - (void)removeCursor;
@@ -65,13 +81,20 @@
 - (void)scrollUp;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDecelerating:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (void)selectAllText:(id)arg1;
+- (void)searchAndHighlightKeyWord:(id)arg1;
+@property(retain, nonatomic) NSArray *searchKeyWords; // @synthesize searchKeyWords=_searchKeyWords;
+- (void)selectAllTextWithShowMenu:(_Bool)arg1;
+@property(retain, nonatomic) UIColor *selectedColor; // @synthesize selectedColor=_selectedColor;
 - (void)setNeedsReloadView;
 @property(nonatomic) __weak id <MMRichTextCopyEventDelegate> textCopyEventDelegate; // @synthesize textCopyEventDelegate=_textCopyEventDelegate;
+@property(retain, nonatomic) NSString *textString; // @synthesize textString=_textString;
 - (void)showCursor;
 - (void)showMenuUI;
+- (void)showTextMessageOriginMenu:(id)arg1;
+- (_Bool)touchPointInSelectPath:(struct CGPoint)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

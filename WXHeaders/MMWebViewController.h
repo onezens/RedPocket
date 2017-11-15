@@ -27,7 +27,7 @@
 #import "WebViewURLCheckLogicDelegate.h"
 #import "YYWebViewDelegate.h"
 
-@class BrandActionReportLogicController, CContact, EnterpriseConnectorLogic, JSConsoleViewController, MMAnimationTipView, MMJSApiVerifyMgr, MMScrollActionSheet, MMURLHandler, MMWebCustomLog, MMWebProgressBar, MMWebViewController_SwipeGestureGoBackHistory, MMWebViewPluginScheduler, MMWebViewPresetUI, NSCache, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSURLConnection, NSURLRequest, UIActivityIndicatorView, UIButton, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer, UIView, UIView<YYWebViewInterface>, UIViewController, WCDeepLinkHandler, WCStatTimerHelper, WebViewA8KeyLogicImpl, WebViewJSLogicImpl, WebViewMenuCustomizeLogic, WebViewOAuthLogic, WebViewTimeProfileData, WebViewURLCheckLogic;
+@class BrandActionReportLogicController, CContact, EnterpriseConnectorLogic, MMAnimationTipView, MMJSApiVerifyMgr, MMScrollActionSheet, MMTipsViewController, MMURLHandler, MMWebCustomLog, MMWebProgressBar, MMWebViewController_SwipeGestureGoBackHistory, MMWebViewPluginScheduler, MMWebViewPresetUI, NSCache, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSURLConnection, NSURLRequest, UIActivityIndicatorView, UIButton, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer, UIView, UIView<YYWebViewInterface>, UIViewController, WCDeepLinkHandler, WCStatTimerHelper, WebViewA8KeyLogicImpl, WebViewJSLogicImpl, WebViewMenuCustomizeLogic, WebViewOAuthLogic, WebViewTimeProfileData, WebViewURLCheckLogic;
 
 @interface MMWebViewController : MMUIViewController <MMWebSearchViewDelegate, MMScrollActionSheetDelegate, EnterpriseConnectorLogicDelegate, MMExposeViewControllerDelegate, H5GameScrollActionSheetDelegate, WCForceTouchPopProtocol, UIGestureRecognizerDelegate, WebViewURLCheckLogicDelegate, IUiUtilExt, MMTipsViewControllerDelegate, WCActionSheetDelegate, UIWebViewDelegate, UIAlertViewDelegate, MMWebViewFontFloatViewDelegate, WebViewA8KeyLogicDelegate, WebViewJSLogicDelegate, UIScrollViewDelegate, MMJSApiVerifyMgrDelegate, YYWebViewDelegate, WXCustomWebViewControllerProtocol>
 {
@@ -40,7 +40,6 @@
     MMURLHandler *m_urlHandler;
     NSString *m_initUrl;
     WebViewA8KeyLogicImpl *m_a8KeyLogicImpl;
-    JSConsoleViewController *m_consoleViewController;
     WebViewJSLogicImpl *m_jsLogicImpl;
     WebViewURLCheckLogic *m_urlCheckLogic;
     unsigned int m_uiBackCount;
@@ -119,6 +118,7 @@
     NSString *_lastURL;
     NSString *_jumpAppStoreUrl;
     NSString *_encodeSchemeStr;
+    MMTipsViewController *tipsAlertJumpAppstoreVC;
     unsigned long long _useSchemeCount;
     _Bool _bIsReportSchemeWickedAlready;
     _Bool _bWkProxyEnabled;
@@ -309,7 +309,6 @@
 - (id)initWithURL:(id)arg1 presentModal:(_Bool)arg2 extraInfo:(id)arg3 referer:(id)arg4;
 - (void)injectSearchInPageJS;
 - (void)internalInitWithUrl:(id)arg1 presentModal:(_Bool)arg2 extraInfo:(id)arg3;
-- (void)internalShowJSLog:(id)arg1;
 - (_Bool)isABTestAllowForceSyncA8Key;
 - (_Bool)isABTestUseNativeOauth;
 - (_Bool)isAccessPermitttedByPermissionBitSet:(id)arg1;
@@ -380,6 +379,7 @@
 - (void)onClickEmptyBackgroundViewToHideTips;
 - (void)onClickFailView:(id)arg1;
 - (void)onClickTipsBtn:(id)arg1 Index:(long long)arg2 withText:(id)arg3 withTipsVC:(id)arg4;
+- (void)onCopy:(id)arg1;
 - (void)onDomReady;
 - (void)onEnterpriseConnectFail:(id)arg1;
 - (void)onEnterpriseConnectSucceed:(id)arg1;
@@ -524,7 +524,6 @@
 - (void)showLoadFailView:(unsigned int)arg1 errorCode:(long long)arg2;
 - (void)showMenuitemBatch:(id)arg1;
 - (void)showSearchTextKeyboard;
-- (void)showWXPayTip;
 - (void)startForcedRotationToPortrait;
 - (void)startPullDownRefreshAnimation;
 - (void)startWebSearch:(id)arg1;
@@ -540,6 +539,7 @@
 - (_Bool)useBlackStatusbar;
 - (_Bool)useTransparentNavibar;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewDidBeDismissed:(_Bool)arg1;
 - (void)viewDidBePoped:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidLoad;

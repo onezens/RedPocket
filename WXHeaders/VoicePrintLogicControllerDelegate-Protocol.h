@@ -12,6 +12,7 @@
 - (void)OnClickCanNotUnLockBtn;
 - (void)OnCreateSuccessful;
 - (void)OnCreateSuccessfulAndClickTryVerifyBtn;
+- (void)OnVerifyCancel;
 - (void)OnVerifyOverLimitFromServer;
 - (void)OnVerifySuccessful;
 @end

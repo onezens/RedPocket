@@ -92,6 +92,7 @@
 - (void)jumpToDetail:(id)arg1;
 - (void)jumpToViewStreamVideo:(id)arg1;
 @property(nonatomic) __weak id <MyFavoritesViewControllerDelegate> m_delegate; // @synthesize m_delegate=_m_delegate;
+- (void)onBackButtonClicked;
 - (void)onBtnEdit;
 - (void)onClosePlayer;
 - (void)onClosePlayerForViewDetail:(id)arg1;

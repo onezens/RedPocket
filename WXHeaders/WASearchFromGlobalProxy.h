@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+#import "IWSViewControllerLifeCycleExt.h"
 #import "UIScrollViewDelegate.h"
 #import "WAAppCanvasWrapperViewDelegate.h"
 #import "WASearchActionDelegate.h"
 
 @class MMUIViewController, NSDictionary, NSMutableDictionary, NSString, WASearchResultLogic;
 
-@interface WASearchFromGlobalProxy : NSObject <WASearchActionDelegate, UIScrollViewDelegate, WAAppCanvasWrapperViewDelegate>
+@interface WASearchFromGlobalProxy : NSObject <WASearchActionDelegate, UIScrollViewDelegate, WAAppCanvasWrapperViewDelegate, IWSViewControllerLifeCycleExt>
 {
     NSDictionary *_initParams;
     MMUIViewController *_containerController;
@@ -56,6 +57,8 @@
 - (void)sendSearchJSEvent:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *widgetViewCache; // @synthesize widgetViewCache=_widgetViewCache;
 - (void)stopResultView;
+- (void)webSearchVC:(id)arg1 willAppear:(_Bool)arg2;
+- (void)webSearchVC:(id)arg1 willDisappear:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -16,6 +16,7 @@
 }
 
 + (double)getCellHeightOfParaInfo:(id)arg1;
++ (double)getTextHeightForLast:(double)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <WNParaCellViewDelegate> delegate; // @synthesize delegate;
 @property(retain, nonatomic) WNParagraphInfo *paraInfo; // @synthesize paraInfo;

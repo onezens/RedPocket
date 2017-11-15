@@ -21,9 +21,9 @@
 @property(retain, nonatomic) UIView *barBackShadowView; // @synthesize barBackShadowView=_barBackShadowView;
 - (void)darkerNavigationBar;
 - (void)dealloc;
-- (void)didAddSubview:(id)arg1;
 - (void)didRotate:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)layoutSubviews;
 - (void)onStatusBarFrameChanged;
 - (void)setBackgroundImage:(id)arg1 forBarMetrics:(long long)arg2;
 - (void)setBackgroundImage:(id)arg1 forBarPosition:(long long)arg2 barMetrics:(long long)arg3;

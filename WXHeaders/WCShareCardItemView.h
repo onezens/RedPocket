@@ -14,7 +14,6 @@
     NSArray *_shareCardList;
     WCShareCardData *_curDisplayShareCard;
     UIView *_cardBgView;
-    UIView *_shadowView;
     UIView *_coverView;
     UIView *_cardBgContainerView;
     NSString *_shareUsernameText;

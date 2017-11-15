@@ -6,17 +6,21 @@
 
 #import "MMObject.h"
 
+#import "AppUserInterfaceSizeDelegate.h"
 #import "IMsgExt.h"
 #import "IVoiceReminderExt.h"
 #import "MMKernelExt.h"
+#import "MMTabBarControllerDelegate.h"
 #import "MMThemeManagerExt.h"
 #import "UIAlertViewDelegate.h"
+#import "UISplitViewControllerDelegate.h"
 #import "UITabBarControllerDelegate.h"
 #import "WCFacadeExt.h"
+#import "WCPayWalletLockVerifyLogicDelegate.h"
 
-@class CMMVector, MMTabBarController, NSMutableArray, NSString, PreEnterWechatLogic, SvrErrorTipWindow, UIWindow;
+@class CMMVector, MMMainViewController, MMSplitViewController, MMTabBarController, NSMutableArray, NSString, PreEnterWechatLogic, SplitViewEmptyViewController, SvrErrorTipWindow, UIViewController, UIWindow;
 
-@interface CAppViewControllerManager : MMObject <UITabBarControllerDelegate, MMThemeManagerExt, MMKernelExt, IMsgExt, IVoiceReminderExt, WCFacadeExt, UIAlertViewDelegate>
+@interface CAppViewControllerManager : MMObject <MMTabBarControllerDelegate, WCPayWalletLockVerifyLogicDelegate, UISplitViewControllerDelegate, AppUserInterfaceSizeDelegate, UITabBarControllerDelegate, MMThemeManagerExt, MMKernelExt, IMsgExt, IVoiceReminderExt, WCFacadeExt, UIAlertViewDelegate>
 {
     UIWindow *m_window;
     NSMutableArray *m_arrViewController;
@@ -29,6 +33,15 @@
     SvrErrorTipWindow *m_svrErrorTipWindow;
     PreEnterWechatLogic *m_PreEnterWechatLogic;
     MMTabBarController *m_tabbarController;
+    MMMainViewController *m_mainViewController;
+    MMSplitViewController *m_splitViewController;
+    SplitViewEmptyViewController *m_emptyVc;
+    NSMutableArray *m_detailViewControllers;
+    _Bool m_lastPush;
+    _Bool _m_isHandlingOrientationEvent;
+    _Bool _m_isForceUsingSingleColumnMode;
+    NSMutableArray *_m_presentedViewControllers;
+    UIViewController *_m_lastPresentedViewController;
 }
 
 + (id)getAppViewControllerManager;
@@ -54,6 +67,10 @@
 - (void)addViewToRootView:(id)arg1;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)changeLanguage;
+- (void)changeToSingleViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)changeToSplitViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)checkColumnModeForCurOrientationIfNeeded;
+- (void)checkIfTopVCAnimatingAndToogleColumnMode;
 - (_Bool)checkResentFailMsgForNotification:(id)arg1 isFromLaunch:(_Bool)arg2;
 - (void)closeMainFrame;
 - (void)createContactsViewController;
@@ -61,26 +78,43 @@
 - (void)createMainFrameWithShowStyle:(id)arg1;
 - (void)createMoreViewController;
 - (void)createNewMainFrameViewController;
+- (void)createTabbarController;
 - (void)dealloc;
+- (void)deviceOrientationDidChange:(id)arg1;
 - (void)didTakeSnapshot:(id)arg1;
+- (void)dismissAllPresentedViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dismissToRootViewController;
 - (void)dismissToRootViewControllerForIndex:(long long)arg1;
+- (void)endForceUsingSingleColumnMode;
 - (void)enterBackground;
 - (void)enterForeground;
+- (id)findLastPresentedViewControllerWith:(id)arg1;
 - (void)fixOnStatusBarClick;
 - (void)forceRedrawNavigationBars;
+- (void)forceUsingSingleColumnMode;
 - (id)formatCGFloat:(double)arg1;
 - (unsigned int)getCurTabBarIndex;
+- (double)getLeftColumnWidthForSplitView;
+- (id)getMMMainViewController;
+- (id)getMMSplitViewController;
+- (id)getMMTabBarController;
 - (id)getMainWindow;
 - (id)getNewMainFrameViewController;
+- (id)getRightViewControllerForSplitView;
+- (id)getSplitDetailNavigationController;
+- (id)getSplitPresentedViewController;
 - (id)getTabBarBaseViewController:(unsigned long long)arg1;
 - (id)getTabBarController;
 - (id)getTopViewController;
 - (unsigned int)getTotalUnReadCount;
 - (id)initWithWindow:(id)arg1;
+- (void)internalChangeToSingleViewController:(id)arg1;
+- (id)internalChangeToSplitViewController:(id)arg1;
 - (_Bool)isChangingTheme;
 - (_Bool)isInStatusBarShowViewController;
 - (_Bool)isNowInRootViewController;
+- (_Bool)isTopVCAnimating;
+- (_Bool)isUsingSplitView;
 - (void)jumpToAlbum;
 - (void)jumpToCameraScan:(int)arg1;
 - (void)jumpToCameraScan:(int)arg1 showMainView:(_Bool)arg2;
@@ -93,7 +127,11 @@
 - (void)jumpToURLShardBy3rdApp:(id)arg1;
 - (void)keyboardWillHide:(id)arg1;
 - (void)keyboardWillShow:(id)arg1;
+@property(nonatomic) _Bool m_isForceUsingSingleColumnMode; // @synthesize m_isForceUsingSingleColumnMode=_m_isForceUsingSingleColumnMode;
+@property(nonatomic) _Bool m_isHandlingOrientationEvent; // @synthesize m_isHandlingOrientationEvent=_m_isHandlingOrientationEvent;
 @property(readonly, nonatomic) _Bool m_isInBackground; // @synthesize m_isInBackground;
+@property(retain, nonatomic) UIViewController *m_lastPresentedViewController; // @synthesize m_lastPresentedViewController=_m_lastPresentedViewController;
+@property(retain, nonatomic) NSMutableArray *m_presentedViewControllers; // @synthesize m_presentedViewControllers=_m_presentedViewControllers;
 - (void)moveToRootViewController;
 - (void)moveToRootViewControllerForIndex:(long long)arg1;
 - (void)moveToTab:(long long)arg1 showMainView:(_Bool)arg2;
@@ -104,7 +142,10 @@
 - (void)newMessageByContact:(id)arg1 msgWrapToAdd:(id)arg2 showMainView:(_Bool)arg3 animated:(_Bool)arg4 extraInfo:(id)arg5;
 - (void)newMessageByEnterpriseContact:(id)arg1 msgWrapToAdd:(id)arg2 showMainView:(_Bool)arg3 showSessionList:(_Bool)arg4 animated:(_Bool)arg5 extraInfo:(id)arg6;
 - (id)notificationInfoForMessage:(id)arg1 withEnabledNotificationTypes:(unsigned long long)arg2;
+- (void)onAppUserInterfaceSizeChanged:(id)arg1 previousTraitCollection:(id)arg2 currentTraitCollection:(id)arg3;
 - (void)onDataChangedWithAdded:(id)arg1 andChanged:(id)arg2 andDeleted:(id)arg3;
+- (void)onInterfaceSizeChangedToCompact;
+- (void)onInterfaceSizeChangedToRegular;
 - (void)onNotifyRemindMsg:(id)arg1;
 - (void)onPreQuit;
 - (void)onThemeChanged;
@@ -112,6 +153,7 @@
 - (void)openMainFrame:(_Bool)arg1 showStyle:(id)arg2;
 - (void)openPluginFeature:(int)arg1;
 - (void)openView:(unsigned int)arg1 launchOptions:(id)arg2 isAppUpdated:(_Bool)arg3;
+- (void)presentAllViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)printView:(id)arg1 withLevel:(int)arg2 buffer:(id)arg3;
 - (void)reSendAllMsgFromNotificationDone;
 - (void)recreateFindFriendViewController;
@@ -123,9 +165,18 @@
 - (void)removeViewFromRootViewController:(id)arg1;
 - (void)replaceTwoFile:(id)arg1 desFile:(id)arg2;
 - (void)resendAllFailMsgFromLocalNotification:(id)arg1;
+- (void)resetNavItem:(id)arg1;
+- (void)resetTabbarAndSplitView;
 - (void)restartAllFailUploadFromLocalNotification;
 - (void)setAllTabBarItemEnabled:(_Bool)arg1;
+- (void)setRightViewControllerForSplitView:(id)arg1 forPush:(_Bool)arg2;
+- (_Bool)shouldChangeToOtherSplitMode:(id)arg1;
+- (_Bool)shouldCreateSplitView;
+- (_Bool)splitViewController:(id)arg1 shouldHideViewController:(id)arg2 inOrientation:(long long)arg3;
+- (void)splitViewPopToRootViewController;
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
+- (_Bool)tabBarController:(id)arg1 shouldSelectViewController:(id)arg2;
+- (void)toogleColumnModelIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (void)walletLockVerifySuccess:(id)arg1;
 
 // Remaining properties

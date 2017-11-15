@@ -1,0 +1,105 @@
+
+
+@interface WCRedEnvelopesReceiveHomeView{
+     id m_delegate;
+     NSDictionary *m_dicBaseInfo;
+}
+
+@end
+
+
+%hook WCRedEnvelopesReceiveHomeView
+
+- (void)OnOpenRedEnvelopes { 
+    // %log;
+    %orig; 
+    // NSDictionary *dict = MSHookIvar<NSDictionary *>(self, "m_dicBaseInfo");
+    // NSArray *arr = [dict allKeys];
+
+    // for(NSInteger i=0; i<arr.count; i++){
+    //     NSString *key = arr[i];
+    //     id value = [dict valueForKey:key];
+    //     NSLog(@"key : %@   value : %@", key, value);
+    // }
+
+    // id delegate = MSHookIvar<id>(self, "m_delegate");
+
+    // NSLog(@"m_delegate class is %@ ", [delegate class]);
+ }
+
+
+%end
+
+
+// %hook WCRedEnvelopesReceiveHomeView
+
+// - (void)OnOpenRedEnvelopes { 
+//     // %log;
+//     //%orig; 
+
+//     NSDictionary *dict = MSHookIvar<NSDictionary *>(self, "m_dicBaseInfo");
+//     //是否是消息发送者
+//     int isSender =  [[dict objectForKey:@"isSender"] intValue];
+//     NSLog(@"isSender : %d", isSender);
+
+//     //红包类型
+//     NSNumber *hbType = [dict objectForKey:@"hbType"]; 
+//     NSLog(@"hbType : %@", hbType);
+
+//     //调用打开红包 WCRedEnvelopesReceiveControlLogic
+//     WCRedEnvelopesReceiveControlLogic *delegate = MSHookIvar<WCRedEnvelopesReceiveControlLogic *>(self, "m_delegate");
+//     [delegate WCRedEnvelopesReceiveHomeViewOpenRedEnvelopes];
+
+//  }
+
+
+// %end
+
+
+
+
+
+%hook WCRedEnvelopesReceiveControlLogic
+// - (void).cxx_destruct { %log; %orig; }
+- (_Bool)HasMoreDetailList { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+- (void)OnClearserSendOrReceiveRedEnveloperListRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnCommitWCRedEnvelopes:(id)arg1 { %log; %orig; }
+- (void)OnConfirmSendMessageSelectSessionViewController { %log; %orig; }
+- (void)OnGoToBalanceDetail { %log; %orig; }
+- (void)OnLoadMoreRedEnvelopesList { %log; %orig; }
+- (void)OnOpenRedEnvelopesRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnQueryRedEnvelopesDetailRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnQueryUserSendOrReceiveRedEnveloperListRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnReceiverQueryRedEnvelopesRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnSelectMutilContactsButton { %log; %orig; }
+- (void)OnSelectSession:(id)arg1 SessionSelectController:(id)arg2 { %log; %orig; }
+- (void)OnSelectSessionCancel:(id)arg1 { %log; %orig; }
+- (void)OnSelectSessionReturn:(id)arg1 { %log; %orig; }
+- (void)OnSendShareEnterpriseRedEnvelopesResponse:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnSendShareRedEnvelopesoRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)OnThanksForRedEnvelopesRequest:(id)arg1 Error:(id)arg2 { %log; %orig; }
+- (void)WCRedEnvelopesEnterpriseDetailViewControllerBack { %log; %orig; }
+- (void)WCRedEnvelopesEnterpriseDetailViewControllerContinueSendRedEnvelopes { %log; %orig; }
+- (void)WCRedEnvelopesReceiveHomeViewBack { %log; %orig; }
+- (void)WCRedEnvelopesReceiveHomeViewOpenList { %log; %orig; }
+- (void)WCRedEnvelopesReceiveHomeViewOpenRedEnvelopes { %log; %orig; }
+- (void)WCRedEnvelopesRedEnvelopesDetailViewControllerBack { %log; %orig; }
+- (void)WCRedEnvelopesRedEnvelopesDetailViewControllerContinueSendRedEnvelopes { %log; %orig; }
+- (void)closeAnimationWindowAndShowDetailView:(id)arg1 { %log; %orig; }
+- (void)dismissCurrentViewSendShareRedEnvelopes { %log; %orig; }
+- (id)initWithData:(id)arg1 Scene:(int)arg2 { %log; id r = %orig; HBLogDebug(@" = %@", r); return r; }
+- (_Bool)isRedEnvelopesHasBeenReceivedAndNotOutOfDate:(id)arg1 { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+- (_Bool)isRedEnvelopesHasBeenReceivedAndOutOfDate:(id)arg1 { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+- (_Bool)isRedEnvelopesReallyTimeOut:(int)arg1 messageWrap:(id)arg2 { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+- (void)onMultiSelectContactReturn:(id)arg1 { %log; %orig; }
+- (void)onRealnameActionClick:(id)arg1 { %log; %orig; }
+- (void)queryRedEnvelopesDetailRequest:(id)arg1 { %log; %orig; }
+- (void)showDetailView { %log; %orig; }
+- (void)showReceivedAndOutOfDataRedEnvelopesIntroView { %log; %orig; }
+- (void)startLogic { %log; %orig; }
+- (void)stopLoading { %log; %orig; }
+- (NSString *)debugDescription { %log; NSString * r = %orig; HBLogDebug(@" = %@", r); return r; }
+- (NSString *)description { %log; NSString * r = %orig; HBLogDebug(@" = %@", r); return r; }
+- (unsigned long long )hash { %log; unsigned long long  r = %orig; HBLogDebug(@" = %llu", r); return r; }
+- (Class )superclass { %log; Class  r = %orig; HBLogDebug(@" = %@", r); return r; }
+%end

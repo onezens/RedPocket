@@ -15,6 +15,6 @@
 - (void)OnEndPlayWNAudio:(NSString *)arg1;
 - (void)OnEndWNAudioRecordWithObj:(id)arg1 FilePath:(NSString *)arg2 VoiceTime:(float)arg3 VoiceFmt:(unsigned int)arg4;
 - (void)OnStartWNAudioRecordWithObj:(id)arg1;
-- (void)UpdateWNAudioRecordWithObj:(id)arg1 PeakPower:(float)arg2 Length:(int)arg3;
+- (void)UpdateWNAudioRecordWithObj:(id)arg1;
 @end
 

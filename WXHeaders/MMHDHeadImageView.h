@@ -32,6 +32,8 @@
     _Bool m_needShowLoading;
     unsigned char headCategory;
     _Bool _m_bShowInViewController;
+    _Bool _enableDragDownToClose;
+    _Bool _needUseScreenFrame;
 }
 
 - (void).cxx_destruct;
@@ -42,6 +44,7 @@
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)dealloc;
 - (void)downloadHDImg;
+@property(nonatomic) _Bool enableDragDownToClose; // @synthesize enableDragDownToClose=_enableDragDownToClose;
 - (id)getRealUserName:(id)arg1;
 @property(nonatomic) unsigned char headCategory; // @synthesize headCategory;
 - (void)hide;
@@ -55,6 +58,7 @@
 @property(retain, nonatomic) CBaseContact *m_contact; // @synthesize m_contact;
 @property(nonatomic) __weak id <HDHeadImageViewDelegate> m_delegate; // @synthesize m_delegate;
 @property(nonatomic) _Bool m_needShowLoading; // @synthesize m_needShowLoading;
+@property(nonatomic) _Bool needUseScreenFrame; // @synthesize needUseScreenFrame=_needUseScreenFrame;
 - (void)onMainWindowFrameChanged;
 - (void)onSingleTap:(id)arg1;
 - (void)promptSaveToPhotoLibrary:(id)arg1;

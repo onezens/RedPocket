@@ -9,23 +9,22 @@
 #import "WCAccountBindPhoneForRegCGIDelegate.h"
 #import "WCAccountFillPhoneViewControllerDelegate.h"
 #import "WCAccountManualAuthControlLogicDelegate.h"
+#import "WCAccountPhoneVerifyUpViewControllerDelegate.h"
 #import "WCAccountPhoneVerifyViewControllerDelegate.h"
 #import "WCAccountRegByOldPhoneViewControllerDelegate.h"
 #import "WCAccountSetPasswordViewControllerDelegate.h"
 #import "WCAccountVoiceVerifyViewControllerDelegate.h"
 #import "WCBaseControlMgrExt.h"
 
-@class NSString, WCAccountBindPhoneForRegCGI, WCAccountGraphicVerifyControlLogic, WCAccountManualAuthControlLogic, WCAccountSafeDeviceControlLogic;
+@class NSString, WCAccountBindPhoneForRegCGI, WCAccountManualAuthControlLogic;
 
-@interface WCAccountPhoneLoginControlLogic : WCAccountBaseControlLogic <WCBaseControlMgrExt, WCAccountFillPhoneViewControllerDelegate, WCAccountVoiceVerifyViewControllerDelegate, WCAccountPhoneVerifyViewControllerDelegate, WCAccountSetPasswordViewControllerDelegate, WCAccountRegByOldPhoneViewControllerDelegate, WCAccountManualAuthControlLogicDelegate, WCAccountBindPhoneForRegCGIDelegate>
+@interface WCAccountPhoneLoginControlLogic : WCAccountBaseControlLogic <WCBaseControlMgrExt, WCAccountFillPhoneViewControllerDelegate, WCAccountVoiceVerifyViewControllerDelegate, WCAccountPhoneVerifyViewControllerDelegate, WCAccountSetPasswordViewControllerDelegate, WCAccountRegByOldPhoneViewControllerDelegate, WCAccountManualAuthControlLogicDelegate, WCAccountBindPhoneForRegCGIDelegate, WCAccountPhoneVerifyUpViewControllerDelegate>
 {
     unsigned int m_uiTryCount;
     _Bool m_bNeedSetPwd;
     WCAccountBindPhoneForRegCGI *m_modelLogic;
-    WCAccountBaseControlLogic *m_subFBLogic;
-    WCAccountSafeDeviceControlLogic *m_safeDeviceLogic;
-    WCAccountGraphicVerifyControlLogic *m_graphicVerifyLogic;
     WCAccountManualAuthControlLogic *m_manualAuthLogic;
+    unsigned int m_uiCheckVerifyUpCount;
 }
 
 - (void).cxx_destruct;
@@ -35,6 +34,7 @@
 - (_Bool)checkVerifyCode:(id)arg1;
 - (void)dealloc;
 - (void)forceRegisterForPhone;
+- (id)getRegSessionID;
 - (void)getVerifyCode;
 - (_Bool)getVerifyCodeReady;
 - (_Bool)getVoideVerifyCodeReady:(id)arg1;
@@ -42,48 +42,32 @@
 - (void)jumpToManulLoginControlMgrToRegister:(id)arg1;
 - (void)loginAccount;
 - (void)loginForPhone;
-- (void)login_but_registerForPhone;
-- (void)onByPhonePwdLoginByVerifyCode:(id)arg1 phoneNumber:(id)arg2;
-- (void)onCheckForgetPwdVerifyCode:(id)arg1 userName:(id)arg2 password:(id)arg3 StyleKeyValue:(id)arg4;
-- (void)onCheckLoginPhoneNumberStatus:(id)arg1 countryCode:(id)arg2 phoneNumber:(id)arg3 formatedPhoneNumber:(id)arg4 StyleKeyValue:(id)arg5;
-- (void)onCheckLoginVerifyCode:(id)arg1 ticket:(id)arg2 controlShowFlag:(unsigned int)arg3 userName:(id)arg4 password:(id)arg5 StyleKeyValue:(id)arg6;
-- (void)onCheckRegPhoneNumberStatus:(id)arg1 countryCode:(id)arg2 phoneNumber:(id)arg3 formatedPhoneNumber:(id)arg4 StyleKeyValue:(id)arg5;
-- (void)onCheckRegVerifyCode:(id)arg1 ticket:(id)arg2 controlShowFlag:(unsigned int)arg3 userName:(id)arg4 password:(id)arg5 StyleKeyValue:(id)arg6;
-- (void)onFacebookConnect;
+- (void)onCheckRegPhoneNumberStatus:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onCheckRegVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (_Bool)onErrorHandleLogicDone;
+- (_Bool)onErrorHandleLogicDoneAndNeedGoNextWithParams:(id)arg1;
 - (void)onFillPhoneBack;
-- (void)onFillPhoneFromRegToLogin;
-- (void)onFillPhoneGoToSecurityCenter;
-- (void)onFillPhoneLoginByQQ;
 - (void)onFillPhoneNext:(id)arg1 phoneNumber:(id)arg2;
-- (void)onFillPhoneNext:(id)arg1 phoneNumber:(id)arg2 pwd:(id)arg3;
-- (void)onFillPhoneReg;
-- (void)onGetForgetPwdVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetForgetPwdVoiceVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetLoginVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetLoginVoiceVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetRegVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetRegVoiceVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onGetVoiceVerifyCode:(id)arg1 StyleKeyValue:(id)arg2;
-- (void)onLoginByQRCode;
+- (void)onGetRegVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onGetRegVoiceVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onGetVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
+- (void)onGetVoiceVerifyCode:(id)arg1 StyleKeyValue:(id)arg2 Response:(id)arg3;
 - (_Bool)onManualAuthControlLogicError:(id)arg1;
 - (void)onManualAuthControlLogicStop:(unsigned long long)arg1 response:(id)arg2;
 - (void)onPhoneVerifyAgain;
 - (void)onPhoneVerifyBack;
 - (void)onPhoneVerifyNext:(id)arg1;
+- (void)onPhoneVerifyUpBack;
+- (void)onPhoneVerifyUpNext;
 - (void)onPhoneVerifyVoice;
 - (void)onRegByOldPhoneBack;
 - (void)onRegByOldPhoneContinueReg;
 - (void)onRegByOldPhoneLogin;
-- (void)onSafeDeviceControlLogicCancel;
-- (void)onSafeDeviceControlLogicReturnOK;
 - (void)onSetPasswordBack;
 - (void)onSetPasswordOK;
-- (void)onSignUpWithQQ;
 - (void)onTrueFillPhoneNext:(id)arg1 phoneNumber:(id)arg2;
 - (void)onVoiceVerifyBack;
 - (void)onVoiceVerifyGetVerifyCode:(id)arg1;
-- (void)onWCBaseLogicDidStop:(unsigned int)arg1;
 - (void)pause;
 - (void)registerForPhone;
 - (void)resume;

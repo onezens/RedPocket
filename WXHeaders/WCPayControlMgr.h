@@ -121,6 +121,8 @@
 - (unsigned int)startPayMoneyLogic:(id)arg1 DeeplinkLinkUrl:(id)arg2;
 - (unsigned int)startPayMoneyLogic:(id)arg1 RequestKey:(id)arg2;
 - (unsigned int)startPayMoneyLogic:(id)arg1 RequestKey:(id)arg2 Scene:(int)arg3;
+- (unsigned int)startQRCodeRewardLaunchControlLogic:(id)arg1 controlData:(id)arg2;
+- (unsigned int)startQRCodeRewardPayerControlLogic:(id)arg1 scanUrl:(id)arg2 sourceWebViewUrl:(id)arg3 payChannel:(int)arg4;
 - (unsigned int)startRealnameVerifyLogic:(id)arg1 Data:(id)arg2;
 - (unsigned int)startReceiverConfirmTransferMoneyLogic:(id)arg1 Data:(id)arg2;
 - (unsigned int)startResetPayPwdLogic:(id)arg1 Data:(id)arg2;

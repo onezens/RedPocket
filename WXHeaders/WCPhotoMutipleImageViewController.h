@@ -84,6 +84,7 @@
 - (void)OnForwardMessageCancel:(id)arg1;
 - (void)OnForwardMessageSend:(id)arg1;
 - (void)PreScanQRCode;
+- (void)UISplitViewWillChangeSplitMode;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)adjustViewAndNavBarRect;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;

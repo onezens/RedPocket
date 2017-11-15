@@ -7,6 +7,9 @@
 #import "NSObject.h"
 
 @protocol FTSResultViewDelegate <NSObject>
+
+@optional
 - (void)onFTSDetailViewReturn:(_Bool)arg1;
+- (void)onRemoveAddedResultView;
 @end
 

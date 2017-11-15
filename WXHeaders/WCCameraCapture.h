@@ -40,7 +40,7 @@
 - (void)setZoomFactor:(double)arg1;
 - (void)startCameraCapture;
 - (void)startRunning;
-- (_Bool)stopCameraCapture;
+- (void)stopCameraCapture;
 - (_Bool)supportFlashlightMode;
 - (_Bool)supportTorchMode;
 - (_Bool)switchCamera;

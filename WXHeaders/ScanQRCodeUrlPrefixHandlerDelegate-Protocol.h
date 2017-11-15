@@ -9,6 +9,7 @@
 @class MMUIViewController, NSString;
 
 @protocol ScanQRCodeUrlPrefixHandlerDelegate <NSObject>
+- (NSString *)getScanQRCodeSourceWebViewControllerUrl;
 - (void)onScanQRCodeUrlPrefixHandlerEnd;
 - (MMUIViewController *)onScanQRCodeUrlPrefixHandlerRequestViewController;
 - (void)onScanQRCodeUrlPrefixHandlerScanFinish;

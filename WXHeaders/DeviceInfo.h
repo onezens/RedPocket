@@ -20,6 +20,7 @@
 + (double)GetiOSVersion;
 + (long long)TotalDiskSpaceSize;
 + (id)bssid;
++ (_Bool)canUseInAppSplitView;
 + (id)deviceXml;
 + (_Bool)hasForceTouchCapability:(id)arg1;
 + (_Bool)is480hScreen;
@@ -42,6 +43,7 @@
 + (_Bool)isUnderiPhone6s;
 + (_Bool)isiOS10;
 + (_Bool)isiOS10_1;
++ (_Bool)isiOS10_2plus;
 + (_Bool)isiOS10plus;
 + (_Bool)isiOS11plus;
 + (_Bool)isiOS7;

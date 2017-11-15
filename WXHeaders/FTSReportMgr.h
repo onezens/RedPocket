@@ -41,7 +41,8 @@
 - (void)reportIDKeyContactSearchTime:(unsigned int)arg1;
 - (void)reportIDKeyWithFTSDBUpgradeForCC;
 - (void)reportKVContactSearchInfo:(id)arg1;
-- (void)reportKVSearchGuideWeAppEntryDelayDisplayByCache:(id)arg1 withAppListStr:(id)arg2;
+- (void)reportKVMsgResultClickType:(int)arg1 pageType:(int)arg2 showTalkerEntry:(_Bool)arg3;
+- (void)reportKVMsgSearchInfo:(unsigned long long)arg1 pageType:(int)arg2 searchAgain:(_Bool)arg3 appendMode:(_Bool)arg4;
 - (void)reportKVSearchGuideWeAppEntryDisplay:(id)arg1 appList:(id)arg2 stragetyId:(int)arg3;
 @property(retain, nonatomic) NSMutableSet *resultHittedKeywordSet; // @synthesize resultHittedKeywordSet=_resultHittedKeywordSet;
 @property(retain, nonatomic) NSMutableSet *resultHittedKeywordSetForSubSearch; // @synthesize resultHittedKeywordSetForSubSearch=_resultHittedKeywordSetForSubSearch;

@@ -17,6 +17,7 @@
     id <WCCardDataSource> _cardDataSource;
     struct CGRect _originRect;
     _Bool _animating;
+    _Bool _isOnShow;
     UIView *_codeContainView;
     unsigned int _offlineCodeStatus;
     NSString *_dynamicCode;
@@ -41,6 +42,7 @@
 - (void)updateLargeCodeView:(id)arg1 dynamicCode:(id)arg2 offlineCode:(id)arg3 offlineCodeStatus:(unsigned int)arg4;
 - (void)updateViewStatus;
 - (void)viewTapped:(id)arg1;
+- (void)willChangeToSplitMode;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

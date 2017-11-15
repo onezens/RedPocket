@@ -6,11 +6,14 @@
 
 #import "NSObject.h"
 
-@class WAAppTask;
+@class NSString, WAAppTask;
 
 @protocol WAAppTaskDelegate <NSObject>
 - (void)taskBackgroundNetworkInterruptedTimeout:(WAAppTask *)arg1;
 - (void)taskDidClose:(WAAppTask *)arg1;
 - (void)taskDidOpen:(WAAppTask *)arg1;
+
+@optional
+- (void)taskEnterBackgroundWithAppID:(NSString *)arg1 andRelativePath:(NSString *)arg2;
 @end
 

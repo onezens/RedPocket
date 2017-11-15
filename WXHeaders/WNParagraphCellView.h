@@ -9,72 +9,86 @@
 #import "UITextViewDelegate.h"
 #import "WNParaObjectViewDelegate.h"
 #import "WNParaTextViewDelegate.h"
+#import "WNTodoHeaderViewDelegate.h"
 
-@class NSString, WNParaObjectBaseView, WNParaTextView, WNParagraphInfo;
+@class MMUIView, NSString, WNParaObjectBaseView, WNParaTextView, WNParagraphInfo;
 
-@interface WNParagraphCellView : UIView <UITextViewDelegate, WNParaObjectViewDelegate, WNParaTextViewDelegate>
+@interface WNParagraphCellView : UIView <WNTodoHeaderViewDelegate, UITextViewDelegate, WNParaObjectViewDelegate, WNParaTextViewDelegate>
 {
     _Bool m_bIsLongPressHandled;
     _Bool m_bIsLongPressCanceled;
     _Bool m_touchEnded;
     WNParaObjectBaseView *_objectView;
-    WNParaTextView *_leftTextView;
-    WNParaTextView *_rightTextView;
     WNParaTextView *_mainTextView;
     UIView *_selectedToRemoveView;
     UIView *_selectedAllView;
+    MMUIView *_leftParaStyleView;
     _Bool bMannalSetStyle;
     double m_textHeight;
+    struct _NSRange _cacheSelectRange;
     WNParagraphInfo *paraInfo;
     id <WNParaCellViewDelegate> delegate;
 }
 
 - (void).cxx_destruct;
 - (void)LongPressEvents;
-- (void)buildLeftTextView;
-- (void)buildObjectTextView;
+- (void)backupKeyboard;
 - (void)buildObjectView;
-- (void)buildRightTextView;
-- (void)changeMainTextViewToRightTextView;
+- (void)changeToMainTextViewFromLiView;
+- (void)changeToOlLiView;
 - (void)changeToOtherObject:(id)arg1;
-- (void)changeToTextCellUsingLeftTextView:(_Bool)arg1;
-- (void)changeToTextCellWithAttrText:(id)arg1 useLeftTextView:(_Bool)arg2;
+- (void)changeToTextCell;
+- (void)changeToTextCellWithAttrText:(id)arg1;
+- (void)changeToTodoView:(_Bool)arg1;
+- (void)changeToUlLiView;
 - (void)configMainTextView;
 @property(nonatomic) __weak id <WNParaCellViewDelegate> delegate; // @synthesize delegate;
 - (id)getDataArray;
 - (id)getFavItem;
-- (id)getPlayingObjectId;
+- (id)getFirstResponderTextView;
 - (id)getViewController;
 - (id)getWNTextView:(struct CGRect)arg1;
 - (void)hideKeyboard;
+- (_Bool)isTextViewInLeft;
+- (_Bool)isTextViewInRight;
+- (_Bool)isTextViewMenuEnable;
 - (_Bool)isTouchInLeftTextView:(id)arg1;
 - (_Bool)isTouchInObjectView:(id)arg1;
 - (_Bool)isTouchInRightTextView:(id)arg1;
 - (_Bool)isTouchInView:(id)arg1;
 - (void)layoutView;
-- (void)onCheckPlayVoice:(id)arg1;
+- (_Bool)needNewObjectView;
+- (void)onCheckChanged:(_Bool)arg1;
 - (void)onObjectHeightChanged;
 - (void)onSelectAll;
 - (void)onSelectText:(struct _NSRange)arg1;
 - (void)onSendLocationToFriend:(id)arg1 ViewController:(id)arg2;
-- (void)onStopRecordVoice:(id)arg1;
 - (void)onTextViewHeightChange:(double)arg1;
 - (void)onTextViewMenuPaste;
+- (void)onTextViewTouched:(long long)arg1;
 - (void)onTouchBegin;
 - (void)onTouchDownInLeftText;
 - (void)onTouchDownInObject;
 - (void)onTouchDownInRightText;
 - (void)onTouchEnd;
+- (void)onWNTextViewAttrTextChanged;
 @property(retain, nonatomic) WNParagraphInfo *paraInfo; // @synthesize paraInfo;
-- (void)resizeLeftTextView;
-- (void)resizeRightTextView;
-- (void)scrollToCursorForTextView:(id)arg1;
+- (void)resizeCellView;
+- (void)resizeMainTextView;
+- (void)restoreKeyboard;
+- (void)scrollToCursorEndForTextView:(id)arg1;
+- (void)scrollToCursorRect:(struct CGRect)arg1;
+- (void)scrollToCursorStartForTextView:(id)arg1;
 - (void)scrollToVisibleArea;
 - (struct _NSRange)selectedRange;
 - (void)setContent:(id)arg1;
 - (void)setContent:(id)arg1 withSelectRange:(struct _NSRange)arg2;
+- (void)setTodoView:(_Bool)arg1;
+- (_Bool)shouldHandleSelectAllByself;
 - (void)showKeyboard;
 - (void)showKeyboardWithSelectionRange:(struct _NSRange)arg1;
+- (void)showTextViewInLeft;
+- (void)showTextViewInRight;
 - (id)stringAfterCursor;
 - (id)stringBeforeCursor;
 - (id)tableView;
@@ -89,7 +103,6 @@
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)updataTableViewHeight;
-- (void)updateAllSelectedView;
 - (void)updateRemoveSelectedView;
 
 // Remaining properties

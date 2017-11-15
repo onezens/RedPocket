@@ -92,6 +92,8 @@
 - (id)initWithContentsController:(id)arg1 withParentViewController:(id)arg2 withSpecies:(int)arg3 withUseDefaultDisplayController:(_Bool)arg4 hasIndexBar:(_Bool)arg5;
 @property(retain, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition; // @synthesize interactiveTransition=_interactiveTransition;
 - (_Bool)isCreateChatRoomCellAtRow:(long long)arg1;
+- (_Bool)isDisplayTalkerSearchEntry;
+- (_Bool)isMsgTalkerSearchEntry:(long long)arg1;
 - (_Bool)isOpenPluginContactInfoView:(id)arg1;
 - (_Bool)isPluginOpen:(int)arg1;
 - (void)jumpFeatureUrl:(id)arg1;
@@ -189,6 +191,7 @@
 - (void)selectFeatureItem:(id)arg1;
 - (void)selectMsgItem:(id)arg1;
 - (void)selectMsgItems:(id)arg1;
+- (void)selectMsgTalkerSearchEntry;
 - (void)selectWCGameItem:(id)arg1;
 - (void)sendSMS:(id)arg1 arrMobile:(id)arg2;
 - (void)sendSMSInvite:(id)arg1;

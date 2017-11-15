@@ -56,6 +56,7 @@
 - (void)dealloc;
 - (id)filterContactsViewContacts:(id)arg1;
 - (void)finishSearch;
+- (void)forcePopupKeyboardIfVoiceClosed;
 @property(retain, nonatomic, getter=getSearchGuideView) SearchGuideView *ftsGuideView; // @synthesize ftsGuideView=_ftsGuideView;
 - (unsigned int)getVoiceID;
 - (void)handleRotateEvent;

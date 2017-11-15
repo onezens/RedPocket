@@ -40,8 +40,9 @@
 - (long long)getFFWebSearchKeyboardState;
 - (id)getFFWebSearchTitle;
 - (id)getNavSearchGuideConfig;
-- (id)getSearchGuideConfig;
+- (id)getSearchGuideConfig:(int)arg1;
 - (id)getSearchGuideHotwordConfig;
+- (id)getSearchId;
 - (unsigned long long)getSnsContactMatchQueryLenLimit;
 - (id)getValidConfig;
 - (id)getWebSearchBarWording;

@@ -6,13 +6,13 @@
 
 #import "MMService.h"
 
+#import "INewSyncExt.h"
 #import "MMService.h"
-#import "MessageObserverDelegate.h"
 #import "PBMessageObserverDelegate.h"
 
 @class NSMutableDictionary, NSRecursiveLock, NSString;
 
-@interface NewSyncPluginMgr : MMService <MMService, PBMessageObserverDelegate, MessageObserverDelegate>
+@interface NewSyncPluginMgr : MMService <INewSyncExt, MMService, PBMessageObserverDelegate>
 {
     NSMutableDictionary *m_dicSelectorList;
     NSRecursiveLock *m_oMgrLock;
@@ -30,7 +30,6 @@
 - (_Bool)IsSelectorSyncIng:(unsigned int)arg1;
 - (void)MergeKeyBufferByType:(unsigned int)arg1 Buffer:(id)arg2;
 - (void)MessageReturn:(id)arg1 Event:(unsigned int)arg2;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)ResetNewSyncWrap:(unsigned int)arg1;
 - (void)SetContinueFlag:(_Bool)arg1 Selector:(unsigned int)arg2;
 - (void)SetSyncIngFlag:(_Bool)arg1 Selector:(unsigned int)arg2;
@@ -38,6 +37,7 @@
 - (void)dealloc;
 - (id)init;
 @property(retain, nonatomic) NSMutableDictionary *m_dicSelectorList; // @synthesize m_dicSelectorList;
+- (void)onNewSyncPlugin:(unsigned int)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

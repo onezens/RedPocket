@@ -6,8 +6,11 @@
 
 #import "MMUIView.h"
 
+@class UIView;
+
 @interface WNSelectAllView : MMUIView
 {
+    UIView *_coverView;
     id <WNSelectAllViewDelegate> delegate;
 }
 
@@ -22,6 +25,7 @@
 - (void)onCut:(id)arg1;
 - (void)onDelete:(id)arg1;
 - (void)onPaste:(id)arg1;
+- (void)showCover:(double)arg1;
 - (void)showMenuItems;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 

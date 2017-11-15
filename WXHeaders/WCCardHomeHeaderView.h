@@ -11,18 +11,22 @@
 @interface WCCardHomeHeaderView : UICollectionReusableView
 {
     _Bool _bShowArrowIcon;
+    _Bool _bShowImageIcon;
     NSString *_leftWording;
     NSString *_rightWording;
     id <WCCardHomeHeaderViewDelegate> _delegate;
     UILabel *_leftLabel;
     UIButton *_rightButton;
     UIImageView *_arrowIcon;
+    UIImageView *_iconImageView;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) UIImageView *arrowIcon; // @synthesize arrowIcon=_arrowIcon;
 @property(nonatomic) _Bool bShowArrowIcon; // @synthesize bShowArrowIcon=_bShowArrowIcon;
+@property(nonatomic) _Bool bShowImageIcon; // @synthesize bShowImageIcon=_bShowImageIcon;
 @property(nonatomic) __weak id <WCCardHomeHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 @property(retain, nonatomic) UILabel *leftLabel; // @synthesize leftLabel=_leftLabel;
@@ -30,6 +34,7 @@
 @property(retain, nonatomic) UIButton *rightButton; // @synthesize rightButton=_rightButton;
 - (void)rightButtonDidSelected;
 @property(retain, nonatomic) NSString *rightWording; // @synthesize rightWording=_rightWording;
+- (void)wholeViewDidTouch:(id)arg1;
 
 @end
 

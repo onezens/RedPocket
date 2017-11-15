@@ -11,10 +11,9 @@
 @interface WAAudioPlayer : MMObject
 {
     long long _state;
-    _Bool _shouldLoop;
+    _Bool _autoLoop;
+    _Bool _autoPlay;
     _Bool _obeyMuteSwitch;
-    _Bool _autoPlayAfterSet;
-    _Bool _hasFirstTimePlay;
     id <IWAAudioPlayerDelegate> _delegate;
     AVPlayer *_player;
     NSString *_appId;
@@ -29,13 +28,13 @@
 - (void)addObserver;
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *audioId; // @synthesize audioId=_audioId;
-@property(nonatomic) _Bool autoPlayAfterSet; // @synthesize autoPlayAfterSet=_autoPlayAfterSet;
+@property(nonatomic) _Bool autoLoop; // @synthesize autoLoop=_autoLoop;
+@property(nonatomic) _Bool autoPlay; // @synthesize autoPlay=_autoPlay;
 @property(nonatomic) double bufferTime; // @synthesize bufferTime=_bufferTime;
 @property(readonly, nonatomic) double curTime;
 - (void)dealloc;
 @property(nonatomic) __weak id <IWAAudioPlayerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) double duration;
-@property(nonatomic) _Bool hasFirstTimePlay; // @synthesize hasFirstTimePlay=_hasFirstTimePlay;
 - (id)initWithAudioId:(id)arg1 appId:(id)arg2 delegate:(id)arg3;
 - (_Bool)isIdle;
 - (_Bool)isPaused;
@@ -54,7 +53,6 @@
 - (void)seekTo:(double)arg1;
 - (void)setMute:(_Bool)arg1;
 - (void)setPlayerWithSrc:(id)arg1 url:(id)arg2 startTime:(double)arg3 autoPlay:(_Bool)arg4 loop:(_Bool)arg5 obeyMuteSwitch:(_Bool)arg6;
-@property(nonatomic) _Bool shouldLoop; // @synthesize shouldLoop=_shouldLoop;
 @property(retain, nonatomic) NSString *src; // @synthesize src=_src;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 - (void)setState:(long long)arg1;

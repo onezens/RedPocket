@@ -84,9 +84,11 @@
 - (_Bool)canReloadViewIfMemoryWarning;
 - (void)clearDownLeftCount;
 - (void)clearLastCreateTime;
+- (void)clearSearchKeywordList;
 - (void)didSelectSearchResultForMessageWrap:(CMessageWrap *)arg1;
 - (void)didShowFirstUnReadMessage;
 - (unsigned int)getFromScene;
+- (NSArray *)getSearchKeywordList;
 - (unsigned int)getSearchedMsgLocalID;
 - (NSString *)getSubTitle;
 - (_Bool)isInForwardMsgPreView;
@@ -116,6 +118,7 @@
 - (NSArray *)previewActionItems;
 - (void)setLastCreateTime:(unsigned long long)arg1;
 - (void)setNeedUpdateTitle:(_Bool *)arg1;
+- (_Bool)shouldHightlightSearchedKeyWord;
 - (_Bool)shouldPreventViewcontrollerAutorotate;
 - (_Bool)shouldSearchedMsgHightlight;
 

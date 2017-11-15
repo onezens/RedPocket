@@ -6,7 +6,7 @@
 
 #import "MMTableViewCell.h"
 
-@class AttributeLabel, FTSMsgItem, MMHeadImageView, MMUILabel, NSArray, NSString;
+@class AttributeLabel, FTSMsgCellStyle, FTSMsgItem, MMHeadImageView, MMUILabel, NSArray, NSString;
 
 @interface FTSMsgCell : MMTableViewCell
 {
@@ -20,17 +20,26 @@
     MMUILabel *_timeLabel;
     MMUILabel *_prefixDetailLabel;
     _Bool _hiddenMode;
+    FTSMsgCellStyle *_cellStyleInfo;
+    _Bool _bGroupMemberMsg;
+    int _cellStyle;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *arrKeyword; // @synthesize arrKeyword=_arrKeyword;
+@property(nonatomic) _Bool bGroupMemberMsg; // @synthesize bGroupMemberMsg=_bGroupMemberMsg;
+@property(nonatomic) int cellStyle; // @synthesize cellStyle=_cellStyle;
 @property(nonatomic) _Bool hiddenMode; // @synthesize hiddenMode=_hiddenMode;
+- (void)initCellStyle;
 - (void)initView;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 hiddenMode:(_Bool)arg3;
 - (_Bool)isTrailSurrogates:(unsigned short)arg1;
 - (void)layoutSubviews;
 @property(retain, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
+- (void)updateCellStyle;
+- (void)updateDetailTextAsMergeCount;
+- (void)updateDetailTextAsMsgContent:(id)arg1 highlighted:(_Bool)arg2;
 - (void)updateMsgItem:(id)arg1 searchText:(id)arg2 keywords:(id)arg3 mergeCount:(unsigned long long)arg4;
 - (void)updateStatus:(_Bool)arg1;
 

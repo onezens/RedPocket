@@ -43,10 +43,14 @@
 + (id)ConvertMusicMsg2FavItem:(id)arg1;
 + (id)ConvertMusicSNS2FavItem:(id)arg1 Singer:(id)arg2 WebUrl:(id)arg3 LowUrl:(id)arg4 DataUrl:(id)arg5 FromUser:(id)arg6 EventId:(id)arg7 MediaId:(id)arg8 AppId:(id)arg9 ThumbUrl:(id)arg10 SrcCreateTime:(unsigned int)arg11;
 + (id)ConvertMusicShake2FavItem:(id)arg1 Singer:(id)arg2 WebUrl:(id)arg3 LowUrl:(id)arg4 DataUrl:(id)arg5 ThumbUrl:(id)arg6;
++ (id)ConvertNoteContentObj2WCUploadTask:(id)arg1;
++ (id)ConvertNoteFavItem2WCNoteInfo:(id)arg1;
++ (id)ConvertNoteFavItem2WCUploadTask:(id)arg1;
 + (id)ConvertProductDetail2FavItem:(id)arg1 Desc:(id)arg2 ThumbUrl:(id)arg3 ProductInfo:(id)arg4 appId:(id)arg5;
 + (id)ConvertProductMsg2FavItem:(id)arg1;
 + (id)ConvertProductWC2FavItem:(id)arg1;
 + (id)ConvertRecordMsg2FavItem:(id)arg1;
++ (id)ConvertSNSNoteShare2FavItem:(id)arg1;
 + (id)ConvertShareCardFavItem2MsgWrap:(id)arg1;
 + (id)ConvertShareCardMsg2FavItem:(id)arg1;
 + (id)ConvertSightFavItem2VideoInfo:(id)arg1;
@@ -83,14 +87,17 @@
 + (id)getContactHeadImage:(id)arg1;
 + (id)getDataSourceId:(id)arg1;
 + (id)getFavFilterTitle:(id)arg1 MaxWidth:(double)arg2;
++ (id)getFavMidImagePath:(id)arg1;
 + (id)getFavTextCellText:(id)arg1;
 + (id)getFavoritesBatchDelQueuePath;
 + (id)getFavoritesDBPath;
 + (id)getFavoritesSettingPath;
 + (id)getFavoritesSyncBufferPath;
 + (unsigned int)getMaxDataSize:(id)arg1;
++ (id)getNoteFirstThumbPath:(id)arg1;
 + (id)getUserFavoritesRootDir;
 + (id)getWebpageFavItemUrl:(id)arg1;
++ (_Bool)noteCanSaveAsImage:(id)arg1;
 + (struct CGSize)sightViewSizeWithImgSize:(struct CGSize)arg1;
 + (struct CGSize)thumbImageSizeWithMediaItem:(id)arg1;
 

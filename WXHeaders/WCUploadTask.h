@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSDate, NSMutableArray, NSMutableDictionary, NSString, SnsObject, SnsWeAppInfo, UserOpInfo, WCActionInfo, WCAppInfo, WCDataItem, WCLocationInfo, WCMusicInfo, WCStreamVideoInfo, WCWeAppInfo;
+@class NSDate, NSMutableArray, NSMutableDictionary, NSString, SnsObject, SnsWeAppInfo, UserOpInfo, WCActionInfo, WCAppInfo, WCDataItem, WCLocationInfo, WCMusicInfo, WCNoteInfo, WCStreamVideoInfo, WCWeAppInfo;
 
 @interface WCUploadTask : NSObject <NSCoding>
 {
@@ -54,6 +54,7 @@
     _Bool isDeleted;
     UserOpInfo *opInfo;
     int sightFolded;
+    WCNoteInfo *noteInfo;
     WCStreamVideoInfo *streamVideoInfo;
     NSString *shareOriginUrl;
     NSString *shareOpenUrl;
@@ -101,6 +102,7 @@
 @property(retain, nonatomic) WCLocationInfo *locationInfo; // @synthesize locationInfo;
 @property(retain, nonatomic) NSMutableArray *mediaList; // @synthesize mediaList;
 @property(retain, nonatomic) WCMusicInfo *musicInfo; // @synthesize musicInfo;
+@property(retain, nonatomic) WCNoteInfo *noteInfo; // @synthesize noteInfo;
 @property(retain, nonatomic) UserOpInfo *opInfo; // @synthesize opInfo;
 @property(nonatomic) int postSource; // @synthesize postSource;
 @property(retain, nonatomic) NSString *serverID; // @synthesize serverID;

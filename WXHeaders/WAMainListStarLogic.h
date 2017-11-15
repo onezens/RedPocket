@@ -12,7 +12,6 @@
 
 @interface WAMainListStarLogic : MMObject <WAAppItemManagerExtension>
 {
-    _Bool _isEnableStarLogic;
     NSMutableArray *_starItems;
     id <WAMainListStarLogicDelegate> _delegate;
     NSMutableSet *_starSet;
@@ -26,7 +25,6 @@
 - (unsigned int)getStarNumberLimitation;
 - (_Bool)hasStarData;
 - (id)init;
-@property(nonatomic) _Bool isEnableStarLogic; // @synthesize isEnableStarLogic=_isEnableStarLogic;
 - (_Bool)isItemStared:(id)arg1;
 - (_Bool)isItemStaredInLocal:(id)arg1;
 - (_Bool)isReachStarCountLimit;

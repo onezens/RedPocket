@@ -23,7 +23,7 @@
 - (void)dealloc;
 - (void)layoutView;
 - (void)onClickObject;
-- (void)onLoadComplete:(id)arg1;
+- (void)onLoadComplete:(id)arg1 SourcePath:(id)arg2;
 - (void)playInFullScreen;
 
 // Remaining properties

@@ -14,36 +14,42 @@
 #import "WNArticleToolViewDelegate.h"
 #import "WNParaCellViewDelegate.h"
 
-@class CMessageWrap, FavForwardLogicController, FavoritesItem, NSMutableArray, NSString, WNAudioMgr, WNParagraphCellView, WNParagraphMgr;
+@class CMessageWrap, FavForwardLogicController, FavoritesItem, NSMutableArray, NSString, WCDataItem, WNEditingInfo, WNParagraphCellView, WNParagraphMgr;
 
 @interface WNArticleDataController : MMObject <FavForwardLogicDelegate, UITableViewDataSource, UITableViewDelegate, WNParaCellViewDelegate, WNArticleToolViewDelegate, IFavoritesExt, IRecordDownloadExt>
 {
     unsigned int _editTime;
-    FavoritesItem *m_favItem;
-    CMessageWrap *m_recordMsg;
-    long long nowEditingIndex;
-    WNParagraphCellView *m_EditingCellView;
+    WNParagraphCellView *m_EditReminderCellView;
     WNParagraphMgr *m_wnParaMgr;
-    WNAudioMgr *m_audioMgr;
     unsigned int maxObjectId;
     NSMutableArray *m_allParaInfoArray;
     int curUIStatus;
     FavForwardLogicController *m_favForwardLogicController;
+    WNEditingInfo *wnEditingInfo;
     _Bool bEditable;
     _Bool bEdited;
     int WeNoteStatus;
     id <WNArticleControllerDelegate> m_delegate;
     NSMutableArray *m_paraArray;
+    FavoritesItem *m_favItem;
+    CMessageWrap *m_recordMsg;
+    WCDataItem *m_wcDataItem;
 }
 
 - (void).cxx_destruct;
 - (void)OnDownloadFavoritesItemFail:(id)arg1 LocalDataId:(id)arg2;
 - (void)OnDownloadFavoritesItemOK:(id)arg1 LocalDataId:(id)arg2;
+- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(_Bool)arg3;
+- (void)OnListStyleTextKeyboardReturn:(id)arg1 inCellView:(id)arg2 Atlocation:(int)arg3;
 - (void)OnObjectCellAddTextLeft:(id)arg1 inCellView:(id)arg2 newText:(id)arg3;
 - (void)OnObjectCellAddTextRight:(id)arg1 inCellView:(id)arg2 newText:(id)arg3;
 - (void)OnObjectCellDelTextLeft:(id)arg1 inCellView:(id)arg2;
 - (void)OnObjectCellDelTextRight:(id)arg1 inCellView:(id)arg2;
+- (void)OnObjectCellKeyboardReturnLeft:(id)arg1 inCellView:(id)arg2;
+- (void)OnObjectCellKeyboardReturnRight:(id)arg1 inCellView:(id)arg2;
+- (void)OnTodoCheckChange;
 - (void)OnUpdateItems:(id)arg1;
 @property(nonatomic) int WeNoteStatus; // @synthesize WeNoteStatus;
 @property(nonatomic) _Bool bEditable; // @synthesize bEditable;
@@ -53,9 +59,14 @@
 - (void)configFavItem:(id)arg1;
 - (void)configMsg:(id)arg1;
 - (void)configParaInfoObjectId:(id)arg1;
+- (void)configWCDataItem:(id)arg1;
+- (void)cutTextSetListStyle:(int)arg1 InCellView:(id)arg2;
 - (void)dealloc;
 - (void)geWNNotetNextPage;
+- (id)genHeaderView;
+- (double)getBottomEmptyHeight;
 - (int)getCurrentHtmlIdIndex;
+- (id)getCursorPostionString:(id)arg1;
 - (id)getDataArray;
 - (id)getEditingCellView;
 - (id)getFavForawrdViewController;
@@ -63,7 +74,6 @@
 - (int)getIndexOf:(id)arg1;
 - (void)getNextPage:(double)arg1;
 - (id)getParaInfo:(long long)arg1;
-- (id)getPlayingObjectId;
 - (int)getTextLength:(id)arg1;
 - (id)getViewController;
 - (void)getWNNoteFirstPage;
@@ -75,29 +85,42 @@
 - (_Bool)ifHasReachedSizeLimit;
 - (_Bool)ifNonTextParaInfoNumExceedLimit:(long long)arg1;
 - (_Bool)ifTextLengthExceedLimit:(long long)arg1;
+- (_Bool)ignoreCmdBecauseOfVoiceActive:(id)arg1;
 - (id)init;
 - (void)initArrayData;
 - (void)insertItem:(id)arg1 AtIndex:(unsigned long long)arg2;
 - (void)insertItems:(id)arg1;
 - (_Bool)isEditing;
 - (_Bool)isEmpty;
+- (_Bool)isInsertingInCurrentView:(id)arg1;
+- (_Bool)isOlLiParagraph;
 - (_Bool)isPlayingAudio;
 - (_Bool)isRecording;
+- (_Bool)isSelectedTextBold;
+- (_Bool)isTodoParagraph;
+- (_Bool)isUlLiParagraph;
+- (void)loadAllParaInfoArray;
 @property(nonatomic) __weak id <WNArticleControllerDelegate> m_delegate; // @synthesize m_delegate;
+@property(retain, nonatomic) FavoritesItem *m_favItem; // @synthesize m_favItem;
 @property(retain, nonatomic) NSMutableArray *m_paraArray; // @synthesize m_paraArray;
+@property(retain, nonatomic) CMessageWrap *m_recordMsg; // @synthesize m_recordMsg;
+@property(retain, nonatomic) WCDataItem *m_wcDataItem; // @synthesize m_wcDataItem;
 - (void)notifyEdited;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)onCellViewResighFirstResponser;
-- (void)onCheckPlayVoice:(id)arg1;
 - (void)onMainTextKeyboardBack:(id)arg1 inCellView:(id)arg2;
+- (void)onParagraphSetOl;
+- (void)onParagraphSetUl;
 - (void)onSelectAll;
 - (void)onSelectionChanged:(struct _NSRange)arg1;
 - (void)onSendLocationToFriend:(id)arg1 ViewController:(id)arg2;
-- (void)onStopRecordVoice:(id)arg1;
+- (void)onShowBasicToolView;
+- (void)onShowFullToolView;
 - (void)onTextChanged:(id)arg1 newText:(id)arg2;
 - (void)onTextSetBold;
 - (void)onTextTooLongNeedCut:(id)arg1 inRange:(struct _NSRange)arg2 withText:(id)arg3;
 - (void)onTextViewPaste;
+- (void)onToolViewParagraphSetTodo;
 - (void)onToolViewStartVoiceRecording:(id)arg1;
 - (void)onToolViewStopVoiceRecording:(id)arg1;
 - (void)realScrollToEditingCell;
@@ -116,18 +139,28 @@
 - (void)selectAllDelete;
 - (void)selectAllPaste;
 - (void)setEditingCellView:(id)arg1;
+- (void)setInitialKeyboard;
 - (void)setPreviousSelectedToDelete;
+- (_Bool)shouldLetTextViewHandleSelectAll;
 - (void)stopPlayAudio;
 - (void)stopRecord;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (void)textCellDidBeginEditing:(id)arg1;
 - (void)textCellShouldBeginEditing:(id)arg1;
 - (void)textCellShouldEndEditing:(id)arg1;
+- (void)tryAddToLoadArray:(id)arg1 atArrayIndex:(int)arg2 withEditingIndex:(int)arg3;
+- (void)tryScrollToVisibleArea:(int)arg1;
+- (void)updateAllOlIndexUI;
+- (void)updateCellViewUIHeight:(int)arg1;
 - (void)updateEditingCellInfo:(id)arg1;
-- (void)updateSelectAllView:(_Bool)arg1;
+- (void)updateLastTextFlag;
+- (void)updateParagraphFlags;
+- (void)updateReminderInfoToSystem;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

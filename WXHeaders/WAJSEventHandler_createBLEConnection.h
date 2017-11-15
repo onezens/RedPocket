@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)bleInstance;
 - (void)dealloc;
 - (void)handleJSEvent:(id)arg1;
 - (void)onBluetoothConnected:(id)arg1 errorCode:(int)arg2 errMsg:(id)arg3 appid:(id)arg4;

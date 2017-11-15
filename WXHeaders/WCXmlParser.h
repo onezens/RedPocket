@@ -19,14 +19,18 @@
 + (_Bool)SetDataItem:(id)arg1 ByXml:(id)arg2;
 + (id)WCBGStorageToXML:(id)arg1;
 + (id)WCUploadTaskToXML:(id)arg1;
++ (id)XmlOfNoteInfo:(id)arg1;
++ (id)XmlOfNoteInfoDataList:(id)arg1;
 + (id)albumListFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)bgAlbumFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)bgAuthorFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)bgGroupFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)bgGroupListFromXmlNode:(struct XmlReaderNode_t *)arg1;
++ (id)dataListFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)filterXMLNode:(id)arg1 fromString:(id)arg2;
 + (id)mediaItemFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)mediaListFromXmlNode:(struct XmlReaderNode_t *)arg1;
++ (id)noteInfoFromXmlNode:(struct XmlReaderNode_t *)arg1;
 + (id)replaceXMLNode:(id)arg1 toNode:(id)arg2 forString:(id)arg3;
 + (void)setActionInfo:(id)arg1 byXmlNode:(struct XmlReaderNode_t *)arg2;
 + (void)setAdCanvasInfo:(id)arg1 byXmlNode:(struct XmlReaderNode_t *)arg2;

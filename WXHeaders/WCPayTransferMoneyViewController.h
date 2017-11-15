@@ -8,13 +8,12 @@
 
 #import "ILinkEventExt.h"
 #import "MMTipsViewControllerDelegate.h"
-#import "UITextFieldDelegate.h"
 #import "WCPayGetTransferWordingCgiDelegate.h"
 #import "WCPayNoticeBannerDelegate.h"
 
 @class GetTransferWordingResponse, MMTipsViewController, NSDictionary, NSString, RichTextView, UIButton, UITextField, UIView, WCPayGetTransferWordingCgi, WCPayMoneyTextFieldItem, WCPayNoticeBanner;
 
-@interface WCPayTransferMoneyViewController : WCPayBaseViewController <WCPayNoticeBannerDelegate, WCPayGetTransferWordingCgiDelegate, MMTipsViewControllerDelegate, ILinkEventExt, UITextFieldDelegate>
+@interface WCPayTransferMoneyViewController : WCPayBaseViewController <WCPayNoticeBannerDelegate, WCPayGetTransferWordingCgiDelegate, MMTipsViewControllerDelegate, ILinkEventExt>
 {
     UIButton *m_footerButton;
     id <WCPayTransferMoneyViewControllerDelegate> m_delegate;
@@ -72,7 +71,6 @@
 @property(retain, nonatomic) WCPayGetTransferWordingCgi *wordingCgi; // @synthesize wordingCgi=_wordingCgi;
 @property(retain, nonatomic) GetTransferWordingResponse *wordingResponse; // @synthesize wordingResponse=_wordingResponse;
 - (void)showChargeFeeTips;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidChange;
 - (void)viewDidBePoped:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;

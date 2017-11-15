@@ -39,6 +39,7 @@
 + (id)GetFavDataItemSourceByMsg:(id)arg1 AndReader:(id)arg2;
 + (id)GetFavDetailTitle:(id)arg1;
 + (id)GetNoteDesc:(id)arg1;
++ (id)GetNoteDescForSession:(id)arg1;
 + (void)GetNoteTitleAndDesc:(id)arg1 toTitle:(id *)arg2 toDesc:(id *)arg3;
 + (id)GetRecordDataDesc:(id)arg1;
 + (id)GetRecordDataNameByMsg:(id)arg1;

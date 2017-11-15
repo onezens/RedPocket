@@ -77,7 +77,6 @@
 - (double)getContentViewYforTranslucentNaviBar;
 - (double)getLeftBarButtonWidth;
 - (double)getRightBarButtonWidth;
-- (double)getSearchBarSearchingY;
 - (id)getTitleColor;
 - (id)getVCWithDeepLinkName:(id)arg1;
 - (id)getViewController;
@@ -166,6 +165,8 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (id)tagForActivePage;
 - (id)tagForCurrentPage;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)tryFixSearchBarLayout:(id)arg1;
 - (_Bool)useBlackStatusbar;
 - (_Bool)useCustomNavibar;
 - (_Bool)useTransparentNavibar;

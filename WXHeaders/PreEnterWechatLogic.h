@@ -42,6 +42,7 @@
     WCUIAlertView *m_globalAlert;
     LaunchImage *m_launchImage;
     WCPrivacyPolicyControlLogic *m_privacyPolicyLogic;
+    _Bool m_hasShownPrivacy;
 }
 
 - (id).cxx_construct;
@@ -54,6 +55,7 @@
 - (void)cancelAlert:(id)arg1 clickedButtonAtIndex:(id)arg2;
 - (void)checkBindPhone:(id)arg1;
 - (_Bool)checkDBAutoRecover;
+- (_Bool)checkDeviceIDBase64Match:(const char *)arg1;
 - (void)checkHaveNotSetPassword:(id)arg1;
 - (void)checkHaveSetPassword:(id)arg1;
 - (void)checkShowRating;

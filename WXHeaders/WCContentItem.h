@@ -8,7 +8,7 @@
 
 #import "NSCoding.h"
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, WCNoteInfo;
 
 @interface WCContentItem : NSObject <NSCoding>
 {
@@ -24,6 +24,7 @@
     NSString *nickname;
     int createtime;
     NSMutableArray *mediaList;
+    WCNoteInfo *noteInfo;
     int subType;
 }
 
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSString *linkUrl2; // @synthesize linkUrl2;
 @property(retain, nonatomic) NSMutableArray *mediaList; // @synthesize mediaList;
 @property(retain, nonatomic) NSString *nickname; // @synthesize nickname;
+@property(retain, nonatomic) WCNoteInfo *noteInfo; // @synthesize noteInfo;
 @property(nonatomic) int subType; // @synthesize subType;
 @property(retain, nonatomic) NSString *title; // @synthesize title;
 @property(retain, nonatomic) NSString *titlePattern; // @synthesize titlePattern;

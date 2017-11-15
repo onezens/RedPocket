@@ -13,6 +13,10 @@
 - (void)report14103:(unsigned long long)arg1;
 - (void)report14109:(unsigned long long)arg1;
 - (void)report14110:(unsigned long long)arg1 deleteItemNum:(unsigned long long)arg2 deleteTotalSize:(long long)arg3;
+- (void)report14789:(unsigned long long)arg1;
+- (void)report14790:(unsigned long long)arg1;
+- (void)reportSaveNoteImageWidth:(unsigned long long)arg1 Height:(unsigned long long)arg2 Length:(unsigned long long)arg3 errorCode:(unsigned long long)arg4 Editable:(unsigned long long)arg5;
+- (void)reportToolViewOperation:(unsigned long long)arg1;
 
 @end
 

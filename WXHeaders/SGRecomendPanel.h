@@ -37,7 +37,6 @@
 - (void)onClickMore:(id)arg1;
 - (void)onClickWeAppItem:(id)arg1;
 - (void)onModifyWeAppContact:(id)arg1;
-- (void)onModifyWeAppContactList:(id)arg1;
 @property(nonatomic) __weak id <SGRecommendDelegate> panelDelegate; // @synthesize panelDelegate=_panelDelegate;
 - (void)reportDisplayKV;
 - (void)setWeAppInfo:(id)arg1;

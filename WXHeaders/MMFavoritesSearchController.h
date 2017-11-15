@@ -49,6 +49,7 @@
 - (void)OnDelFavoritesItem:(unsigned int)arg1;
 - (void)OnForwardDone;
 - (void)OnSearch:(id)arg1;
+- (void)UISplitViewWillChangeSplitMode;
 - (void)addFilterFooterView:(id)arg1;
 - (void)cancelSearch;
 - (void)cancelSearchByTap;
@@ -83,6 +84,7 @@
 - (void)onViewControllerBeDeleted;
 - (void)relayoutSubviews;
 - (void)resetStatusBarStyle;
+- (void)resetTypingAttributes;
 - (_Bool)searchBar:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (void)searchBarCancelButtonClicked:(id)arg1;

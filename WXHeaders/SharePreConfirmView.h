@@ -82,6 +82,7 @@
 - (void)formLocationMsgContentView:(id)arg1;
 - (void)formMultiMsgContentView;
 - (void)formNoteContentView:(id)arg1;
+- (void)formNoteShareContentView:(id)arg1;
 - (void)formRecordMsgContentView:(id)arg1;
 - (void)formTextMsgContentView:(id)arg1;
 - (void)formWeAppView:(id)arg1;

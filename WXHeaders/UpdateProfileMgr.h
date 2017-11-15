@@ -7,14 +7,14 @@
 #import "MMService.h"
 
 #import "IContactMgrExt.h"
+#import "INewSyncExt.h"
 #import "MMKernelExt.h"
 #import "MMService.h"
-#import "MessageObserverDelegate.h"
 #import "PBMessageObserverDelegate.h"
 
 @class NSRecursiveLock, NSString;
 
-@interface UpdateProfileMgr : MMService <MMService, MMKernelExt, PBMessageObserverDelegate, MessageObserverDelegate, IContactMgrExt>
+@interface UpdateProfileMgr : MMService <INewSyncExt, MMService, MMKernelExt, PBMessageObserverDelegate, IContactMgrExt>
 {
     NSRecursiveLock *m_lock;
     long long m_profileUpdateEvent;
@@ -29,13 +29,14 @@
 - (void)HandleModUsrInfo:(id)arg1;
 - (void)HandleModUsrInfoExt:(id)arg1;
 - (void)MessageReturn:(id)arg1 Event:(unsigned int)arg2;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)dealloc;
 - (void)handleModUserInfo:(id)arg1 withSetting:(id)arg2;
 - (void)handleModUserInfoExt:(id)arg1 withSetting:(id)arg2;
 - (id)init;
 - (void)onAuthOK;
 - (void)onModifySelfContact:(id)arg1;
+- (void)onNewSyncModUserInfo:(id)arg1;
+- (void)onNewSyncModUserInfoExt:(id)arg1;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)setIsNeedUpdateAfterAuth:(_Bool)arg1;

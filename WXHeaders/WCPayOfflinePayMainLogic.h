@@ -98,10 +98,12 @@
 - (void)onOfflinePayPatternLockBlockErrorOutOfLimit;
 - (void)onWCBaseLogicDidStop:(unsigned int)arg1;
 - (void)onWCPayOfflinePayViewControllerClickGroupPayBtn;
+- (void)onWCPayOfflinePayViewControllerClickQRCodeRewardBtn;
 - (void)onWCpayOfflinePayViewControllerClickF2fHongBaoBtn;
 - (void)openECardLogicDidSuccess:(id)arg1;
 @property(retain, nonatomic) WCPayPayMoneyLogic *payMoneyLogic; // @synthesize payMoneyLogic=_payMoneyLogic;
 - (void)playVibration;
+- (void)qrcodeRewardClickLogic;
 - (void)reportReceiveSuccessData:(id)arg1;
 - (void)startLogic;
 - (void)startPayMoneyLogic:(id)arg1;

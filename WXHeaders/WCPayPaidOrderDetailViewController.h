@@ -93,15 +93,15 @@
 - (void)onLinkClicked:(id)arg1 withRect:(struct CGRect)arg2;
 - (void)onNativeActivityRespBack:(id)arg1;
 - (void)onNewDetailViewClickH5Activity:(id)arg1;
-- (void)onNewDetailViewClickH5ActivityOpenWithTinyAppUsername:(id)arg1 tinyAppPath:(id)arg2;
+- (void)onNewDetailViewClickH5ActivityOpenWithTinyAppUsername:(id)arg1 tinyAppPath:(id)arg2 tinyAppVersion:(unsigned int)arg3;
 - (void)onNewDetailViewClickNativeActicity;
-- (void)onNewDetailViewClickTinyAppActivityWithTinyAppUsername:(id)arg1 tinyAppPath:(id)arg2;
+- (void)onNewDetailViewClickTinyAppActivityWithTinyAppUsername:(id)arg1 tinyAppPath:(id)arg2 tinyAppVersion:(unsigned int)arg3;
 - (void)onNewDetailViewDoneBtnClickWithBrandUsername:(id)arg1;
-- (void)onNewDetailViewOpenTinyAppWithTinyAppUsername:(id)arg1 tinyAppPath:(id)arg2;
+- (void)onNewDetailViewOpenTinyAppWithTinyAppUsername:(id)arg1 tinyAppPath:(id)arg2 tinyAppVersion:(unsigned int)arg3;
 - (void)onPayPaidOrderActivityChanged;
 - (void)onTinyAppActivityBtnClick;
 - (void)onWCBaseLogicDidStop:(unsigned int)arg1;
-- (void)openTinyAppWithUsername:(id)arg1 path:(id)arg2 fromScene:(unsigned long long)arg3;
+- (void)openTinyAppWithUsername:(id)arg1 path:(id)arg2 fromScene:(unsigned long long)arg3 version:(unsigned int)arg4;
 @property(retain, nonatomic) WCPayNewPaidOrderDetailView *paidOrderDetailViewNew; // @synthesize paidOrderDetailViewNew=_paidOrderDetailViewNew;
 @property(retain, nonatomic) WCPayPaidDetailQueryAwardCgi *queryAwardCgi; // @synthesize queryAwardCgi=_queryAwardCgi;
 - (void)queryH5ActivityAwardStatusIfNeed;
@@ -125,7 +125,6 @@
 - (_Bool)useTransparentNavibar;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidBePoped:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 

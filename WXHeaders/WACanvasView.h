@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CAEAGLLayer, EAGLContext, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, UIColor;
+@class CAEAGLLayer, EAGLContext, NSCondition, NSMutableArray, NSMutableDictionary, NSMutableSet, UIColor;
 
 @interface WACanvasView : UIView
 {
@@ -22,8 +22,9 @@
     NSMutableDictionary *_url2IDMap;
     NSMutableArray *_actionList;
     NSMutableSet *_waitingUrlSet;
+    _Bool _isActive;
     id <WACanvasViewDelegate> _delegate;
-    NSRecursiveLock *_mActiveLock;
+    NSCondition *_mActiveLock;
 }
 
 + (Class)layerClass;
@@ -40,7 +41,8 @@
 - (void)fillTextMultiLines:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)internalDrawActions:(id)arg1 reserve:(_Bool)arg2;
-@property(retain, nonatomic) NSRecursiveLock *mActiveLock; // @synthesize mActiveLock=_mActiveLock;
+@property(nonatomic) _Bool isActive; // @synthesize isActive=_isActive;
+@property(retain, nonatomic) NSCondition *mActiveLock; // @synthesize mActiveLock=_mActiveLock;
 - (struct _WACPaint)parseLinearGradient:(id)arg1;
 - (struct _WACColor)parseRGBAColor:(id)arg1;
 - (struct _WACColor)parseRGBColor:(id)arg1;

@@ -13,8 +13,8 @@
 
 @interface WCCardHomeCommonCardCell : UICollectionViewCell <MMImageLoaderObserver, WCCardHomeCommonDetailIconsViewDelegate>
 {
-    _Bool _showTipLabel;
     _Bool _showRedIcon;
+    _Bool _showDivideLine;
     UIImage *_iconImage;
     NSString *_title;
     NSString *_subTitle;
@@ -25,8 +25,8 @@
     MMUIImageView *_detailImageView;
     WCCardHomeCommonDetailIconsView *_iconsView;
     MMUIImageView *_redDotImageView;
-    MMUILabel *_tipLabel;
     UIView *_maskView;
+    UIView *_lineView;
 }
 
 - (void).cxx_destruct;
@@ -38,16 +38,16 @@
 @property(retain, nonatomic) WCCardHomeCommonDetailIconsView *iconsView; // @synthesize iconsView=_iconsView;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
+@property(retain, nonatomic) UIView *lineView; // @synthesize lineView=_lineView;
 @property(retain, nonatomic) UIView *maskView; // @synthesize maskView=_maskView;
 - (void)prepareForReuse;
 @property(retain, nonatomic) MMUIImageView *redDotImageView; // @synthesize redDotImageView=_redDotImageView;
 - (void)setHighlighted:(_Bool)arg1;
 @property(retain, nonatomic) NSArray *shareCardIcons; // @synthesize shareCardIcons=_shareCardIcons;
+@property(nonatomic) _Bool showDivideLine; // @synthesize showDivideLine=_showDivideLine;
 @property(nonatomic) _Bool showRedIcon; // @synthesize showRedIcon=_showRedIcon;
-@property(nonatomic) _Bool showTipLabel; // @synthesize showTipLabel=_showTipLabel;
 @property(retain, nonatomic) NSString *subTitle; // @synthesize subTitle=_subTitle;
 @property(retain, nonatomic) MMUILabel *subTitleLabel; // @synthesize subTitleLabel=_subTitleLabel;
-@property(retain, nonatomic) MMUILabel *tipLabel; // @synthesize tipLabel=_tipLabel;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) MMUILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 

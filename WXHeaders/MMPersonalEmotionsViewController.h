@@ -88,6 +88,7 @@
 - (_Bool)shouldInteractivePop;
 - (void)stopBannerPageTimer;
 - (int)totalNumOfPage;
+- (void)tryFixSearchBarLayout;
 - (void)tryInitViewOfSearchController;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;

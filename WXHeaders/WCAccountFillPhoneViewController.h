@@ -18,7 +18,6 @@
     WCAccountTextFieldItem *m_textFieldPhoneNumberItem;
     WCBaseKeyboardToolBar *m_keyboardBar;
     CountryCodeWrap *m_curCountryCode;
-    WCAccountTextFieldItem *m_textFieldPwdItem;
     PhoneNumberFormatLogic *m_phoneNumFormatter;
     UIButton *m_btnNext;
     NSString *m_nsHeaderTip;
@@ -40,7 +39,6 @@
 - (void)initNavigationBar;
 - (void)initTableView;
 @property(nonatomic) _Bool m_bAgreementMobileCanBeFound; // @synthesize m_bAgreementMobileCanBeFound;
-- (void)onByPhonePwdLoginByVerifyCode;
 - (void)onMobileCanBeFoundAgreementClick:(id)arg1;
 - (void)onNext;
 - (void)refreshViewWithData:(id)arg1;
@@ -52,7 +50,6 @@
 - (void)showBindFooter;
 - (void)showCountryCode;
 - (void)showCountryCodePickerView;
-- (void)showLoginFooter;
 - (void)showMobileCanBeFound;
 - (void)showNextFooter:(id)arg1;
 - (void)vcBecomeFirstResponder;

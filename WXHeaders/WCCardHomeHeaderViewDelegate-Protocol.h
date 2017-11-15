@@ -9,6 +9,6 @@
 @protocol WCCardHomeHeaderViewDelegate <NSObject>
 
 @optional
-- (void)rightWordingDidSelected;
+- (void)jumbToMemberList;
 @end
 

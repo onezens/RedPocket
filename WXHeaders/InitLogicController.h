@@ -7,11 +7,12 @@
 #import "MMObject.h"
 
 #import "ContactInitLogicExt.h"
+#import "INewInitExt.h"
 #import "MessageObserverDelegate.h"
 
 @class ContactInitLogic, MMTimer, NSString;
 
-@interface InitLogicController : MMObject <ContactInitLogicExt, MessageObserverDelegate>
+@interface InitLogicController : MMObject <ContactInitLogicExt, INewInitExt, MessageObserverDelegate>
 {
     id <initLogicControllerDelegate> m_delegate;
     vector_a9c0768e m_vecMesssageIdToListen;
@@ -39,6 +40,9 @@
 - (void)onContactInitFail;
 - (void)onContactInitProcessUpdate:(unsigned int)arg1;
 - (void)onContactInitSuccess;
+- (void)onNewInitConnectFail;
+- (void)onNewInitFail;
+- (void)onNewInitOK;
 - (void)onPercentTimer;
 - (void)percentIniting;
 - (void)retryInitContact;

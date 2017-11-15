@@ -55,6 +55,8 @@
     double _fLastStartOffsetY;
     UIColor *_lastNavBarBgColor;
     _Bool _bFullScreen;
+    _Bool _bHideStatusBar;
+    _Bool _bHideNavigationBar;
     UIView *_webInfoTopView;
     WANavLoadingLayer *_webLoadingLayer;
     WABaseWebViewBanener *_webViewBanner;
@@ -86,6 +88,7 @@
     _Bool m_isLanscape;
     _Bool m_isTopTabBar;
     _Bool m_bIsInsertCamera;
+    _Bool m_bNeedOnAppRouteReload;
     _Bool _m_bIsDelayPushWebView;
     unsigned int m_uiWebviewID;
     int _enmNavMode;
@@ -217,6 +220,7 @@
 @property(nonatomic) _Bool m_bIsDelayPushWebView; // @synthesize m_bIsDelayPushWebView=_m_bIsDelayPushWebView;
 @property(nonatomic) _Bool m_bIsInsertCamera; // @synthesize m_bIsInsertCamera;
 @property(nonatomic) _Bool m_bIsStatusBarBlack; // @synthesize m_bIsStatusBarBlack=_bIsStatusBarBlack;
+@property(nonatomic) _Bool m_bNeedOnAppRouteReload; // @synthesize m_bNeedOnAppRouteReload;
 @property(nonatomic) _Bool m_bUseColorfulNavBar; // @synthesize m_bUseColorfulNavBar=_bUseColorfulNavBar;
 @property(nonatomic) _Bool m_bUseTransparentNaviBar; // @synthesize m_bUseTransparentNaviBar=_bUseTransparentNaviBar;
 @property(readonly, nonatomic) _Bool m_bWebviewReceiveTerminateSignal; // @synthesize m_bWebviewReceiveTerminateSignal;
@@ -310,12 +314,14 @@
 - (void)setLoadPageIndexStartTime:(long long)arg1;
 - (void)setNavBarBgColor:(id)arg1;
 - (void)setNavigationAttributeFromChildWebView:(id)arg1;
+- (void)setNavigationBarHidden:(_Bool)arg1;
 - (void)setNavigationBarItemsAndStatusBarStyle:(int)arg1;
 - (void)setNavigationBarTitle:(id)arg1 color:(id)arg2 backgroundColor:(id)arg3;
 - (void)setPageBackgroundColor;
 - (void)setPageTabAttribute;
 - (void)setPreloadPageAttribute;
 - (void)setRecordSubTitleIfNeed;
+- (void)setStatusBarHidden:(_Bool)arg1;
 - (void)setTailBackGroundColor:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setTitleColor:(id)arg1;

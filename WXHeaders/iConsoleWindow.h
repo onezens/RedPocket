@@ -24,6 +24,7 @@
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)registerExtension;
 - (void)remoteControlReceivedWithEvent:(id)arg1;
+- (void)setRootViewController:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

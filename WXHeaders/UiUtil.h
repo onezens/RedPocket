@@ -31,6 +31,7 @@
 + (double)navigationBarHeight;
 + (double)navigationBarHeight:(long long)arg1;
 + (double)navigationBarHeightCurOri;
++ (double)normalStatusBarHeight;
 + (void)refreshStatusBarStyle;
 + (struct CGRect)screenBounds;
 + (struct CGRect)screenBoundsOri:(long long)arg1;
@@ -55,6 +56,8 @@
 + (double)tabBarHeight;
 + (double)topBarNormalOffset;
 + (double)visibleHeight:(id)arg1;
++ (struct CGRect)windowBoundsOri:(long long)arg1;
++ (double)windowWidth;
 
 @end
 

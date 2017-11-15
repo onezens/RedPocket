@@ -26,6 +26,7 @@
 + (id)showToast:(id)arg1 andText:(id)arg2 duration:(double)arg3 inView:(id)arg4;
 - (void).cxx_destruct;
 - (void)adjustToastPosition;
+- (void)completeCallback;
 @property(nonatomic) long long count; // @synthesize count=_count;
 @property(nonatomic) __weak id <WAWebToastViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)hide:(CDUnknownBlockType)arg1;

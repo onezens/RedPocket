@@ -6,12 +6,13 @@
 
 #import "MMObject.h"
 
+#import "IFavoritesExt.h"
 #import "WCDataUploaderDelegate.h"
 #import "WCMediaUploaderDelegate.h"
 
 @class NSMutableSet, NSString, WCUploadTask, WCUploader;
 
-@interface WCTaskUploader : MMObject <WCMediaUploaderDelegate, WCDataUploaderDelegate>
+@interface WCTaskUploader : MMObject <WCMediaUploaderDelegate, WCDataUploaderDelegate, IFavoritesExt>
 {
     WCUploadTask *_uploadTask;
     WCUploader *_uploader;
@@ -21,6 +22,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)OnAddFavoritesItem:(id)arg1 ErrCode:(int)arg2;
 - (void)dealloc;
 - (void)handleError;
 - (id)initWithTask:(id)arg1 withDelegate:(id)arg2;

@@ -8,12 +8,20 @@
 
 @interface MMMainTableView : MMTableView
 {
-    id <MainTableDelegate> m_mainTableDelegate;
+    _Bool _enableDeselection;
+    id <MainTableDelegate> _m_mainTableDelegate;
 }
 
 - (void).cxx_destruct;
+- (void)deselectRowAtIndexPath:(id)arg1 animated:(_Bool)arg2;
+@property(nonatomic) _Bool enableDeselection; // @synthesize enableDeselection=_enableDeselection;
 - (void)ensureHierarchy;
-@property(nonatomic) __weak id <MainTableDelegate> m_mainTableDelegate; // @synthesize m_mainTableDelegate;
+- (void)forceDeselectRowAtIndexPath:(id)arg1;
+- (void)forceDeselectRowAtIndexPath:(id)arg1 animated:(_Bool)arg2;
+- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
+@property(nonatomic) __weak id <MainTableDelegate> m_mainTableDelegate; // @synthesize m_mainTableDelegate=_m_mainTableDelegate;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;

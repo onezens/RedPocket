@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BalanceMobileInfo, CContact, CMessageWrap, MenuItem, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSString, TenpayBindCardInfo, TenpayBindCardSubscribeAppInfo, WCPayAppAuthRequestStruct, WCPayAuthenticationPay, WCPayAuthenticationPayStatusStruct, WCPayAuthenticationPayVerifySMSStruct, WCPayBalanceInfo, WCPayBankPriority, WCPayBannerNotice, WCPayBindCardInfo, WCPayBindCardListApplyNewCardInfo, WCPayBindInfo, WCPayBindUserInfo, WCPayBizF2FControlData, WCPayCardBinInfo, WCPayControlDataGroupPayData, WCPayCreditCardInfo, WCPayECardControlData, WCPayFetchInfo, WCPayGetUserExInfoCgiResponse, WCPayIAPOrderDetail, WCPayLQTControlData, WCPayLQTInfo, WCPayLoanEntryInfo, WCPayMultiOrderDetail, WCPayNoticeInfo, WCPayOfflinePayChangeLimitFeeRequestStruct, WCPayOfflinePayQueryInfo, WCPayOfflinePayQueryInfoRequest, WCPayPayMenuArrayInfo, WCPayRealnameGuideInfo, WCPayResetPasswordInfo, WCPaySecurityControlData, WCPaySetUserExInfoCgiRequest, WCPaySwitchInfo, WCPayTransferPrepayRequestStruct, WCPayUserInfo, WCPayVirtualNoBindCard, WCPayWalletInfo;
+@class BalanceMobileInfo, CContact, CMessageWrap, MenuItem, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSString, TenpayBindCardInfo, TenpayBindCardSubscribeAppInfo, WCPayAppAuthRequestStruct, WCPayAuthenticationPay, WCPayAuthenticationPayStatusStruct, WCPayAuthenticationPayVerifySMSStruct, WCPayBalanceInfo, WCPayBankPriority, WCPayBannerNotice, WCPayBindCardInfo, WCPayBindCardListApplyNewCardInfo, WCPayBindInfo, WCPayBindUserInfo, WCPayBizF2FControlData, WCPayCardBinInfo, WCPayControlDataGroupPayData, WCPayCreditCardInfo, WCPayECardControlData, WCPayFetchInfo, WCPayGetUserExInfoCgiResponse, WCPayIAPOrderDetail, WCPayLQTControlData, WCPayLQTInfo, WCPayLoanEntryInfo, WCPayMultiOrderDetail, WCPayNoticeInfo, WCPayOfflinePayChangeLimitFeeRequestStruct, WCPayOfflinePayQueryInfo, WCPayOfflinePayQueryInfoRequest, WCPayPayMenuArrayInfo, WCPayQRCodeRewardControlData, WCPayRealnameGuideInfo, WCPayResetPasswordInfo, WCPaySecurityControlData, WCPaySetUserExInfoCgiRequest, WCPaySwitchInfo, WCPayTransferPrepayRequestStruct, WCPayUserInfo, WCPayVirtualNoBindCard, WCPayWalletInfo;
 
 @interface WCPayControlData : NSObject
 {
@@ -231,6 +231,7 @@
     NSString *_m_nsBottomIconUrl;
     WCPayBizF2FControlData *_bizF2FControlData;
     WCPayECardControlData *_eCardControlData;
+    WCPayQRCodeRewardControlData *_qrcodeRewardData;
 }
 
 - (void).cxx_destruct;
@@ -441,6 +442,7 @@
 @property(copy, nonatomic) CDUnknownBlockType offlinePayReturnBlock; // @synthesize offlinePayReturnBlock=_offlinePayReturnBlock;
 @property(nonatomic) _Bool openChangeRealName; // @synthesize openChangeRealName=_openChangeRealName;
 @property(nonatomic) unsigned long long payOrReceiveFromScene; // @synthesize payOrReceiveFromScene=_payOrReceiveFromScene;
+@property(retain, nonatomic) WCPayQRCodeRewardControlData *qrcodeRewardData; // @synthesize qrcodeRewardData=_qrcodeRewardData;
 @property(nonatomic) int realnameGuideType; // @synthesize realnameGuideType=_realnameGuideType;
 @property(retain, nonatomic) WCPayRealnameGuideInfo *realnameInfo; // @synthesize realnameInfo;
 @property(nonatomic) int realnameScene; // @synthesize realnameScene;

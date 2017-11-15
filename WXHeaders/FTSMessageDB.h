@@ -33,8 +33,8 @@
 - (_Bool)insertNewRowInUserNameIDTable:(id)arg1 lastMsg:(id)arg2;
 - (_Bool)insertRowInChatTable:(id)arg1 msgWrap:(id)arg2;
 - (_Bool)insertRowsInChatTable:(id)arg1 arrMsgWrap:(id)arg2;
-- (id)queryText:(id)arg1;
-- (id)queryText:(id)arg1 limit:(int)arg2 searchAll:(id *)arg3;
+- (id)queryText:(id)arg1 limitUsrname:(id)arg2;
+- (id)queryText:(id)arg1 limitUsrname:(id)arg2 sessionLimit:(unsigned int)arg3 itemLimit:(unsigned int)arg4 maxTime:(unsigned int)arg5 searchAll:(id *)arg6;
 - (void)reloadDB;
 - (void)tryCacheUserNameIdTable;
 - (id)tryGetValidIndexItemByUserName:(id)arg1;

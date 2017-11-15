@@ -17,6 +17,7 @@
 {
     _Bool scalesPageToFit;
     _Bool _bDisablePopup;
+    _Bool _isCloseUniversallink;
     id <YYWebViewDelegate> wvDelegate;
     YYWKWebViewScriptMessageHandler *_scriptMessageHandler;
 }
@@ -30,7 +31,9 @@
 - (void)evaluateJavaScriptFromString:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2;
+@property(nonatomic) _Bool isCloseUniversallink; // @synthesize isCloseUniversallink=_isCloseUniversallink;
 - (void)loadRequest:(id)arg1;
+- (void)makeAllowDecision:(CDUnknownBlockType)arg1;
 @property(nonatomic) _Bool mediaPlaybackRequiresUserAction;
 @property(readonly, nonatomic) NSURLRequest *request;
 @property(nonatomic) _Bool scalesPageToFit; // @synthesize scalesPageToFit;

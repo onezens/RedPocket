@@ -28,6 +28,7 @@
 - (void)OnClickCanNotUnLockBtn;
 - (void)OnCreateSuccessful;
 - (void)OnCreateSuccessfulAndClickTryVerifyBtn;
+- (void)OnVerifyCancel;
 - (void)OnVerifyOverLimitFromServer;
 - (void)OnVerifySuccessful;
 - (void)OpenLogin:(id)arg1;

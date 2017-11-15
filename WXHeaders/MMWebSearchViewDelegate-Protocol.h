@@ -17,6 +17,7 @@
 - (NSString *)getInputHeight;
 - (NSString *)getInputMarginLeftRight;
 - (NSString *)getInputMarginTop;
+- (NSString *)getNativeHeight;
 - (void)onFinalBackButtonClick:(UIButton *)arg1;
 - (void)onPreSearch:(NSString *)arg1 bizType:(unsigned long long)arg2;
 - (void)onSearchBackToPreviousView;

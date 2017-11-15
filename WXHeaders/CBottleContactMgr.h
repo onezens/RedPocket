@@ -6,12 +6,13 @@
 
 #import "MMService.h"
 
+#import "INewSyncExt.h"
 #import "MMService.h"
 #import "MessageObserverDelegate.h"
 
 @class CBottleContactDB, NSMutableDictionary, NSString;
 
-@interface CBottleContactMgr : MMService <MMService, MessageObserverDelegate>
+@interface CBottleContactMgr : MMService <INewSyncExt, MMService, MessageObserverDelegate>
 {
     CBottleContactDB *m_oDB;
     NSMutableDictionary *m_dicContacts;
@@ -34,6 +35,7 @@
 - (void)internalAddContact:(id)arg1;
 - (void)internalDeleteContact:(id)arg1;
 - (void)internalModifyContact:(id)arg1;
+- (void)onNewSyncBottleContact:(id)arg1;
 - (void)onServiceEnterBackground;
 - (void)onServiceTerminate;
 - (_Bool)onSyncBottleContact:(id)arg1;

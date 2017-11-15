@@ -6,7 +6,7 @@
 
 #import "MMObject.h"
 
-@class NSString, UIColor, UIImage;
+@class NSString, UIColor;
 
 @interface MMWebViewPresetUI : MMObject
 {
@@ -17,7 +17,7 @@
     UIColor *_navigationRightItemColor;
     unsigned long long _statusBarColor;
     UIColor *_backgroundColor;
-    UIImage *_navigationLeftIcon;
+    NSString *_navigationLeftIconName;
     NSString *_navigationBarTitle;
 }
 
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) UIColor *navigationBarColor; // @synthesize navigationBarColor=_navigationBarColor;
 @property(copy, nonatomic) NSString *navigationBarTitle; // @synthesize navigationBarTitle=_navigationBarTitle;
 @property(retain, nonatomic) UIColor *navigationBarTitleColor; // @synthesize navigationBarTitleColor=_navigationBarTitleColor;
-@property(retain, nonatomic) UIImage *navigationLeftIcon; // @synthesize navigationLeftIcon=_navigationLeftIcon;
+@property(retain, nonatomic) NSString *navigationLeftIconName; // @synthesize navigationLeftIconName=_navigationLeftIconName;
 @property(retain, nonatomic) UIColor *navigationLeftItemFontColor; // @synthesize navigationLeftItemFontColor=_navigationLeftItemFontColor;
 @property(retain, nonatomic) UIColor *navigationRightItemColor; // @synthesize navigationRightItemColor=_navigationRightItemColor;
 @property(nonatomic) unsigned long long statusBarColor; // @synthesize statusBarColor=_statusBarColor;

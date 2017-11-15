@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class CMessageWrap;
+@class CMessageWrap, MMTableView;
 
 @protocol ChatViewModelDelegate <NSObject>
 - (struct CGRect)getInputToolViewFrame;
 - (struct CGRect)getNodeRectInScreen:(unsigned int)arg1;
+- (MMTableView *)getTableView;
 - (void)reloadNodeWithMessageWrap:(CMessageWrap *)arg1;
 - (void)updateTableContentOffsetAnimated:(_Bool)arg1 OffsetDelta:(double)arg2;
 @end

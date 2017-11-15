@@ -9,11 +9,11 @@
 #import "IRadarSearchExt.h"
 #import "RadarSearchViewDelegate.h"
 
-@class NSString, UIView;
+@class NSString, RadarSearchView;
 
 @interface RadarSearchViewController : MMUIViewController <RadarSearchViewDelegate, IRadarSearchExt>
 {
-    UIView *m_radarView;
+    RadarSearchView *m_radarView;
 }
 
 - (void).cxx_destruct;
@@ -24,6 +24,7 @@
 - (void)initRadarSearchView;
 - (_Bool)isSvrErrorTipForbidden;
 - (void)onRadarSearchViewClose:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 

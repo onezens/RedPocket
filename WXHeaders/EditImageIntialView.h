@@ -135,7 +135,6 @@
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)goBackToEditView;
 - (void)gridPanGestureRecognized:(id)arg1;
-- (id)init;
 - (void)initBottomEditImageBar;
 - (void)initContentImage;
 - (void)initEditImageView;
@@ -143,6 +142,7 @@
 - (void)initMosaicToolAttrBar;
 - (void)initPenToolAttrBar;
 - (void)initTopEditImageBar;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)initiCloudMaskView;
 @property(nonatomic) _Bool isAspectRatioLocked; // @synthesize isAspectRatioLocked=_isAspectRatioLocked;
 - (_Bool)isCropped;
@@ -200,6 +200,7 @@
 - (void)setEditImageToolBarHiddenWithAnimationWithoutCompletionHandler:(_Bool)arg1;
 - (void)setEditImageToolBarHiddenWithAnimationWithoutCompletionHandlerWithoutOccupy:(_Bool)arg1;
 - (void)setEmotionToolAttrViewHidden:(_Bool)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)setScrollViewMaxMinZoomScale:(_Bool)arg1;
 - (void)setSelectedColorFromGradientBar:(id)arg1;
 - (void)setSelectedMosaicStyleFromToolAttrView:(unsigned long long)arg1;

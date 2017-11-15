@@ -8,13 +8,12 @@
 
 #import "MMTipsViewControllerDelegate.h"
 #import "UITableViewDelegate.h"
-#import "UITextFieldDelegate.h"
 #import "WCPayChooseCardViewControllerDelegate.h"
 #import "WCPayNoticeBannerDelegate.h"
 
 @class MMUIButton, MMUILabel, MMUIView, NSDictionary, NSString, UIButton, UITextField, WCPayBalanceTipsLogic, WCPayBindCardInfo, WCPayNoticeBanner;
 
-@interface WCPayNewFetchViewController : WCPayBaseViewController <WCPayChooseCardViewControllerDelegate, UITextFieldDelegate, UITableViewDelegate, WCPayNoticeBannerDelegate, MMTipsViewControllerDelegate>
+@interface WCPayNewFetchViewController : WCPayBaseViewController <WCPayChooseCardViewControllerDelegate, UITableViewDelegate, WCPayNoticeBannerDelegate, MMTipsViewControllerDelegate>
 {
     WCPayBindCardInfo *m_oCardInfo;
     WCPayNoticeBanner *m_banner;
@@ -30,7 +29,6 @@
     MMUIView *m_fetchLine;
     MMUILabel *m_fetchTipLabel;
     MMUIButton *m_fetchAllBtn;
-    MMUIView *m_bottomBgView;
     MMUILabel *m_bankArriveTimeLabel;
     UIButton *m_fetchNextBtn;
     WCPayBalanceTipsLogic *tipLogic;
@@ -74,7 +72,6 @@
 - (void)showChargeFeeTip:(double)arg1;
 - (void)showFetchBalanceTip;
 - (void)showFetchRuleTips;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidChange;
 - (void)updateFetchTipLable:(id)arg1;
 - (void)viewDidLoad;

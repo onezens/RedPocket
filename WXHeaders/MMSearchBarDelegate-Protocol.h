@@ -39,6 +39,7 @@
 - (void)mmsearchBarTextDidBeginEditing:(UISearchBar *)arg1;
 - (long long)numberOfRowsInSection:(long long)arg1 ForSearchViewTable:(UITableView *)arg2;
 - (long long)numberOfSectionsForSearchViewTable:(UITableView *)arg1;
+- (_Bool)shouldHideTabbarBeforeSearchBarBecomeActive;
 - (_Bool)shouldHighlightRowAtIndexPath:(NSIndexPath *)arg1;
 - (_Bool)shouldShowTabbarAfterSearchBarBecomeUnActive;
 - (NSString *)titleForHeaderInSection:(long long)arg1 ForSearchViewTable:(UITableView *)arg2;

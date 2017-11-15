@@ -9,11 +9,12 @@
 @protocol WNParaTextViewDelegate <UITextViewDelegate>
 
 @optional
-- (_Bool)isSingleTextParaInfo;
+- (_Bool)isTextViewMenuEnable;
 - (void)onSelectAll;
 - (void)onSelectText:(struct _NSRange)arg1;
-- (void)onTextViewMenuCopy;
-- (void)onTextViewMenuCut;
 - (void)onTextViewMenuPaste;
+- (void)onTextViewTouched:(long long)arg1;
+- (void)onWNTextViewAttrTextChanged;
+- (_Bool)shouldHandleSelectAllByself;
 @end
 

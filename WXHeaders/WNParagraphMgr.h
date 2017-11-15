@@ -17,7 +17,6 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) _Bool bHtmlDownloaded; // @synthesize bHtmlDownloaded;
-- (void)calculateParaInfoHeight:(id)arg1;
 - (void)cutLongTextParagraph:(id)arg1;
 - (id)cutSingleLongTextParagraph:(id)arg1;
 - (void)exportParagraph:(id)arg1 toFileFavData:(id)arg2;
@@ -28,15 +27,17 @@
 - (void)exportParagraph:(id)arg1 toVoiceFavData:(id)arg2;
 - (void)exportParagraphs:(id)arg1 toHtml:(id)arg2 toDataList:(id)arg3;
 - (id)exportParagraphsToHtml:(id)arg1;
+- (id)exportTextInfoHtml:(id)arg1;
 - (id)genArticleDesc:(id)arg1;
-- (id)getMergeTextParagraphs:(id)arg1;
+- (id)getMergeDatalistParagraphs:(id)arg1;
+- (id)getMergeHtmlParagraphs:(id)arg1;
 - (unsigned int)getVoiceFmt:(id)arg1;
 - (id)getVoiceFmtOfString:(unsigned int)arg1;
 - (id)init;
 - (_Bool)loadHtmlPath:(id)arg1 toParagraph:(id)arg2;
 @property(retain, nonatomic) NSString *originHtmlStr; // @synthesize originHtmlStr;
 - (_Bool)parseFavItem:(id)arg1 FromHtml:(id)arg2 toParagraphs:(id)arg3;
-- (void)parseFavItem:(id)arg1 toParagraphs:(id)arg2 originMessage:(id)arg3;
+- (void)parseFavItem:(id)arg1 toParagraphs:(id)arg2 originMessage:(id)arg3 Editable:(_Bool)arg4;
 - (void)parseFavItemFromDataList:(id)arg1 toParagraphs:(id)arg2;
 - (_Bool)parseParagraph:(id)arg1 FromFileData:(id)arg2;
 - (_Bool)parseParagraph:(id)arg1 FromImageData:(id)arg2;
@@ -45,7 +46,7 @@
 - (_Bool)parseParagraph:(id)arg1 FromVideoData:(id)arg2;
 - (_Bool)parseParagraph:(id)arg1 FromVoiceData:(id)arg2;
 - (void)tagLastTextParagraph:(id)arg1;
-- (void)tagTextParagraphBeforeObject:(id)arg1;
+- (void)tryRemoveLastEmptyParagraph:(id)arg1;
 
 @end
 

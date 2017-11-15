@@ -11,6 +11,7 @@
 #import "IEmoticonExt.h"
 #import "IMessageWrapImgExt.h"
 #import "IMsgExt.h"
+#import "INewSyncExt.h"
 #import "IVideoExt.h"
 #import "MMKernelExt.h"
 #import "MMService.h"
@@ -25,7 +26,7 @@
 
 @class CDownloadVideoMgr, CEmoticonDownloadMgr, CEmoticonUploadMgr, CMessageDB, CUploadVideoMgr, DownloadImageCDNMgr, DownloadImageMgr, DownloadVideoCDNMgr, MessagePatternCacheMgr, NSDate, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSString, OpenDownloadCDNMgr, OpenDownloadMgr, OpenUploadCDNMgr, OpenUploadMgr, RecordDownloadCDNMgr, RecordUploadCDNMgr, ShortVideoDownloadMgr, ThumbDownloadMgr, UploadImageCDNMgr, UploadImageMgr, UploadVideoCDNMgr;
 
-@interface CMessageMgr : MMService <IMessageWrapImgExt, IClearDataMgrExt, MessageWrapImgDelegate, MessageObserverDelegate, MMService, IAudioToMessageExt, IVideoExt, IEmoticonExt, PBMessageObserverDelegate, MMKernelExt, IMsgExt, UploadImageCDNMgrDelegate, OpenDownloadCDNMgrDelegate, OpenUploadMgrDelegate, OpenUploadCDNMgrDelegate, RecordUploadCDNMgrDelegate>
+@interface CMessageMgr : MMService <IMessageWrapImgExt, IClearDataMgrExt, MessageWrapImgDelegate, INewSyncExt, MessageObserverDelegate, MMService, IAudioToMessageExt, IVideoExt, IEmoticonExt, PBMessageObserverDelegate, MMKernelExt, IMsgExt, UploadImageCDNMgrDelegate, OpenDownloadCDNMgrDelegate, OpenUploadMgrDelegate, OpenUploadCDNMgrDelegate, RecordUploadCDNMgrDelegate>
 {
     CMessageDB *m_oMsgDB;
     CUploadVideoMgr *m_oUploadVideoMgr;
@@ -116,7 +117,9 @@
 - (id)GetDBHelloUsers:(id)arg1 Limit:(int)arg2 OnlyUnread:(_Bool)arg3;
 - (id)GetDownMsg:(id)arg1 FromID:(unsigned int)arg2 Limit:(int)arg3 LeftCount:(unsigned int *)arg4 LeftUnreadCount:(unsigned int *)arg5;
 - (id)GetDownMsgByCreateTime:(id)arg1 FromID:(unsigned int)arg2 FromCreateTime:(unsigned int)arg3 Limit:(int)arg4 LeftCount:(unsigned int *)arg5;
+- (id)GetDownMsgByCreateTime:(id)arg1 FromID:(unsigned int)arg2 FromCreateTime:(unsigned int)arg3 Limit:(int)arg4 LeftCount:(unsigned int *)arg5 FromSequence:(unsigned int)arg6;
 - (unsigned int)GetDownloadThumbStatus:(id)arg1;
+- (id)GetFTSMsgRealChatUsrInTransaction:(id)arg1 forIdList:(id)arg2;
 - (id)GetFirstMsgByCreateTime:(id)arg1 FromID:(unsigned int)arg2 FromCreateTime:(unsigned int)arg3 Limit:(int)arg4 LeftCount:(unsigned int *)arg5;
 - (id)GetFirstUnreadMsg:(id)arg1;
 - (id)GetFirstUnreadMsgIncludingNewXML:(id)arg1;
@@ -278,6 +281,14 @@
 - (void)onGetBigImageResultWithWrap:(id)arg1 image:(id)arg2 imageData:(id)arg3 isSaveImgOK:(_Bool)arg4;
 - (id)onGetMsg:(id)arg1 LocalID:(unsigned int)arg2 Wrap:(id)arg3;
 - (void)onModMsgByBitSet:(id)arg1 MsgWrap:(id)arg2 BitSet:(unsigned int)arg3;
+- (void)onNewSyncAddMessage:(id)arg1;
+- (void)onNewSyncAddMsgSessionArray:(id)arg1 withUsers:(id)arg2;
+- (void)onNewSyncClearUnread:(id)arg1;
+- (void)onNewSyncDeleteMessage:(id)arg1;
+- (void)onNewSyncNotAddDBMessage:(id)arg1;
+- (void)onNewSyncNotAddDBSession:(id)arg1 withMessages:(id)arg2;
+- (void)onNewSyncShowPush:(id)arg1;
+- (void)onNewSyncSpecialSession:(id)arg1 withMessages:(id)arg2;
 - (void)onRevokeMsg:(id)arg1;
 - (void)onRevokeMsgCgiReturn:(id)arg1;
 - (void)onServiceClearData;

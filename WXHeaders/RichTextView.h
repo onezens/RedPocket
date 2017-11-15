@@ -6,13 +6,14 @@
 
 #import "MMCPLabel.h"
 
+#import "MMRichTextCoverViewDelegate.h"
 #import "TextLayoutDelegate.h"
 #import "WCForceTouchPreviewProtocol.h"
 #import "WCForceTouchTriggerLongPressProtocol.h"
 
-@class NSArray, NSMutableArray, NSString, UIColor, UIFont, UIImage;
+@class MMRichTextCoverView, NSArray, NSMutableArray, NSString, UIColor, UIFont, UIImage;
 
-@interface RichTextView : MMCPLabel <TextLayoutDelegate, WCForceTouchPreviewProtocol, WCForceTouchTriggerLongPressProtocol>
+@interface RichTextView : MMCPLabel <TextLayoutDelegate, WCForceTouchPreviewProtocol, WCForceTouchTriggerLongPressProtocol, MMRichTextCoverViewDelegate>
 {
     NSMutableArray *_arrParserObjects;
     UIColor *_oNormalBackgroundColor;
@@ -43,6 +44,7 @@
     UIColor *_oNormalBGColor;
     double _lineSpacing;
     double _originX;
+    MMRichTextCoverView *_richTextCoverView;
 }
 
 + (double)getHeightForContent:(id)arg1 font:(id)arg2 width:(double)arg3 parserType:(unsigned long long)arg4;
@@ -87,18 +89,25 @@
 - (void)dismissHighLight;
 @property(nonatomic) double fWidth; // @synthesize fWidth=_fWidth;
 - (id)getContent;
+- (float)getLineHeight;
 - (id)getLinks;
 - (id)getParserByPaserType:(unsigned long long)arg1;
 - (id)getParserString:(id)arg1;
 - (id)getPatternStringFromContent:(id)arg1 patternGenerator:(id)arg2;
 - (id)getPreviewLinkForLocation:(struct CGPoint)arg1 inView:(id)arg2;
 - (struct CGRect)getPreviewLinkFrameForLocation:(struct CGPoint)arg1 inView:(id)arg2;
+- (id)getSelectRectsWithRange:(struct _NSRange)arg1;
+- (id)getStringWithRange:(struct _NSRange)arg1;
 - (id)getStyleString:(id)arg1;
 - (_Bool)getStylesForContent:(id)arg1 parserString:(id)arg2 parserPosition:(struct _NSParserPosition)arg3;
+- (id)getTextString;
+- (long long)getTouchIndexWithTouchPoint:(struct CGPoint)arg1 FrontCursor:(_Bool)arg2;
+- (struct _NSRange)getTouchRangeWithTouchPoint:(struct CGPoint)arg1;
 - (long long)indexOfAccessibilityElement:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (_Bool)isEmojiLocation:(unsigned long long)arg1 bStart:(_Bool)arg2;
 @property(nonatomic) __weak id <RichTextLayoutDelegate> layoutDelegate; // @synthesize layoutDelegate=_layoutDelegate;
 @property(nonatomic) double lineSpacing; // @synthesize lineSpacing=_lineSpacing;
 @property(nonatomic) __weak id <ILinkEventExt> linkDelegate; // @synthesize linkDelegate=_linkDelegate;
@@ -119,6 +128,7 @@
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)previewingSourceRectForLocation:(struct CGPoint)arg1 inCoordinateView:(id)arg2;
 - (void)resetFrameForMinHeight:(double)arg1;
+@property(retain, nonatomic) MMRichTextCoverView *richTextCoverView; // @synthesize richTextCoverView=_richTextCoverView;
 - (void)setArrStyles:(id)arg1 withContent:(id)arg2;
 - (void)setContent:(id)arg1;
 - (_Bool)setPrefixContent:(id)arg1 TargetContent:(id)arg2 TargetParserString:(id)arg3 SuffixContent:(id)arg4;

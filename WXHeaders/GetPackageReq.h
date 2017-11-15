@@ -16,6 +16,7 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSString *appid; // @dynamic appid;
+@property(retain, nonatomic) NSString *attach; // @dynamic attach;
 @property(retain, nonatomic) BaseRequest *baseRequest; // @dynamic baseRequest;
 @property(retain, nonatomic) NSString *busiId; // @dynamic busiId;
 @property(nonatomic) unsigned int busiType; // @dynamic busiType;

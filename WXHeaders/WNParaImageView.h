@@ -8,13 +8,10 @@
 
 #import "ICdnComMgrExt.h"
 
-@class NSString, UIImage;
+@class NSString;
 
 @interface WNParaImageView : MMUIImageView <ICdnComMgrExt>
 {
-    UIImage *_defaultImage;
-    NSString *_clientID;
-    _Bool needCompress;
     unsigned int dataSize;
     NSString *localSrcPath;
     NSString *cdnUrl;
@@ -29,13 +26,10 @@
 @property(nonatomic) unsigned int dataSize; // @synthesize dataSize;
 - (void)dealloc;
 @property(nonatomic) __weak id <WNParaImageViewDelegate> delegate; // @synthesize delegate;
-- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)loadingImage;
 - (void)loadingImageWithGCD;
-- (void)loadingImageWithOutCompress;
 @property(retain, nonatomic) NSString *localSrcPath; // @synthesize localSrcPath;
-@property(nonatomic) _Bool needCompress; // @synthesize needCompress;
-- (void)setDefaultImage:(id)arg1;
 - (_Bool)startLoadingImage;
 - (void)stopLoadingImage;
 

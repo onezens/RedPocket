@@ -22,6 +22,7 @@
     EditImageColorSquareBar *_colorBar;
     UIColor *_textColor;
     MMUIView *_translucentView;
+    struct CGRect _editViewFrame;
     id <EditImageTextInputDelegate> _delegate;
     NSString *_textStr;
     UIView *_textView;
@@ -36,8 +37,8 @@
 - (void)dealloc;
 - (void)didMoveToSuperview;
 - (void)dropDownAndRemove;
-- (id)init;
-- (id)initWithDelegate:(id)arg1 withDefaultText:(id)arg2 withDefaultColor:(id)arg3;
+- (id)initWithDelegate:(id)arg1 withDefaultText:(id)arg2 defaultColor:(id)arg3 editViewFrame:(struct CGRect)arg4;
+- (id)initWithEditViewFrame:(struct CGRect)arg1;
 - (void)keyboardWillHide:(id)arg1;
 - (void)keyboardWillShow:(id)arg1;
 - (void)onCancel;

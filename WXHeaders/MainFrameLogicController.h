@@ -10,12 +10,13 @@
 #import "IGroupMgrExt.h"
 #import "IMMNewSessionMgrExt.h"
 #import "INetworkStatusMgrExt.h"
+#import "INewSyncExt.h"
 #import "IWXTalkPresentExt.h"
 #import "MessageObserverDelegate.h"
 
 @class MMTimer, MainFrameCellDataManager, NSMutableArray, NSMutableDictionary, NSString, WAContactGetter;
 
-@interface MainFrameLogicController : MMObject <MessageObserverDelegate, IGroupMgrExt, INetworkStatusMgrExt, IMMNewSessionMgrExt, IWXTalkPresentExt, IContactMgrExt>
+@interface MainFrameLogicController : MMObject <INewSyncExt, MessageObserverDelegate, IGroupMgrExt, INetworkStatusMgrExt, IMMNewSessionMgrExt, IWXTalkPresentExt, IContactMgrExt>
 {
     id <mainFrameLogicControllerDelegate> m_delegate;
     _Bool m_bPlayNewMsgDuringOneSync;
@@ -91,9 +92,11 @@
 - (void)onNeedReload;
 - (void)onNetworkStatusChange:(unsigned int)arg1;
 - (void)onNewMsgArriving:(id)arg1 NotifyFlag:(int)arg2;
+- (void)onNewSyncBegin;
 - (void)onSessionChanged:(id)arg1;
 - (void)onSessionRebuildBegin;
 - (void)onSessionRebuildEnd;
+- (void)onSessionTopStatusChanged:(id)arg1 bTop:(_Bool)arg2;
 - (void)onSessionTotalUnreadCountChange:(unsigned int)arg1;
 - (void)onUpdateTimeLabelTimer:(id)arg1;
 - (void)playNewMsgNotify:(id)arg1 NotifyFlag:(int)arg2;

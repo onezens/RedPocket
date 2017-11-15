@@ -10,7 +10,6 @@
 
 @interface WNVoiceInfo : NSObject
 {
-    _Bool isRecording;
     unsigned int voiceDuration;
     unsigned int voiceFmt;
     NSString *voicePath;
@@ -18,7 +17,6 @@
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) _Bool isRecording; // @synthesize isRecording;
 @property(nonatomic) unsigned int voiceDuration; // @synthesize voiceDuration;
 @property(nonatomic) unsigned int voiceFmt; // @synthesize voiceFmt;
 @property(retain, nonatomic) NSString *voicePath; // @synthesize voicePath;

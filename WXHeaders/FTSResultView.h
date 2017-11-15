@@ -6,14 +6,16 @@
 
 #import "MMUIView.h"
 
+#import "FTSResultViewDelegate.h"
 #import "MMRefreshTableFooterDelegate.h"
 #import "UISearchBarDelegate.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
+#import "WSTagSearchDelegate.h"
 
-@class AttributeLabel, MMTableView, MMUISearchBar, MMUIViewController, NSMutableArray, NSString, UIImageView, UIView, WCTimeLineFooterView;
+@class AttributeLabel, MMTableView, MMTagSearchBar, MMUIViewController, NSMutableArray, NSString, UIImageView, UIView, WCTimeLineFooterView, WSTagSearchLogic;
 
-@interface FTSResultView : MMUIView <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, MMRefreshTableFooterDelegate>
+@interface FTSResultView : MMUIView <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, MMRefreshTableFooterDelegate, WSTagSearchDelegate, FTSResultViewDelegate>
 {
     NSString *m_keyword;
     NSString *m_defaultKeyword;
@@ -21,7 +23,7 @@
     UIView *m_bottomView;
     UIView *m_searchBarSuperView;
     UIImageView *m_searchBarWrap;
-    MMUISearchBar *m_searchBar;
+    MMTagSearchBar *m_searchBar;
     MMTableView *m_tableView;
     WCTimeLineFooterView *m_footerView;
     NSMutableArray *m_resultAry;
@@ -35,34 +37,75 @@
     UIImageView *m_bottomViewShadow;
     id <FTSResultViewDelegate> m_detailViewDelegate;
     int m_searchScene;
+    WSTagSearchLogic *_tagSearchLogic;
+    FTSResultView *_addedResultView;
+    NSString *_cachedSearchBarText;
+    _Bool _isUseSectionResult;
     double _searchTextFieldNormalWidth;
     struct CGSize _searchIconDefaultSize;
     UIImageView *_searchIcon;
+    FTSResultView *_previousResultView;
+    NSMutableArray *_arrSectionResult;
 }
 
 - (void).cxx_destruct;
 - (void)MMRefreshTableFooterDidTriggerRefresh:(id)arg1;
-@property(retain, nonatomic) UIView *bottomView; // @synthesize bottomView=m_bottomView;
+@property(retain, nonatomic) FTSResultView *addedResultView; // @synthesize addedResultView=_addedResultView;
+@property(retain, nonatomic) NSMutableArray *arrSectionResult; // @synthesize arrSectionResult=_arrSectionResult;
+@property(nonatomic) __weak UIView *bottomView; // @synthesize bottomView=m_bottomView;
+- (void)cacheSearchBarText;
 - (void)cancelMoveSearchBar;
+- (void)cancelSearch;
 - (void)clearResource;
 - (void)dealloc;
 @property(nonatomic) __weak id <FTSResultViewDelegate> detailViewDelegate; // @synthesize detailViewDelegate=m_detailViewDelegate;
+- (void)didAddResultView:(id)arg1;
 @property(retain, nonatomic) NSString *emptyTipSuffix; // @synthesize emptyTipSuffix=m_emptyTipSuffix;
 - (void)enableButton:(id)arg1;
+- (id)getFirstResultView;
+- (id)getNoResultView:(double)arg1;
+- (id)getRealSearchText;
+- (long long)getRowCountForSection:(long long)arg1;
 - (id)getSearchArray:(id)arg1;
 - (id)getSearchIcon;
+- (id)getSearchSectionArray:(id)arg1;
+- (id)getSearchText;
 - (double)getSearchTextFieldWidth;
+- (long long)getSectionCount;
+- (id)getSeperatedFooterView;
+- (id)getTagDisplayText;
+- (id)getTagSearchText;
+- (id)getTopAddedResultView;
 - (void)handlePanGesture:(id)arg1;
 - (void)handleRotateEvent;
 - (void)handleTextChanged:(id)arg1 immediately:(_Bool)arg2;
+- (_Bool)hasAddedResultView;
+- (_Bool)hasMoreData;
 - (_Bool)hasSearchDone:(id)arg1;
 - (id)init;
+- (id)initWithSearchBar:(id)arg1 frame:(struct CGRect)arg2;
+- (id)initWithViewController:(id)arg1;
+- (_Bool)isSearchAll;
+- (_Bool)isSearchRunning;
+- (_Bool)isSubResultView;
+@property(readonly, nonatomic) _Bool isUseSectionResult;
 @property(retain, nonatomic) NSString *keyword; // @synthesize keyword=m_keyword;
+- (void)loadTableView;
 - (void)loadView;
 - (void)moveRight;
+- (_Bool)needNoResultFooterInSection:(long long)arg1;
+- (_Bool)needNoResultTableFooterView;
+- (_Bool)needSeperatedFooterInSection:(long long)arg1;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)onBackButtonClick;
+- (void)onFTSDetailViewReturn:(_Bool)arg1;
 - (void)onLoadMore;
-- (void)onReturn;
+- (void)onRemoveAddedResultView;
 - (void)pop;
+- (void)pop:(_Bool)arg1;
+- (void)popForSubResultView:(_Bool)arg1;
+@property(nonatomic) __weak FTSResultView *previousResultView; // @synthesize previousResultView=_previousResultView;
+- (void)recursivePopPreviousResultView;
 - (void)reloadData;
 - (void)remove;
 - (void)resetSearchIconFrame;
@@ -71,12 +114,20 @@
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (void)searchBarCancelButtonClicked:(id)arg1;
+- (_Bool)searchBarHasTagInfo;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 @property(retain, nonatomic) UIView *searchBarSuperView; // @synthesize searchBarSuperView=m_searchBarSuperView;
 @property(nonatomic) int searchScene; // @synthesize searchScene=m_searchScene;
+- (void)setCachedSearchBarText;
 - (void)setDefaultKeyWord:(id)arg1;
+- (void)setEmptyFooterView;
+- (void)setLoadingFooterView;
+- (void)setNoResultFooterView;
+- (void)setNormalFooterView;
+@property(retain, nonatomic) WSTagSearchLogic *tagSearchLogic; // @synthesize tagSearchLogic=_tagSearchLogic;
 @property(retain, nonatomic) MMUIViewController *viewController; // @synthesize viewController=m_controller;
 - (void)show;
+- (void)showWithStaticSearchBar;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;

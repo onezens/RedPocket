@@ -23,6 +23,7 @@
 - (void)evaluateJavaScriptFromString:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2;
+- (void)setFrame:(struct CGRect)arg1;
 @property(nonatomic) __weak id <YYWebViewDelegate> wvDelegate; // @synthesize wvDelegate;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;

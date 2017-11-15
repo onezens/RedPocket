@@ -9,13 +9,12 @@
 @class NSMutableArray, NSString;
 
 @protocol MMRichTextCoverViewDelegate <NSObject>
-- (struct _NSRange)characterRangeAtIndex:(long long)arg1;
 - (float)getLineHeight;
 - (NSMutableArray *)getSelectRectsWithRange:(struct _NSRange)arg1;
 - (NSString *)getStringWithRange:(struct _NSRange)arg1;
 - (NSString *)getTextString;
-- (float)getTextViewHeight;
-- (long long)getTouchIndexWithTouchPoint:(struct CGPoint)arg1;
+- (long long)getTouchIndexWithTouchPoint:(struct CGPoint)arg1 FrontCursor:(_Bool)arg2;
+- (struct _NSRange)getTouchRangeWithTouchPoint:(struct CGPoint)arg1;
 - (_Bool)isEmojiLocation:(unsigned long long)arg1 bStart:(_Bool)arg2;
 @end
 

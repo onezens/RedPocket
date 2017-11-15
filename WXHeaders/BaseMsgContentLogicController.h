@@ -48,7 +48,7 @@
 #import "contactInfoDelegate.h"
 #import "contactVerifyLogicDelegate.h"
 
-@class AutoplayController, BaseMsgContentViewController, CBaseContact, CContact, CContactVerifyLogic, CMessageWrap, ForwardMessageLogicController, GameController, ImageController, ImplicitAnimationController, MMPickLocationViewController, MMUIViewController, MultiSelectController, MyFavoritesListViewController, NSMutableDictionary, NSString, PlayingController, RecordController, ShakeController, ShareDataToOpenSDKController, ShareFriendOnChatLogicController, ShareMessageConfirmLogicHelper, TypingController, UINavigationController, UrlController, WAAppIdToUsernameTransfer;
+@class AutoplayController, BaseMsgContentViewController, CBaseContact, CContact, CContactVerifyLogic, CMessageWrap, ForwardMessageLogicController, GameController, ImageController, ImplicitAnimationController, MMPickLocationViewController, MMUIViewController, MultiSelectController, MyFavoritesListViewController, NSArray, NSMutableDictionary, NSString, PlayingController, RecordController, ShakeController, ShareDataToOpenSDKController, ShareFriendOnChatLogicController, ShareMessageConfirmLogicHelper, TypingController, UINavigationController, UrlController, WAAppIdToUsernameTransfer;
 
 @interface BaseMsgContentLogicController : MMObject <MMNewMultiSelectContactsViewControllerDelegate, ForwardMessageLogicDelegate, BaseMsgContentDelgate, BaseMsgContentInBackgroundThreadDelgate, WCActionSheetDelegate, ImageControllerDelegate, contactInfoDelegate, UINavigationControllerDelegate, MessageObserverDelegate, TypingControllerDelgate, MsgDelegate, IMsgExt, ILinkEventExt, contactVerifyLogicDelegate, UrlControllerDelegate, IContactMgrExt, IMMNewSessionMgrExt, RecordControllerDelegate, PlayControllerDelegate, AutoplayController, ShakeControllerDelegate, ShareFriendOnChatDelegate, MFMailComposeViewControllerDelegate, MMPickLocationViewControllerDelegate, ImplicitAnimationControllerDelegate, IVOIPUILogicMgrExt, MMInputToolViewCustomizationDelegate, IWXTalkPresentExt, IWXTalkieExt, ITrackPresentExt, ITrackRoomMgrExt, UIAlertViewDelegate, MultiSelectContollerDelegate, ViewLocationDelegate, MultiTalkMgrExt, MyFavoritesListViewControllerDelegate, IMsgRevokeExt, FavForwardLogicDelegate, WCCardPackageViewControllerDelegate, ShareMessageConfirmLogicHelperDelegate, SessionSelectControllerDelegate>
 {
@@ -73,6 +73,7 @@
     unsigned int m_uiDownLeftCount;
     unsigned int m_uiSearchedResultNodeLocalID;
     unsigned long long m_uiDownLastCreateTime;
+    unsigned int m_uiDownLastSequence;
     unsigned int m_uiLastCreateTime;
     unsigned int m_uiLastSequence;
     unsigned int m_uiLeftCount;
@@ -89,12 +90,14 @@
     CDUnknownBlockType multiMsgCompleteHandler;
     NSMutableDictionary *m_dicExtraInfo;
     CContact *m_selectContact;
+    NSArray *m_searchKeywordList;
     ForwardMessageLogicController *m_forwardLogic;
     ShareMessageConfirmLogicHelper *m_shareMessageHelper;
     _Bool m_bIsInContentView;
     int m_uiFromScene;
     _Bool m_bHasUnreadMsg;
     WAAppIdToUsernameTransfer *_appIdTransfer;
+    _Bool m_bHighlightTargetCell;
     int m_searchScene;
 }
 
@@ -263,6 +266,7 @@
 - (id)chatUserNameForSightStatistics;
 - (void)clearDownLeftCount;
 - (void)clearLastCreateTime;
+- (void)clearSearchKeywordList;
 - (void)contactInfoReturn;
 - (void)contactVerifyOk:(id)arg1 opCode:(unsigned int)arg2;
 - (void)dealloc;
@@ -285,6 +289,7 @@
 - (id)getMyFriendContact;
 - (id)getNavigationController;
 - (id)getPreviewForLink:(id)arg1;
+- (id)getSearchKeywordList;
 - (unsigned int)getSearchedMsgLocalID;
 - (id)getShareMyFriendParentViewController;
 - (id)getSubTitle;
@@ -298,6 +303,7 @@
 - (void)initViewController;
 - (id)initWithLocalID:(unsigned int)arg1 CreateTime:(unsigned int)arg2 ContentViewDisshowStatus:(int)arg3;
 - (id)initWithLocalID:(unsigned int)arg1 CreateTime:(unsigned int)arg2 ContentViewDisshowStatus:(int)arg3 fromScene:(int)arg4;
+- (id)initWithLocalID:(unsigned int)arg1 CreateTime:(unsigned int)arg2 ContentViewDisshowStatus:(int)arg3 searchKeywordList:(id)arg4 fromScene:(int)arg5;
 - (_Bool)isBackToWeApp:(id)arg1;
 - (_Bool)isChatStatusNotifyOpen;
 - (_Bool)isInForwardMsgPreView;
@@ -307,6 +313,7 @@
 - (_Bool)isShakeEnabled;
 - (_Bool)isShowHeadImage:(id)arg1;
 - (_Bool)isUsrTitleUnsafe;
+@property(nonatomic) _Bool m_bHighlightTargetCell; // @synthesize m_bHighlightTargetCell;
 @property(retain, nonatomic) CBaseContact *m_contact; // @synthesize m_contact;
 @property(retain, nonatomic) NSMutableDictionary *m_dicExtraInfo; // @synthesize m_dicExtraInfo;
 @property(retain, nonatomic) CMessageWrap *m_msgResend; // @synthesize m_msgResend;
@@ -400,6 +407,7 @@
 - (void)setNeedUpdateTitle:(_Bool *)arg1;
 - (void)setWillDismissStatus;
 - (void)shareDataToOpenSDK:(id)arg1;
+- (_Bool)shouldHightlightSearchedKeyWord;
 - (_Bool)shouldPreventViewcontrollerAutorotate;
 - (_Bool)shouldSearchedMsgHightlight;
 - (id)tagForCurrentPage;

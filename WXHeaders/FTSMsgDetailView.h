@@ -14,15 +14,24 @@
 {
 }
 
+- (void)cancelSearch;
 - (void)dealloc;
 - (void)delaySearch:(id)arg1 slowMode:(_Bool)arg2;
 - (void)delaySearchImp:(id)arg1;
+- (long long)getRowCountForSection:(long long)arg1;
 - (id)getSearchArray:(id)arg1;
+- (id)getSearchSectionArray:(id)arg1;
+- (long long)getSectionCount;
 - (void)handleTextChanged:(id)arg1 immediately:(_Bool)arg2;
 - (_Bool)hasSearchDone:(id)arg1;
 - (void)hideKeyboard;
 - (id)init;
-- (void)onFTSDetailPageMessageResultChanged;
+- (_Bool)isDisplayTalkerSearchEntry;
+- (_Bool)isSearchRunning;
+- (_Bool)isUseSectionResult;
+- (_Bool)needNoResultTableFooterView;
+- (_Bool)needSeperatedFooterInSection:(long long)arg1;
+- (void)onFTSDetailPageMessageResultChanged:(_Bool)arg1;
 - (void)pop;
 - (void)selectMsgItem:(id)arg1;
 - (void)selectMsgItems:(id)arg1;

@@ -125,6 +125,7 @@
 - (void)onSingleEmotionDownloadOkWithWrap:(id)arg1 imageData:(id)arg2;
 - (void)onStartWebSearch;
 - (void)onStartWebSearchForDetail:(unsigned long long)arg1;
+- (void)onStartWebSearchFromCacheFFSee;
 - (void)pageRequestAvatar:(id)arg1;
 - (void)pageRequestAvatarList:(id)arg1;
 - (void)pageRequestCommonImage:(id)arg1;

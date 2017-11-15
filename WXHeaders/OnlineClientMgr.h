@@ -9,6 +9,7 @@
 #import "IMMFontMgrExt.h"
 #import "IMMLanguageMgrExt.h"
 #import "IMMNewSessionMgrExt.h"
+#import "INewSyncExt.h"
 #import "MMKernelExt.h"
 #import "MMService.h"
 #import "MessageObserverDelegate.h"
@@ -16,7 +17,7 @@
 
 @class NSArray, NSMutableArray, NSMutableSet, NSString, SendActiveCGI;
 
-@interface OnlineClientMgr : MMService <IMMLanguageMgrExt, MessageObserverDelegate, PBMessageObserverDelegate, IMMNewSessionMgrExt, MMKernelExt, IMMFontMgrExt, MMService>
+@interface OnlineClientMgr : MMService <IMMLanguageMgrExt, MessageObserverDelegate, PBMessageObserverDelegate, IMMNewSessionMgrExt, MMKernelExt, IMMFontMgrExt, INewSyncExt, MMService>
 {
     _Bool m_isRunningAsBakDevice;
     _Bool m_hasGetChatList;
@@ -95,12 +96,21 @@
 - (void)onGetNotifyUnlockFunction:(id)arg1;
 - (void)onGetOnlineInfoResponse:(id)arg1 newOnlineVersion:(unsigned int)arg2;
 - (void)onGetQuitFunction:(id)arg1;
-- (void)onGetSendCommandFunction:(id)arg1;
 - (void)onGetSyncEnd;
 - (void)onKickQuit;
 - (void)onLanguageChange;
 - (void)onManulLogOut;
 - (void)onMarkMsgReadReturn:(id)arg1 withResponse:(id)arg2;
+- (void)onNewSyncChatListSession:(id)arg1;
+- (void)onNewSyncEnd;
+- (void)onNewSyncEnterFunction:(id)arg1;
+- (void)onNewSyncEnterSession:(id)arg1;
+- (void)onNewSyncGetAllChat;
+- (void)onNewSyncMarkFunction:(id)arg1;
+- (void)onNewSyncNotifyUnlock:(id)arg1;
+- (void)onNewSyncOnlineStatus:(unsigned int)arg1 withVersion:(unsigned int)arg2;
+- (void)onNewSyncQuitFunction:(id)arg1;
+- (void)onNewSyncQuitSession:(id)arg1;
 - (void)onRemoteDeviceEnterSession:(id)arg1;
 - (void)onRemoteDeviceQuitSession:(id)arg1;
 - (void)resetNeedCallLoginWeb;

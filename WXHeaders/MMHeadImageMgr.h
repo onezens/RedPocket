@@ -10,15 +10,15 @@
 #import "IBottleContactMgrExt.h"
 #import "IClearDataMgrExt.h"
 #import "IContactMgrExt.h"
+#import "INewSyncExt.h"
 #import "IStrangerBrandContactHeadImageExt.h"
 #import "IStrangerContactMgrExt.h"
 #import "MMService.h"
-#import "MessageObserverDelegate.h"
 #import "WAContactMgrExtension.h"
 
 @class CUploadHDHeadImg, MMHeadImageCacher, MMHeadImageDownloader, NSString;
 
-@interface MMHeadImageMgr : MMService <HeadImgDelegate, IContactMgrExt, IBottleContactMgrExt, IStrangerContactMgrExt, IStrangerBrandContactHeadImageExt, WAContactMgrExtension, MessageObserverDelegate, IClearDataMgrExt, MMService>
+@interface MMHeadImageMgr : MMService <HeadImgDelegate, IContactMgrExt, IBottleContactMgrExt, IStrangerContactMgrExt, IStrangerBrandContactHeadImageExt, WAContactMgrExtension, IClearDataMgrExt, INewSyncExt, MMService>
 {
     MMHeadImageCacher *_headImgCacher;
     MMHeadImageDownloader *_headImgDownloader;
@@ -43,7 +43,6 @@
 + (id)resizeImage:(id)arg1;
 + (id)tryGenHQImage:(id)arg1;
 - (void).cxx_destruct;
-- (void)MessageReturn:(unsigned int)arg1 MessageInfo:(id)arg2 Event:(unsigned int)arg3;
 - (void)cancelDownloadRequest:(id)arg1;
 - (_Bool)checkIsNeedUpdate:(id)arg1 category:(unsigned char)arg2 isHeadImgExistedInLocal:(_Bool)arg3;
 - (_Bool)checkIsNeedUpdateBrandIcon:(id)arg1 isHeadImgExistedInLocal:(_Bool)arg2;
@@ -85,6 +84,7 @@
 - (void)onGetUsrImage:(id)arg1 Status:(id)arg2 Image:(id)arg3 Category:(unsigned char)arg4;
 - (void)onModifyBottleContact:(id)arg1;
 - (void)onModifyContactHeadImage:(id)arg1;
+- (void)onNewSyncModUserImage:(id)arg1;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (_Bool)onServiceMemoryWarning;

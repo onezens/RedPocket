@@ -51,6 +51,8 @@
 - (id)favoriteMenuItem;
 @property(readonly, nonatomic) __weak UIView *forceTouchShakeView;
 - (id)forwardMenuItem;
+- (id)generateOperationMenu;
+- (id)getContentView;
 - (void)handleMenuControllerWillHideMenuNotification:(id)arg1;
 - (void)hideUIStatus;
 @property(nonatomic) _Bool highlighted;

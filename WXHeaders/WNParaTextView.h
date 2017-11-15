@@ -14,32 +14,35 @@
 {
     NSMutableArray *_urlArray;
     UIView *_coverView;
-    _Bool _bTouched;
     NSString *_touchUrl;
+    _Bool _ignoreMenuEvent;
     id <WNParaTextViewDelegate> wnPara_delegate;
 }
 
-+ (double)getHightOfParaInfo:(id)arg1;
++ (double)getHightOfParaInfo:(id)arg1 withWidth:(double)arg2;
 - (void).cxx_destruct;
 - (void)calculateTouchAreaUrl:(id)arg1;
 - (_Bool)canBecameFirstResponder;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (struct CGRect)caretRectForPosition:(id)arg1;
+- (void)configMenuController;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
 - (_Bool)handleLinkClick;
 - (_Bool)handleTouchLinkArea:(struct CGPoint)arg1;
-- (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)jumpWebView;
 - (void)paste:(id)arg1;
+- (void)resumeIgnoreStatus;
 - (void)selectAll:(id)arg1;
-- (void)setAttributedText:(id)arg1;
+- (void)setBold:(id)arg1;
+- (void)setUnBold:(id)arg1;
 @property(nonatomic) __weak id <WNParaTextViewDelegate> wnPara_delegate; // @synthesize wnPara_delegate;
 - (void)showKeyboardAtLocation:(long long)arg1;
 - (void)showKeyboardWithSelectionRange:(struct _NSRange)arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)tryShowLinkStyle;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

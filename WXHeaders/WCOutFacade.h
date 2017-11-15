@@ -138,6 +138,7 @@
 - (_Bool)isCalling;
 - (_Bool)isChargeClosed;
 - (_Bool)isChargeRecordClosed;
+- (_Bool)isClosePurchase;
 - (_Bool)isInviteClosed;
 - (_Bool)isItemListWebChargeOpen;
 - (_Bool)isItemWebChargeOpen;

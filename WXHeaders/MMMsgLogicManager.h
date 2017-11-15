@@ -43,7 +43,8 @@
 - (void)PushOtherBaseMsgControllerByContact:(id)arg1 navigationController:(id)arg2 animated:(_Bool)arg3 searchScene:(int)arg4 extraInfo:(id)arg5;
 - (void)PushOtherLogicController:(id)arg1 navigationController:(id)arg2 animated:(_Bool)arg3;
 - (void)PushSearchLogicControllerByContact:(id)arg1 navigationController:(id)arg2 ForMessageWrap:(id)arg3 animated:(_Bool)arg4 fromeScene:(int)arg5;
-- (void)PushSearchLogicControllerWithToolBarByContact:(id)arg1 navigationController:(id)arg2 ForMessageWrap:(id)arg3 animated:(_Bool)arg4;
+- (void)PushSearchLogicControllerWithToolBarByContact:(id)arg1 navigationController:(id)arg2 ForMessageWrap:(id)arg3 ForKeywordList:(id)arg4 animated:(_Bool)arg5;
+- (void)PushSearchLogicControllerWithToolBarByContact:(id)arg1 navigationController:(id)arg2 ForMessageWrap:(id)arg3 ForKeywordList:(id)arg4 highlighted:(_Bool)arg5 animated:(_Bool)arg6;
 - (void)PushSpecLogicControllerByContact:(id)arg1 navigationController:(id)arg2;
 @property(retain, nonatomic) NSMutableArray *arrLogicControllers;
 - (void)cleanUnuseLogicController;

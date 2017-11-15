@@ -9,13 +9,14 @@
 #import "IAcctStorageMgrExt.h"
 #import "IBrandAttrMgrExt.h"
 #import "IMMLanguageMgrExt.h"
+#import "INewSyncExt.h"
 #import "MMService.h"
 #import "MessageObserverDelegate.h"
 #import "PBMessageObserverDelegate.h"
 
 @class CContactDB, CContactOPLog, NSMutableDictionary, NSRecursiveLock, NSString, NewContactDB;
 
-@interface CContactMgr : MMService <MMService, MessageObserverDelegate, PBMessageObserverDelegate, IAcctStorageMgrExt, IMMLanguageMgrExt, IBrandAttrMgrExt>
+@interface CContactMgr : MMService <INewSyncExt, MMService, MessageObserverDelegate, PBMessageObserverDelegate, IAcctStorageMgrExt, IMMLanguageMgrExt, IBrandAttrMgrExt>
 {
     NSRecursiveLock *m_oLock;
     unsigned int m_uiLoadedType;
@@ -87,6 +88,8 @@
 - (id)getAllEnterpriseMainBrandContacts;
 - (_Bool)getAllRemarkList:(id)arg1 listType:(unsigned int)arg2;
 - (_Bool)getAllUserName:(id)arg1;
+- (id)getContactByAlias:(id)arg1;
+- (id)getContactByDisplayName:(id)arg1;
 - (id)getContactByName:(id)arg1;
 - (id)getContactByNameFromCache:(id)arg1;
 - (id)getContactByNameFromDB:(id)arg1;
@@ -94,6 +97,8 @@
 - (id)getContactFromDB:(id)arg1;
 - (id)getContactFromDic:(id)arg1;
 - (id)getContactList:(unsigned int)arg1 contactType:(unsigned int)arg2;
+- (id)getContactList:(unsigned int)arg1 contactType:(unsigned int)arg2 domain:(id)arg3;
+- (id)getContactList:(unsigned int)arg1 contactType:(unsigned int)arg2 domain:(id)arg3 needLoadExt:(_Bool)arg4;
 - (id)getContactList:(unsigned int)arg1 contactType:(unsigned int)arg2 needLoadExt:(_Bool)arg3;
 - (_Bool)getContactsFromServer:(id)arg1;
 - (_Bool)getContactsFromServer:(id)arg1 chatContact:(id)arg2;
@@ -119,6 +124,7 @@
 - (_Bool)isContactBlack:(id)arg1;
 - (_Bool)isContactExistLocal:(id)arg1;
 - (_Bool)isContactMatch:(id)arg1 listType:(unsigned int)arg2 contactType:(unsigned int)arg3;
+- (_Bool)isContactMatch:(id)arg1 listType:(unsigned int)arg2 contactType:(unsigned int)arg3 domain:(id)arg4;
 - (_Bool)isHardCodeContact:(id)arg1;
 - (_Bool)isHeadImgUpdated:(id)arg1 Local:(id)arg2;
 - (_Bool)isInContactList:(id)arg1;
@@ -128,13 +134,16 @@
 - (void)main_onPushAddContact:(id)arg1;
 - (void)main_onPushBatchModContact:(id)arg1;
 - (void)main_onPushDeleteContact:(id)arg1;
-- (void)main_onPushModifyContact:(id)arg1;
 - (void)mergeChatRoomData:(id)arg1 oldContact:(id)arg2;
 - (_Bool)migrationContacts:(unsigned int)arg1 first:(_Bool)arg2;
 - (void)modifyContactNickName:(id)arg1 nickName:(id)arg2 callMod:(_Bool)arg3;
 - (void)onBrandContactModified:(id)arg1 withAttrChanged:(id)arg2;
 - (void)onGetContact:(id)arg1;
 - (void)onLanguageChange;
+- (void)onNewSyncBatchModContacts:(id)arg1;
+- (void)onNewSyncDeleteContact:(id)arg1;
+- (void)onNewSyncModUserInfo:(id)arg1;
+- (void)onNewSyncModUserInfoExt:(id)arg1;
 - (void)onPushDeleteContact:(id)arg1;
 - (void)onPushModifyContact:(id)arg1 updateImage:(_Bool)arg2;
 - (void)onServiceClearData;

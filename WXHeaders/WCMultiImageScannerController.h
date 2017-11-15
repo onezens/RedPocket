@@ -31,6 +31,7 @@
 
 - (void).cxx_destruct;
 - (void)OnMMUIHookViewFrameChanged:(id)arg1;
+- (void)UISplitViewWillChangeSplitMode;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 @property(retain, nonatomic) NSMutableArray *arrViewItem; // @synthesize arrViewItem=_arrViewItem;
 - (struct CGPoint)contentOffsetForPageScrollView;
@@ -70,6 +71,7 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)viewDidTransitionToNewSize;
 - (void)viewDidUnload;
 - (void)viewWillBePoped:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

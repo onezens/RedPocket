@@ -6,6 +6,7 @@
 
 #import "MMObject.h"
 
+#import "INewSyncExt.h"
 #import "MMKernelExt.h"
 #import "NetworkStatusDelegate.h"
 #import "NotifyFromEventDelegate.h"
@@ -13,7 +14,7 @@
 
 @class CMMDB, CNetworkStatus, MMTimer, NSDate, NSMutableArray, NSMutableString, NSRecursiveLock, NSString;
 
-@interface CMainControll : MMObject <NotifyFromEventDelegate, NetworkStatusDelegate, MMKernelExt, PBMessageObserverDelegate>
+@interface CMainControll : MMObject <INewSyncExt, NotifyFromEventDelegate, NetworkStatusDelegate, MMKernelExt, PBMessageObserverDelegate>
 {
     CMMDB *m_oMMDB;
     NSRecursiveLock *m_oLock;
@@ -112,6 +113,7 @@
 - (void)onAuthOK;
 - (void)onKickQuit;
 - (void)onLoginOK;
+- (void)onNewSyncIPXX:(id)arg1;
 - (void)speedyDispacthMessage:(id)arg1;
 
 // Remaining properties

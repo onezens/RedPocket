@@ -9,7 +9,7 @@
 #import "IRecordPermissionCheckExt.h"
 #import "UIAlertViewDelegate.h"
 
-@class MMTimer, NSString, VoipDescriptionButton, VoipMonoMsg;
+@class MMTimer, NSString, UIView, UIVisualEffectView, VoipDescriptionButton, VoipMonoMsg;
 
 @interface VideoVoipReceiverView : VideoVoipView <UIAlertViewDelegate, IRecordPermissionCheckExt>
 {
@@ -17,12 +17,15 @@
     _Bool isNeedFormSysMsg;
     _Bool hasAcceptCall;
     _Bool hasHangUp;
+    _Bool _m_hasInitCameraDevice;
     unsigned int m_dotCountIncresement;
     unsigned int _m_timerCnt;
     VoipDescriptionButton *m_acceptBtn;
     VoipDescriptionButton *m_hangupBtn;
     VoipDescriptionButton *m_voiceModeButton;
     MMTimer *m_actingTimer;
+    UIView *m_cameraPreviewView;
+    UIVisualEffectView *m_glassView;
 }
 
 - (void).cxx_destruct;
@@ -66,16 +69,22 @@
 - (void)ignoreCall;
 - (void)ignoreCallAction;
 - (id)init;
+- (void)initCameraDevice;
+- (void)initCameraView;
 - (id)initWithFrame:(struct CGRect)arg1 andContact:(id)arg2 isEarMode:(_Bool)arg3 andInitViewMode:(int)arg4;
 - (_Bool)isCaller;
 @property(nonatomic) _Bool isNeedFormSysMsg; // @synthesize isNeedFormSysMsg;
 - (void)layoutAcceptButton;
+- (void)layoutCameraPreview;
 - (void)layoutHangupButton;
 - (void)layoutVoiceModeButton;
 @property(retain, nonatomic) VoipDescriptionButton *m_acceptBtn; // @synthesize m_acceptBtn;
 @property(retain, nonatomic) MMTimer *m_actingTimer; // @synthesize m_actingTimer;
+@property(retain, nonatomic) UIView *m_cameraPreviewView; // @synthesize m_cameraPreviewView;
 @property(nonatomic) unsigned int m_dotCountIncresement; // @synthesize m_dotCountIncresement;
+@property(retain, nonatomic) UIVisualEffectView *m_glassView; // @synthesize m_glassView;
 @property(retain, nonatomic) VoipDescriptionButton *m_hangupBtn; // @synthesize m_hangupBtn;
+@property(nonatomic) _Bool m_hasInitCameraDevice; // @synthesize m_hasInitCameraDevice=_m_hasInitCameraDevice;
 @property(nonatomic) unsigned int m_timerCnt; // @synthesize m_timerCnt=_m_timerCnt;
 @property(retain, nonatomic) VoipDescriptionButton *m_voiceModeButton; // @synthesize m_voiceModeButton;
 - (void)markLastVoipInfo;
@@ -83,11 +92,13 @@
 - (void)realAcceptCall;
 - (void)rejectCall;
 - (void)setMonoMsg:(id)arg1;
+- (void)startCamera;
 - (void)startShowView;
 - (void)updateFooterView;
 - (void)updateStatusLabel;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
+- (void)viewWillLayoutSubviews;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
