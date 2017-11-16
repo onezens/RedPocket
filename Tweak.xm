@@ -3,6 +3,10 @@
 
 @interface WCBizUtil 
 + (id)dictionaryWithDecodedComponets:(id)arg1 separator:(id)arg2;
++ (void)showAlert:(NSString *)msg;
++ (void)enableAutoOpenWithNativeUrl:(NSString *)nativeUrl;
++ (BOOL)isEnableAutoOpenWithNativeUrl:(NSString *)nativeUrl;
++ (void)autoOpenWithNativeUrl:(NSString *)nativeUrl;
 @end
 
 @interface SKBuiltinBuffer_t 
@@ -111,17 +115,11 @@
         NSDictionary *nativeUrlDict = [%c(WCBizUtil) dictionaryWithDecodedComponets:nativeUrlData separator:@"&"];
         
         BOOL isGroupHB = [fromUsr containsString:@"chatroom"];
-        YCHongBaoMgr *hbMgr = [%c(YCHongBaoMgr) hongBaoMgr];
-
-        if(hbMgr.isEnableAutoOpen){
-            NSLog(@"\nAuto open Red Envelope function is enabled............\n");
-        }else{
-             NSLog(@"\nAuto open Red Envelope function is disabled............\n");
-        }
 
         //if msgtype == 1 is enable auto open red envelopes
         id msgType = [nativeUrlDict valueForKey:@"msgtype"];
         if([msgType isEqual: @"1"]){
+            [%c(WCBizUtil) enableAutoOpenWithNativeUrl:m_c2cNativeUrl];
 
             //************ auto get red envelopes info ****************//
             NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
@@ -194,7 +192,7 @@
     //     NSLog(@"reqTextDict: %@",reqTextDict);
     // }
 
-    // YCHongBaoMgr *hbMgr = [%c(YCHongBaoMgr) hongBaoMgr];
+
 
     //HongBaoRes.cgiCmdid = 3 is get hongbao info, .cgiCmdid = 4 is open hongbao
     if(arg1.retText.buffer.length>0 && arg2.reqText.buffer.length>0 && arg1.cgiCmdid == 3 ){
@@ -214,6 +212,13 @@
 
         //decode url 
         m_c2cNativeUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,(CFStringRef)m_c2cNativeUrl, CFSTR(""),kCFStringEncodingUTF8));
+
+
+        if(![%c(WCBizUtil) isEnableAutoOpenWithNativeUrl:m_c2cNativeUrl]){
+            return;
+        }else{
+            [%c(WCBizUtil) autoOpenWithNativeUrl:m_c2cNativeUrl];
+        }
 
         NSInteger index = [@"wxpay://c2cbizmessagehandler/hongbao/receivehongbao?" length];
         NSString *nativeUrlData = [m_c2cNativeUrl substringFromIndex:index];
@@ -277,9 +282,55 @@
 
 - (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 {
      %log;
-     YCHongBaoMgr *hbMgr = [%c(YCHongBaoMgr) hongBaoMgr];
-     hbMgr.isEnableAutoOpen = true;
+     [%c(WCBizUtil) showAlert:@"start...."];
      return  %orig;
+}
+
+%end
+
+%hook WCBizUtil
+
+
+
+%new
++ (void)enableAutoOpenWithNativeUrl:(NSString *)nativeUrl{
+    
+    NSMutableDictionary *dictM =  [[NSUserDefaults standardUserDefaults] valueForKey:@"AutoOpenWithNativeUrl"];
+    
+    if (!dictM) {
+        dictM = [NSMutableDictionary dictionary];
+    }else{
+        dictM = [NSMutableDictionary dictionaryWithDictionary:dictM];
+    }
+    [dictM setValue:@1 forKey:nativeUrl];
+    [[NSUserDefaults standardUserDefaults] setObject:dictM forKey:@"AutoOpenWithNativeUrl"];
+}
+%new
++ (BOOL)isEnableAutoOpenWithNativeUrl:(NSString *)nativeUrl{
+    NSMutableDictionary *dictM =  [[NSUserDefaults standardUserDefaults] valueForKey:@"AutoOpenWithNativeUrl"];
+    if (dictM) {
+        NSNumber *val = [dictM valueForKey:nativeUrl];
+        if (val.intValue == 1) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+%new
++ (void)autoOpenWithNativeUrl:(NSString *)nativeUrl {
+    NSMutableDictionary *dictM =  [[NSUserDefaults standardUserDefaults] valueForKey:@"AutoOpenWithNativeUrl"];
+    if (dictM) {
+        dictM = [NSMutableDictionary dictionaryWithDictionary:dictM];
+        [dictM setValue:@0 forKey:nativeUrl];
+        [[NSUserDefaults standardUserDefaults] setObject:dictM forKey:@"AutoOpenWithNativeUrl"];
+    }
+}
+
+
+%new
++ (void)showAlert:(NSString *)msg {
+    [[[UIAlertView alloc] initWithTitle:msg message:nil delegate:nil cancelButtonTitle:@"confirm" otherButtonTitles:nil, nil] show];
 }
 
 %end

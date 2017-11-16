@@ -14,7 +14,7 @@ redpocket_FILES = Tweak.xm
 #需要导入的库
 redpocket_FRAMEWORKS = UIKit
 #redpocket_PRIVATE_FRAMEWORKS = AppSupport
-include $(THEOS_MAKE_PATH)/Tweak.mk
+include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
 	install.exec "killall -9 WeChat"
