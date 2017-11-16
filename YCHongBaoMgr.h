@@ -18,6 +18,6 @@
 
 + (instancetype)hongBaoMgr;
 
-- (void)showAlert:(NSString *)msg;
++ (void)showAlert:(NSString *)msg;
 
 @end

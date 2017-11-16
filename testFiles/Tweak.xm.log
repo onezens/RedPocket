@@ -83,11 +83,30 @@
     %orig;
 
     int messageType = [msg m_uiMessageType];
+
     NSString *fromUsr = [msg m_nsFromUsr];
 
-    if (messageType == 49)
+    if (messageType == 1)
+    {
+        NSLog(@"文本消息");
+    }else if (messageType == 3)
+    {
+        NSLog(@"图片消息");
+    }else if (messageType == 48)
+    {
+        NSLog(@"位置消息");
+    }else if (messageType == 49)
     {
         NSLog(@"红包消息、转账消息");
+
+        // agreeDuty = 0;
+        // channelId = 1;
+        // inWay = 1;
+        // msgType = 1;
+        // nativeUrl = "wxpay://c2cbizmessagehandler/hongbao/receivehongbao?msgtype=1&channelid=1&sendid=1000039401201711157020140209144&sendusername=wxid_y9bs6i3qil6m21&ver=6&sign=cb7ee087ec43110c0bc02a9120e5f2cca5194d7249f2384ec67a8a6d140a2664cc91bd9f3a6df2a1413e740620ddc015796f7d21d18da3c60ac48f0fe06044f5ac0b87b4724ca218adb6345e25f573e5";
+        // sendId = 1000039401201711157020140209144;
+
+
 
         WCPayInfoItem *payInfoItem = [msg m_oWCPayInfoItem];
         NSString *m_c2cNativeUrl = [payInfoItem m_c2cNativeUrl];
@@ -120,6 +139,8 @@
                 [dictM setObject:@"1" forKey:@"inWay"]; 
             }
 
+            
+
             NSLog(@"dictM: %@", dictM);
             // auto get red envelope info
             WCRedEnvelopesLogicMgr *redEnvelopesLogicMgr = [[%c(MMServiceCenter) defaultCenter] getService: [%c(WCRedEnvelopesLogicMgr) class]];
@@ -129,7 +150,13 @@
         }else{
             NSLog(@"msgtype : %@  mgtype class: %@", msgType, [msgType class]);
         }
-    } 
+
+
+    }else{
+        NSLog(@"未知");
+    }
+
+    
 
 }
 %end
@@ -137,8 +164,36 @@
 
 %hook WCRedEnvelopesLogicMgr
 - (void)OnWCToHongbaoCommonResponse:(HongBaoRes *)arg1 Request:(HongBaoReq *)arg2 {
+    // %log; 
     %orig;
-    
+    // NSLog(@"HongBaoRes --->  cgiCmdid: %d  platRet: %d  retText: %@ platMsg : %@ ",arg1.cgiCmdid, arg1.platRet, arg1.retText, arg1.platMsg);
+
+    // NSLog(@"HongBaoReq --->  cgiCmdid: %d  outPutType : %d  reqText: %@ ",arg2.cgiCmd, arg2.outPutType, arg2.reqText);
+
+    // NSLog(@"HongBaoRes buffer: %@", [[NSString alloc] initWithData:arg1.retText.buffer encoding:NSUTF8StringEncoding]);
+    // NSLog(@"HongBaoReq buffer:  %@", [[NSString alloc] initWithData:arg2.reqText.buffer encoding:NSUTF8StringEncoding]);
+
+    // if (arg1.retText.buffer.length>0)
+    // {
+    //     // NSLog(@"arg1.retText.buffer:\n");
+        
+    //     NSDictionary *retTextObj =  [NSJSONSerialization JSONObjectWithData:arg1.retText.buffer options:0 error:nil];
+    //     NSLog(@"%@", retTextObj);
+    //     // NSString *retTextStr = [[NSString alloc] initWithData:arg1.retText.buffer encoding:NSUTF8StringEncoding];
+    //     // NSDictionary *retTextDict = [%c(WCBizUtil) dictionaryWithDecodedComponets:retTextStr separator:@"&"];
+    //     // NSLog(@"retTextDict: %@",retTextDict);
+    // }
+
+    // if (arg2.reqText.buffer.length>0)
+    // {
+    //     // NSLog(@"arg2.reqText.buffer :\n");
+    //     NSString *reqTextStr = [[NSString alloc] initWithData:arg2.reqText.buffer encoding:NSUTF8StringEncoding];
+    //     NSDictionary *reqTextDict = [%c(WCBizUtil) dictionaryWithDecodedComponets:reqTextStr separator:@"&"];
+    //     NSLog(@"reqTextDict: %@",reqTextDict);
+    // }
+
+
+
     //HongBaoRes.cgiCmdid = 3 is get hongbao info, .cgiCmdid = 4 is open hongbao
     if(arg1.retText.buffer.length>0 && arg2.reqText.buffer.length>0 && arg1.cgiCmdid == 3 ){
 
@@ -196,13 +251,16 @@
 
         NSLog(@"dictM Count:%lu data: %@",[dictM count], dictM);
 
-        //等待0.5s
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            //auto open red envelopes
-            WCRedEnvelopesLogicMgr *redEnvelopesLogicMgr = [serviceCenter getService: [%c(WCRedEnvelopesLogicMgr) class]];
-            [redEnvelopesLogicMgr OpenRedEnvelopesRequest: dictM];
-        });
+        sleep(1);
+
+        //auto open red envelopes
+        WCRedEnvelopesLogicMgr *redEnvelopesLogicMgr = [serviceCenter getService: [%c(WCRedEnvelopesLogicMgr) class]];
+        [redEnvelopesLogicMgr OpenRedEnvelopesRequest: dictM];
+
+        
     }
+
+
 }
 
 
@@ -212,6 +270,8 @@
 - (void)OpenRedEnvelopesRequest:(id)arg1 {
     %orig;
     %log;
+    NSLog(@"OpenRedEnvelopesRequest param: %@", [arg1 class]);
+
 }
 
 - (void)ReceiverQueryRedEnvelopesRequest:(id)arg1 { %log; %orig; }
@@ -222,7 +282,7 @@
 
 - (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 {
      %log;
-     [%c(YCHongBaoMgr) showAlert:@"start...."];
+     [%c(WCBizUtil) showAlert:@"start...."];
      return  %orig;
 }
 
@@ -263,7 +323,7 @@
         [dictM setValue:@0 forKey:nativeUrl];
         [[NSUserDefaults standardUserDefaults] setObject:dictM forKey:@"AutoOpenWithNativeUrl"];
     }
-
+    
 }
 
 

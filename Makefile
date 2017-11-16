@@ -10,7 +10,9 @@ TARGET = iphone:latest:8.0
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = redpocket
-redpocket_FILES = Tweak.xm
+# redpocket_FILES = Tweak.xm YCHongBaoMgr.m
+# 需要编译的文件
+redpocket_FILES = $(wildcard *.m) $(wildcard *.xm) $(wildcard *.mm)
 #需要导入的库
 redpocket_FRAMEWORKS = UIKit
 #redpocket_PRIVATE_FRAMEWORKS = AppSupport
